@@ -6,4 +6,7 @@
     <string name="menu_sales">Ventas</string>
     <string name="menu_queries">Consultas</string>
     <string name="menu_quotations">Cotizador</string>
+    <string name="user">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="login">Login</string>
 </resources>
