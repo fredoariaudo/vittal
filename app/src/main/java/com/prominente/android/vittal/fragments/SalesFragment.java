@@ -1,5 +1,6 @@
 package com.prominente.android.vittal.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.prominente.android.vittal.R;
+import com.prominente.android.vittal.activities.NewSaleFormActivity;
 import com.prominente.android.vittal.adapters.SalesRvAdapter;
 import com.prominente.android.vittal.dataprovider.DummyDataProvider;
 
@@ -23,7 +25,7 @@ public class SalesFragment extends Fragment
         RecyclerView rv_sales = (RecyclerView) rootView.findViewById(R.id.rv_sales);
         rv_sales.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        SalesRvAdapter adapter = new SalesRvAdapter();
+        SalesRvAdapter adapter = new SalesRvAdapter(getActivity());
         rv_sales.setAdapter(adapter);
 
         adapter.addAll(DummyDataProvider.getInstance().getSales());
@@ -33,10 +35,16 @@ public class SalesFragment extends Fragment
             @Override
             public void onClick(View v)
             {
-                System.out.println("FAB PRESSED");
+                startNewSaleForm();
             }
         });
 
         return rootView;
+    }
+
+    private void startNewSaleForm()
+    {
+        Intent intent = new Intent(getActivity(), NewSaleFormActivity.class);
+        getActivity().startActivity(intent);
     }
 }
