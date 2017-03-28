@@ -22,7 +22,8 @@
         <activity
             android:name=".activities.NewSaleFormActivity"
             android:label="@string/title_activity_new_sale_form"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize"></activity>
     </application>
 
 </manifest>

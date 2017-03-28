@@ -14,13 +14,14 @@
         android:orientation="vertical">
 
         <Spinner
+            android:id="@+id/fr_applicant_form_spn_protected_area_code"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/form_margin_bottom"
             ></Spinner>
 
         <Button
-            android:id="@+id/fragment_application_form_button_pick_date"
+            android:id="@+id/fr_applicant_form_btn_pick_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="dd/mm/aaaa"
