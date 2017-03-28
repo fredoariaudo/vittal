@@ -23,7 +23,7 @@ public class SalesFragment extends Fragment
         RecyclerView rv_sales = (RecyclerView) rootView.findViewById(R.id.rv_sales);
         rv_sales.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        SalesRvAdapter adapter = new SalesRvAdapter();
+        SalesRvAdapter adapter = new SalesRvAdapter(getActivity());
         rv_sales.setAdapter(adapter);
 
         adapter.addAll(DummyDataProvider.getInstance().getSales());
@@ -33,7 +33,6 @@ public class SalesFragment extends Fragment
             @Override
             public void onClick(View v)
             {
-                System.out.println("FAB PRESSED");
             }
         });
 

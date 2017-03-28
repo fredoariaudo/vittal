@@ -9,4 +9,7 @@
     <string name="user">Usuario</string>
     <string name="password">Contraseña</string>
     <string name="login">Login</string>
+    <string name="delete">Eliminar</string>
+    <string name="edit">Editar</string>
+    <string name="send">Enviar</string>
 </resources>
