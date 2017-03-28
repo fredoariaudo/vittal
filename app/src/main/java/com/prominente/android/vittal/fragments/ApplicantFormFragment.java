@@ -48,6 +48,7 @@ public class ApplicantFormFragment extends Fragment implements DatePickerDialog.
             }
         });
 
+        // Codigo Cobertura
         arraySpinner = new String[] {
                 "AP#100", "AP#200", "AP#300", "AP#400", "AP#500"
         };

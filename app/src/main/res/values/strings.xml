@@ -27,4 +27,10 @@
     <string name="hint_cell_phones">Celulares</string>
     <string name="hint_fax">Fax</string>
     <string name="email">Email</string>
+    <string name="hint_number">Numero</string>
+    <string name="hint_floor">Piso</string>
+    <string name="hint_dpto">Departamento</string>
+    <string name="hint_street">Calle</string>
+    <string name="hint_between_street">Entre calle</string>
+    <string name="hint_and_street">y calle</string>
 </resources>
