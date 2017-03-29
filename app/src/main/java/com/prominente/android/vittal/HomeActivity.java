@@ -33,6 +33,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //Select Navigation Drawer default option
+        navigationView.getMenu().findItem(R.id.nav_sales).setChecked(true);
+        onNavigationItemSelected(navigationView.getMenu().findItem(R.id.nav_sales));
     }
 
     @Override
