@@ -28,8 +28,8 @@ public class DummyDataProvider
         {
             Sale sale = new Sale();
             sale.setClient("Cliente "+(i+1));
-            sale.setArea("Area "+(i+1));
-            sale.setAddress("Dirección "+(i+1));
+            sale.setArea("A"+(i+1));
+            sale.setAddress("Calle falsa "+(i+1));
             sales.add(sale);
         }
 

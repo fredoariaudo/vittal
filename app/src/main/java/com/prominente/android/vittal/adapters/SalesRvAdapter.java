@@ -1,6 +1,7 @@
 package com.prominente.android.vittal.adapters;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.prominente.android.vittal.R;
+import com.prominente.android.vittal.activities.NewSaleFormActivity;
 import com.prominente.android.vittal.model.Sale;
 
 public class SalesRvAdapter extends SelectableRvAdapter<Sale>
@@ -23,6 +25,7 @@ public class SalesRvAdapter extends SelectableRvAdapter<Sale>
     public class SaleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener
     {
         TextView tv_sale_title;
+        TextView tv_sale_area_address;
 
         public SaleViewHolder(View itemView)
         {
@@ -30,13 +33,21 @@ public class SalesRvAdapter extends SelectableRvAdapter<Sale>
             itemView.setOnClickListener(this);
             itemView.setOnLongClickListener(this);
             tv_sale_title = (TextView) itemView.findViewById(R.id.tv_sale_title);
+            tv_sale_area_address = (TextView) itemView.findViewById(R.id.tv_sale_area_address);
         }
 
         @Override
         public void onClick(View v)
         {
             if(getSelectedItemCount() > 0)
+            {
                 toggleSelection(getLayoutPosition(), getLayoutPosition());
+            }
+            else
+            {
+                Intent intent = new Intent(v.getContext(), NewSaleFormActivity.class);
+                v.getContext().startActivity(intent);
+            }
         }
 
         @Override
@@ -75,6 +86,7 @@ public class SalesRvAdapter extends SelectableRvAdapter<Sale>
         SaleViewHolder saleViewHolder = (SaleViewHolder) holder;
         saleViewHolder.itemView.setActivated(isSelected(position));
         saleViewHolder.tv_sale_title.setText(sale.getClient());
+        saleViewHolder.tv_sale_area_address.setText(String.format(saleViewHolder.itemView.getContext().getResources().getString(R.string.sales_rv_item_area_address_format), sale.getArea(), sale.getAddress()));
     }
 
     @Override
