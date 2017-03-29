@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -24,6 +25,7 @@ public class SalesFragment extends Fragment
 
         RecyclerView rv_sales = (RecyclerView) rootView.findViewById(R.id.rv_sales);
         rv_sales.setLayoutManager(new LinearLayoutManager(getContext()));
+        rv_sales.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
 
         SalesRvAdapter adapter = new SalesRvAdapter(getActivity());
         rv_sales.setAdapter(adapter);
