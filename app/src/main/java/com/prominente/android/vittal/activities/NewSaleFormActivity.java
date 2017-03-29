@@ -1,8 +1,6 @@
 package com.prominente.android.vittal.activities;
 
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -23,6 +21,7 @@ import android.widget.TextView;
 import com.prominente.android.vittal.R;
 import com.prominente.android.vittal.fragments.ApplicantFormFragment;
 import com.prominente.android.vittal.fragments.CoverageFormFragment;
+import com.prominente.android.vittal.fragments.ModalityFormFragment;
 
 public class NewSaleFormActivity extends AppCompatActivity {
 
@@ -117,6 +116,7 @@ public class NewSaleFormActivity extends AppCompatActivity {
 
                 case 0 : return ApplicantFormFragment.newInstance();
                 case 1 : return CoverageFormFragment.newInstance();
+                case 2 : return ModalityFormFragment.newInstance();
 
             }
 
