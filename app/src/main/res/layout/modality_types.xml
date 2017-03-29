@@ -13,13 +13,13 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:text="@string/protected_area" />
 
         <RadioButton
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:text="@string/convenio_capitado" />
 
     </LinearLayout>
 
@@ -32,13 +32,13 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:text="@string/servicio_topado" />
 
         <RadioButton
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:text="@string/others" />
 
     </LinearLayout>
 

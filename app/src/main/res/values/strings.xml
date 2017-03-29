@@ -42,4 +42,11 @@
     <string name="hint_aditional_per_service_request">Adicional por solicitud de servicio</string>
     <string name="hint_hired_service_ammount">Cant. servicios contratados</string>
     <string name="hint_monthly_fee">Abono mensual</string>
+    <string name="protected_area">Área Protegida</string>
+    <string name="convenio_capitado">Convenio Capitado</string>
+    <string name="servicio_topado">Servicio Topado</string>
+    <string name="others">Otros</string>
+    <string name="emergencies">Emergencias y Urgencias</string>
+    <string name="home_health_consultation">Consulta médica domiciliaria</string>
+    <string name="hint_discribe_modality">Si selecciona Otros - Especifique otra modalidad</string>
 </resources>

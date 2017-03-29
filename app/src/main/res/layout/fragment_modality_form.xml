@@ -15,12 +15,11 @@
 
         <include layout="@layout/modality_types"/>
 
-        <Spinner
-            android:id="@+id/fr_coverage_form_spn_protected_area_type"
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/form_margin_bottom"
-            ></Spinner>
+            android:hint="@string/hint_discribe_modality"
+            android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
 
         <LinearLayout
@@ -32,13 +31,13 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:text="@string/emergencies" />
 
             <RadioButton
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:text="@string/home_health_consultation" />
 
         </LinearLayout>
 
