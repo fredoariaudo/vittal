@@ -16,7 +16,7 @@ public abstract class SelectableRvAdapter<T> extends ArrayRvAdapter<T>
         return getSelectedItems(false, false).contains(position);
     }
 
-    public void toggleSelection(int itemPosition, int layoutPosition)
+    public void toggleSelection(int itemPosition, int layoutPosition, boolean notifyChange)
     {
         if (selectedItems.get(itemPosition, false))
         {
@@ -29,19 +29,23 @@ public abstract class SelectableRvAdapter<T> extends ArrayRvAdapter<T>
             selectedViews.put(layoutPosition, true);
         }
 
-        notifyItemChanged(layoutPosition);
+        if(notifyChange)
+            notifyItemChanged(layoutPosition);
     }
 
-    public void clearSelection()
+    public void clearSelection(boolean notifyChange)
     {
         List<Integer> selectionViews = getSelectedViews();
 
         selectedItems.clear();
         selectedViews.clear();
 
-        for (Integer position : selectionViews)
+        if(notifyChange)
         {
-            notifyItemChanged(position);
+            for (Integer position : selectionViews)
+            {
+                notifyItemChanged(position);
+            }
         }
     }
 

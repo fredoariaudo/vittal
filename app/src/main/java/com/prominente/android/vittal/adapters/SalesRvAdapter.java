@@ -41,7 +41,7 @@ public class SalesRvAdapter extends SelectableRvAdapter<Sale>
         {
             if(getSelectedItemCount() > 0)
             {
-                toggleSelection(getLayoutPosition(), getLayoutPosition());
+                toggleSelection(getLayoutPosition(), getLayoutPosition(), true);
             }
             else
             {
@@ -61,7 +61,7 @@ public class SalesRvAdapter extends SelectableRvAdapter<Sale>
                 actionMode = ((AppCompatActivity) parentActivity).startSupportActionMode(actionModeCallback);
             }
 
-            toggleSelection(getLayoutPosition(), getLayoutPosition());
+            toggleSelection(getLayoutPosition(), getLayoutPosition(), true);
             return true;
         }
     }
@@ -90,14 +90,17 @@ public class SalesRvAdapter extends SelectableRvAdapter<Sale>
     }
 
     @Override
-    public void toggleSelection(int itemPosition, int layoutPosition)
+    public void toggleSelection(int itemPosition, int layoutPosition, boolean notifyChange)
     {
-        super.toggleSelection(itemPosition, layoutPosition);
+        super.toggleSelection(itemPosition, layoutPosition, notifyChange);
 
-        if(getSelectedItemCount() == 0)
-            actionMode.finish();
-        else
-            actionMode.invalidate();
+        if(notifyChange)
+        {
+            if (getSelectedItemCount() == 0)
+                actionMode.finish();
+            else
+                actionMode.invalidate();
+        }
     }
 
     private class ActionModeCallback implements ActionMode.Callback
@@ -112,10 +115,26 @@ public class SalesRvAdapter extends SelectableRvAdapter<Sale>
         @Override
         public boolean onPrepareActionMode(ActionMode mode, Menu menu)
         {
+            //Remove edit action if more than one item is selected
             if(getSelectedItemCount() > 1)
                 menu.findItem(R.id.action_sales_edit).setVisible(false);
             else
                 menu.findItem(R.id.action_sales_edit).setVisible(true);
+
+            //Change select/unselect all action text and icon
+            if(getSelectedItemCount() == getItemCount())
+            {
+                menu.findItem(R.id.action_select_unselect_all).setTitle(parentActivity.getString(R.string.unselect_all));
+                menu.findItem(R.id.action_select_unselect_all).setIcon(R.drawable.ic_check_box_outline_blank_white_24dp);
+            }
+            else
+            {
+                menu.findItem(R.id.action_select_unselect_all).setTitle(parentActivity.getString(R.string.select_all));
+                menu.findItem(R.id.action_select_unselect_all).setIcon(R.drawable.ic_check_box_white_24dp);
+            }
+
+            //Show selected items count
+            mode.setTitle(String.valueOf(getSelectedItemCount()));
 
             return true;
         }
@@ -126,18 +145,38 @@ public class SalesRvAdapter extends SelectableRvAdapter<Sale>
             switch(item.getItemId())
             {
                 case R.id.action_sales_delete:
-                    clearSelection();
+                    clearSelection(true);
                     mode.finish();
                     return true;
 
                 case R.id.action_sales_edit:
-                    clearSelection();
+                    clearSelection(true);
                     mode.finish();
                     return true;
 
                 case R.id.action_sales_send:
-                    clearSelection();
+                    clearSelection(true);
                     mode.finish();
+                    return true;
+
+                case R.id.action_select_unselect_all:
+                    //Verify if has to select all or deselect all
+                    if(item.getTitle().equals(parentActivity.getString(R.string.select_all)))
+                    {
+                        clearSelection(false);
+                        for(int i=0; i<getItemCount(); i++)
+                        {
+                            toggleSelection(i,i,false);
+                        }
+                        actionMode.invalidate();
+                    }
+                    else
+                    {
+                        clearSelection(false);
+                        actionMode.finish();
+                    }
+
+                    notifyDataSetChanged();
                     return true;
 
                 default:
@@ -148,7 +187,7 @@ public class SalesRvAdapter extends SelectableRvAdapter<Sale>
         @Override
         public void onDestroyActionMode(ActionMode mode)
         {
-            clearSelection();
+            clearSelection(true);
             actionMode.finish();
         }
     }
