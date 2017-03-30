@@ -88,6 +88,19 @@ public class NewSaleFormActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    private void saveSale()
+    {
+        //TODO: Reemplazar esto por datos tomados de los formularios
+        Sale sale = new Sale();
+        sale.setClient("Juan Pedro Lopez");
+        sale.setArea("B8");
+        sale.setAddress("Avellaneda 900");
+
+        Intent data = new Intent();
+        data.putExtra(ExtraKeys.SALE, sale);
+        setResult(RESULT_OK, data);
+        finish();
+    }
 
     public static class PlaceholderFragment extends Fragment {
 
@@ -130,7 +143,6 @@ public class NewSaleFormActivity extends AppCompatActivity {
                 case 1 : return CoverageFormFragment.newInstance();
                 case 2 : return ModalityFormFragment.newInstance();
                 case 3 : return PaymentFormFragment.newInstance();
-
             }
 
             return PlaceholderFragment.newInstance(position + 1);
