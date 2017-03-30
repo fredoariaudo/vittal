@@ -28,7 +28,7 @@
     <string name="hint_cell_phones">Celulares</string>
     <string name="hint_fax">Fax</string>
     <string name="email">Email</string>
-    <string name="hint_number">Numero</string>
+    <string name="hint_number">Número</string>
     <string name="hint_floor">Piso</string>
     <string name="hint_dpto">Departamento</string>
     <string name="hint_street">Calle</string>
@@ -49,4 +49,8 @@
     <string name="emergencies">Emergencias y Urgencias</string>
     <string name="home_health_consultation">Consulta médica domiciliaria</string>
     <string name="hint_discribe_modality">Si selecciona Otros - Especifique otra modalidad</string>
+    <string name="hint_letter">Letra</string>
+    <string name="hint_days">Días</string>
+    <string name="hint_date">Fecha</string>
+    <string name="hint_branch">Sucursal</string>
 </resources>

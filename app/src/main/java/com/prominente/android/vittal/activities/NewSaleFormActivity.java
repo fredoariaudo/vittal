@@ -22,6 +22,7 @@ import com.prominente.android.vittal.R;
 import com.prominente.android.vittal.fragments.ApplicantFormFragment;
 import com.prominente.android.vittal.fragments.CoverageFormFragment;
 import com.prominente.android.vittal.fragments.ModalityFormFragment;
+import com.prominente.android.vittal.fragments.PaymentFormFragment;
 
 public class NewSaleFormActivity extends AppCompatActivity {
 
@@ -117,6 +118,7 @@ public class NewSaleFormActivity extends AppCompatActivity {
                 case 0 : return ApplicantFormFragment.newInstance();
                 case 1 : return CoverageFormFragment.newInstance();
                 case 2 : return ModalityFormFragment.newInstance();
+                case 3 : return PaymentFormFragment.newInstance();
 
             }
 
