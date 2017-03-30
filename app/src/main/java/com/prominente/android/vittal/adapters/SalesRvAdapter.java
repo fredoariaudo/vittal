@@ -16,6 +16,8 @@ import com.prominente.android.vittal.R;
 import com.prominente.android.vittal.activities.NewSaleFormActivity;
 import com.prominente.android.vittal.model.Sale;
 
+import java.util.List;
+
 public class SalesRvAdapter extends SelectableRvAdapter<Sale>
 {
     private Activity parentActivity;
@@ -103,6 +105,18 @@ public class SalesRvAdapter extends SelectableRvAdapter<Sale>
         }
     }
 
+    private void removeSelected()
+    {
+        List<Integer> selectedItems = getSelectedItems(true, true);
+
+        for(Integer selectedItem: selectedItems)
+        {
+            Sale sale = getItems().remove(selectedItem.intValue());
+            notifyItemRemoved(selectedItem.intValue());
+            //TODO: Remove item from actual data
+        }
+    }
+
     private class ActionModeCallback implements ActionMode.Callback
     {
         @Override
@@ -145,13 +159,15 @@ public class SalesRvAdapter extends SelectableRvAdapter<Sale>
             switch(item.getItemId())
             {
                 case R.id.action_sales_delete:
-                    clearSelection(true);
+                    removeSelected();
                     mode.finish();
                     return true;
 
                 case R.id.action_sales_edit:
                     clearSelection(true);
                     mode.finish();
+                    Intent intent = new Intent(parentActivity, NewSaleFormActivity.class);
+                    parentActivity.startActivity(intent);
                     return true;
 
                 case R.id.action_sales_send:
@@ -175,7 +191,6 @@ public class SalesRvAdapter extends SelectableRvAdapter<Sale>
                         clearSelection(false);
                         actionMode.finish();
                     }
-
                     notifyDataSetChanged();
                     return true;
 
