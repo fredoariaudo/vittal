@@ -1,6 +1,8 @@
 package com.prominente.android.vittal.model;
 
-public class Sale
+import java.io.Serializable;
+
+public class Sale implements Serializable
 {
     private String client;
     private String area;

@@ -1,5 +1,7 @@
 package com.prominente.android.vittal.activities;
 
+import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -19,9 +21,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.prominente.android.vittal.R;
+import com.prominente.android.vittal.constants.ExtraKeys;
 import com.prominente.android.vittal.fragments.ApplicantFormFragment;
 import com.prominente.android.vittal.fragments.CoverageFormFragment;
 import com.prominente.android.vittal.fragments.ModalityFormFragment;
+import com.prominente.android.vittal.model.Sale;
 
 public class NewSaleFormActivity extends AppCompatActivity {
 
@@ -51,8 +55,15 @@ public class NewSaleFormActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
+        FloatingActionButton fab_new_sale_save = (FloatingActionButton) findViewById(R.id.fab_new_sale_save);
+        fab_new_sale_save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                saveSale();
+            }
+        });
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -76,6 +87,19 @@ public class NewSaleFormActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    private void saveSale()
+    {
+        //TODO: Reemplazar esto por datos tomados de los formularios
+        Sale sale = new Sale();
+        sale.setClient("Juan Pedro Lopez");
+        sale.setArea("B8");
+        sale.setAddress("Avellaneda 900");
+
+        Intent data = new Intent();
+        data.putExtra(ExtraKeys.SALE, sale);
+        setResult(RESULT_OK, data);
+        finish();
+    }
 
     public static class PlaceholderFragment extends Fragment {
 
