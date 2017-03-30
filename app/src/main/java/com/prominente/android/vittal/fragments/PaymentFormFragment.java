@@ -26,6 +26,7 @@ public class PaymentFormFragment extends Fragment {
     private View defaultView;
     private View checkView;
     private View inChashView;
+    private View creditCardOrCbuView;
 
     public PaymentFormFragment() {
         // Required empty public constructor
@@ -43,11 +44,12 @@ public class PaymentFormFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_payment_form, container, false);
 
         //View
-        inChashView = view.findViewById(R.id.view_in_cash);
-        cashView = view.findViewById(R.id.view_cash);
-        checkView = view.findViewById(R.id.view_check);
-        defaultView = new View(getContext());
-        currentView = defaultView;
+        inChashView         = view.findViewById(R.id.view_in_cash);
+        cashView            = view.findViewById(R.id.view_cash);
+        checkView           = view.findViewById(R.id.view_check);
+        creditCardOrCbuView = view.findViewById(R.id.view_credit_card_or_cbu);
+        defaultView         = new View(getContext());
+        currentView         = defaultView;
         //
         paymentsMode = new String[] {
                 "Tipo de pago", "Tarjeta de credito/CBU", "Cheque", "Efectivo", "Contado"
@@ -63,10 +65,10 @@ public class PaymentFormFragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 currentView.setVisibility(View.GONE);
                 switch (position) {
-
-                    case 2: currentView = checkView; break;
-                    case 3: currentView = cashView; break;
-                    case 4: currentView = inChashView; break;
+                    case 1: currentView  = creditCardOrCbuView; break;
+                    case 2: currentView  = checkView; break;
+                    case 3: currentView  = cashView; break;
+                    case 4: currentView  = inChashView; break;
                     default: currentView = defaultView; break;
                 }
                 currentView.setVisibility(View.VISIBLE);
