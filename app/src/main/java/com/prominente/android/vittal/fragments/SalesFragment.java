@@ -1,5 +1,6 @@
 package com.prominente.android.vittal.fragments;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -14,10 +15,15 @@ import android.view.ViewGroup;
 import com.prominente.android.vittal.R;
 import com.prominente.android.vittal.activities.NewSaleFormActivity;
 import com.prominente.android.vittal.adapters.SalesRvAdapter;
+import com.prominente.android.vittal.constants.ExtraKeys;
+import com.prominente.android.vittal.constants.RequestCodes;
 import com.prominente.android.vittal.dataprovider.DummyDataProvider;
+import com.prominente.android.vittal.model.Sale;
 
 public class SalesFragment extends Fragment
 {
+    private SalesRvAdapter adapter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
@@ -27,7 +33,7 @@ public class SalesFragment extends Fragment
         rv_sales.setLayoutManager(new LinearLayoutManager(getContext()));
         rv_sales.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
 
-        SalesRvAdapter adapter = new SalesRvAdapter(getActivity());
+        adapter = new SalesRvAdapter(getActivity());
         rv_sales.setAdapter(adapter);
 
         adapter.addAll(DummyDataProvider.getInstance().getSales());
@@ -46,7 +52,25 @@ public class SalesFragment extends Fragment
 
     private void startNewSaleForm()
     {
-        Intent intent = new Intent(getActivity(), NewSaleFormActivity.class);
-        getActivity().startActivity(intent);
+        Intent intent = new Intent(getContext(), NewSaleFormActivity.class);
+        startActivityForResult(intent, RequestCodes.REQUEST_NEW_SALE);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        if(resultCode == Activity.RESULT_OK)
+        {
+            switch (requestCode)
+            {
+                case RequestCodes.REQUEST_NEW_SALE:
+                    Sale sale = (Sale) data.getSerializableExtra(ExtraKeys.SALE);
+                    adapter.add(sale);
+                    break;
+
+                default:
+                    super.onActivityResult(requestCode, resultCode, data);
+            }
+        }
     }
 }
