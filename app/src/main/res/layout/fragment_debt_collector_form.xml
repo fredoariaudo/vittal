@@ -1,25 +1,25 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
     android:paddingTop="20dp"
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
-    tools:context="com.prominente.android.vittal.fragments.ModalityFormFragment">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context="com.prominente.android.vittal.fragments.DebtCollectorFormFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <include layout="@layout/partial_modality_types"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_discribe_modality"
+            android:hint="@string/hint_street"
             android:layout_marginBottom="@dimen/form_margin_bottom"/>
+
 
 
         <LinearLayout
@@ -27,59 +27,68 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <RadioButton
+            <EditText
+                android:layout_height="match_parent"
                 android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="@string/emergencies" />
+                android:layout_weight="5"
+                android:hint="@string/hint_number"
+                android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
-            <RadioButton
+            <EditText
+                android:layout_height="match_parent"
                 android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="@string/home_health_consultation" />
+                android:layout_weight="3"
+                android:hint="@string/hint_floor"
+                android:layout_marginBottom="@dimen/form_margin_bottom"/>
+
+            <EditText
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:hint="@string/hint_dpto"
+                android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
         </LinearLayout>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_monthly_fee"
+            android:hint="@string/hint_between_street"
             android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_hired_service_ammount"
+            android:hint="@string/hint_and_street"
             android:layout_marginBottom="@dimen/form_margin_bottom"/>
+
+        <Spinner
+            android:id="@+id/fr_coverage_form_spn_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/form_margin_bottom"
+            ></Spinner>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_aditional_per_service_request"
-            android:layout_marginBottom="@dimen/form_margin_bottom"/>
-
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_capitas_count"
-            android:layout_marginBottom="@dimen/form_margin_bottom"/>
-
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_coseguro"
+            android:hint="@string/hint_cp"
             android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_aditional_per_excedent_help"
+            android:hint="@string/hint_phones"
             android:layout_marginBottom="@dimen/form_margin_bottom"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_between_bill_to"
+            android:layout_marginBottom="@dimen/form_margin_bottom"/>
+
 
         <EditText
             android:layout_width="match_parent"
