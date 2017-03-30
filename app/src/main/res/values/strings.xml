@@ -15,6 +15,8 @@
     <string name="delete">Eliminar</string>
     <string name="edit">Editar</string>
     <string name="send">Enviar</string>
+    <string name="select_all">Seleccionar todo</string>
+    <string name="unselect_all">Anular selección</string>
     <string name="sales_rv_item_area_address_format">"%1$s • %2$s"</string>
 
     <!-- TODO: Remove or change this placeholder text -->
