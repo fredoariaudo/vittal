@@ -55,4 +55,14 @@
     <string name="hint_days">Días</string>
     <string name="hint_date">Fecha</string>
     <string name="hint_branch">Sucursal</string>
+    <string name="hint_owner_name">Nombre del titular</string>
+    <string name="hint_card_number">N° de tarjeta</string>
+    <string name="hint_cbu">CBU</string>
+    <string name="hint_expire_date">Vencimiento</string>
+    <string name="hint_dni">DNI</string>
+    <string name="hint_cuit_number">N° de CUIT</string>
+    <string name="hint_cupon_number">N° de cupón</string>
+    <string name="hint_between_payment_ammount">Cantidad de pagos</string>
+    <string name="hint_early_month">Mes adelantado</string>
+    <string name="hint_overdue_month">Mes Vencido</string>
 </resources>
