@@ -1,0 +1,43 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    tools:context="com.prominente.android.vittal.fragments.PaymentFormFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Spinner
+            android:id="@+id/fr_payment_form_spn_payment_mode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/form_margin_bottom"
+            ></Spinner>
+
+        <include
+            android:id="@+id/view_cash"
+            layout="@layout/partial_payment_mode_cash"
+            android:visibility="gone"
+            />
+
+        <include
+            android:id="@+id/view_in_cash"
+            layout="@layout/partial_payment_mode_in_cash"
+            android:visibility="gone"
+            />
+
+        <include
+            android:id="@+id/view_check"
+            layout="@layout/partial_payment_mode_check"
+            android:visibility="gone"
+            />
+
+    </LinearLayout>
+
+</ScrollView>

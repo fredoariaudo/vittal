@@ -25,6 +25,7 @@ import com.prominente.android.vittal.constants.ExtraKeys;
 import com.prominente.android.vittal.fragments.ApplicantFormFragment;
 import com.prominente.android.vittal.fragments.CoverageFormFragment;
 import com.prominente.android.vittal.fragments.ModalityFormFragment;
+import com.prominente.android.vittal.fragments.PaymentFormFragment;
 import com.prominente.android.vittal.model.Sale;
 
 public class NewSaleFormActivity extends AppCompatActivity {
@@ -87,19 +88,6 @@ public class NewSaleFormActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void saveSale()
-    {
-        //TODO: Reemplazar esto por datos tomados de los formularios
-        Sale sale = new Sale();
-        sale.setClient("Juan Pedro Lopez");
-        sale.setArea("B8");
-        sale.setAddress("Avellaneda 900");
-
-        Intent data = new Intent();
-        data.putExtra(ExtraKeys.SALE, sale);
-        setResult(RESULT_OK, data);
-        finish();
-    }
 
     public static class PlaceholderFragment extends Fragment {
 
@@ -141,6 +129,7 @@ public class NewSaleFormActivity extends AppCompatActivity {
                 case 0 : return ApplicantFormFragment.newInstance();
                 case 1 : return CoverageFormFragment.newInstance();
                 case 2 : return ModalityFormFragment.newInstance();
+                case 3 : return PaymentFormFragment.newInstance();
 
             }
 
