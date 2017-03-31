@@ -24,9 +24,10 @@ public class DummyDataProvider
     {
         ArrayList<Sale> sales = new ArrayList<Sale>();
 
-        for(int i=0; i<30; i++)
+        for(int i=0; i<6; i++)
         {
             Sale sale = new Sale();
+            sale.setId(i);
             sale.setClient("Cliente "+(i+1));
             sale.setArea("A"+(i+1));
             sale.setAddress("Calle falsa "+(i+1));
