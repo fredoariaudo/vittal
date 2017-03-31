@@ -4,9 +4,18 @@ import java.io.Serializable;
 
 public class Sale implements Serializable
 {
+    private long id;
     private String client;
     private String area;
     private String address;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getClient() {
         return client;
@@ -30,5 +39,16 @@ public class Sale implements Serializable
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if(obj instanceof Sale)
+        {
+            return ((Sale)obj).getId() == this.getId();
+        }
+
+        return false;
     }
 }
