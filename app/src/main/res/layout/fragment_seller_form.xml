@@ -1,0 +1,68 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingTop="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context="com.prominente.android.vittal.fragments.SellerFormFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <Spinner
+            android:id="@+id/fr_seller_form_spn_seller"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/form_margin_bottom"
+            ></Spinner>
+
+        <Spinner
+            android:id="@+id/fr_seller_form_spn_radius"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/form_margin_bottom"
+            ></Spinner>
+
+        <Spinner
+            android:id="@+id/fr_seller_form_spn_circuit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/form_margin_bottom"
+            ></Spinner>
+
+        <Spinner
+            android:id="@+id/fr_seller_form_spn_promo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/form_margin_bottom"
+            ></Spinner>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_fee_without_iva"
+            android:layout_marginBottom="@dimen/form_margin_bottom"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_iibb_amount"
+            android:layout_marginBottom="@dimen/form_margin_bottom"/>
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_capita"
+            android:layout_marginBottom="@dimen/form_margin_bottom"/>
+
+
+
+    </LinearLayout>
+
+</ScrollView>

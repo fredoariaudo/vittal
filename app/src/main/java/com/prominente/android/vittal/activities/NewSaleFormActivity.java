@@ -27,6 +27,7 @@ import com.prominente.android.vittal.fragments.CoverageFormFragment;
 import com.prominente.android.vittal.fragments.DebtCollectorFormFragment;
 import com.prominente.android.vittal.fragments.ModalityFormFragment;
 import com.prominente.android.vittal.fragments.PaymentFormFragment;
+import com.prominente.android.vittal.fragments.SellerFormFragment;
 import com.prominente.android.vittal.model.Sale;
 
 public class NewSaleFormActivity extends AppCompatActivity {
@@ -145,6 +146,7 @@ public class NewSaleFormActivity extends AppCompatActivity {
                 case 2 : return ModalityFormFragment.newInstance();
                 case 3 : return PaymentFormFragment.newInstance();
                 case 4 : return DebtCollectorFormFragment.newInstance();
+                case 5 : return SellerFormFragment.newInstance();
             }
 
             return PlaceholderFragment.newInstance(position + 1);

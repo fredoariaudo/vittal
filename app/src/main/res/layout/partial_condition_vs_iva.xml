@@ -57,6 +57,4 @@
         android:text="@string/hint_10_5"
         android:layout_marginBottom="@dimen/form_margin_bottom" />
 
-
-
 </LinearLayout>

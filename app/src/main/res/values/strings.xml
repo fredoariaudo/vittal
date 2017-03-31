@@ -76,4 +76,7 @@
     <string name="hint_10_5">10.5%</string>
     <string name="hint_cuit">CUIT</string>
     <string name="hint_iibb">IIBB</string>
+    <string name="hint_iibb_amount">Importe de IIBB+</string>
+    <string name="hint_fee_without_iva">Importe de cuota mensula s/IVA</string>
+    <string name="hint_capita">Cápita</string>
 </resources>
