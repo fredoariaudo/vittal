@@ -28,6 +28,7 @@
             android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
         <EditText
+            android:id="@+id/fr_applicant_form_et_razon_social"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_razon_social"
@@ -35,42 +36,49 @@
 
 
         <EditText
+            android:id="@+id/fr_applicant_form_et_fantasy_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_fantasy_name"
             android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
         <EditText
+            android:id="@+id/fr_applicant_form_et_cuit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_number_cuit"
             android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
         <EditText
+            android:id="@+id/fr_applicant_form_et_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_address"
             android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
         <EditText
+            android:id="@+id/fr_applicant_form_et_cp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_cp"
             android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
         <EditText
+            android:id="@+id/fr_applicant_form_et_phones"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_phones"
             android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
         <EditText
+            android:id="@+id/fr_applicant_form_et_cellphones"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_cell_phones"
             android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
         <EditText
+            android:id="@+id/fr_applicant_form_et_fax"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_fax"
@@ -78,6 +86,7 @@
 
 
         <EditText
+            android:id="@+id/fr_applicant_form_et_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email"
