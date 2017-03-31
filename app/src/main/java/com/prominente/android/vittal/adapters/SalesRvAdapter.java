@@ -109,10 +109,10 @@ public class SalesRvAdapter extends SelectableRvAdapter<Sale>
     {
         List<Integer> selectedItems = getSelectedItems(true, true);
 
-        for(Integer selectedItem: selectedItems)
+        for(int selectedItem: selectedItems)
         {
-            Sale sale = getItems().remove(selectedItem.intValue());
-            notifyItemRemoved(selectedItem.intValue());
+            Sale sale = getItems().remove(selectedItem);
+            notifyItemRemoved(selectedItem);
             //TODO: Remove item from actual data
         }
     }
