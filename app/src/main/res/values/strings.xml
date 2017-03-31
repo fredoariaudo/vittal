@@ -47,7 +47,7 @@
     <string name="protected_area">Área Protegida</string>
     <string name="convenio_capitado">Convenio Capitado</string>
     <string name="servicio_topado">Servicio Topado</string>
-    <string name="others">Otros</string>
+    <string name="hint_others">Otros</string>
     <string name="emergencies">Emergencias y Urgencias</string>
     <string name="home_health_consultation">Consulta médica domiciliaria</string>
     <string name="hint_discribe_modality">Si selecciona Otros - Especifique otra modalidad</string>
@@ -66,4 +66,14 @@
     <string name="hint_early_month">Mes adelantado</string>
     <string name="hint_overdue_month">Mes Vencido</string>
     <string name="hint_between_bill_to">Cobrar a</string>
+    <string name="title_condition_vs_iva">Condición frente al IVA</string>
+    <string name="title_delivered_documents">Documentos entregados</string>
+    <string name="hint_if_selected_other_documents">Si selecciona Otros, especifique el documento</string>
+    <string name="title_exempt">Exento</string>
+    <string name="title_cf">CF</string>
+    <string name="hint_ri">RI</string>
+    <string name="hint_mt">MT</string>
+    <string name="hint_10_5">10.5%</string>
+    <string name="hint_cuit">CUIT</string>
+    <string name="hint_iibb">IIBB</string>
 </resources>

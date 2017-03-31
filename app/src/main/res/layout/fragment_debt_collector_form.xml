@@ -97,6 +97,9 @@
             android:hint="@string/hint_observations"
             android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
+        <include layout="@layout/partial_condition_vs_iva" />
+
+        <include layout="@layout/partial_delivered_documents" />
 
     </LinearLayout>
 

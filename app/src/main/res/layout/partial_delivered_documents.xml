@@ -3,36 +3,45 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_delivered_documents"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/form_margin_bottom">
 
         <RadioButton
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="@string/protected_area" />
+            android:text="@string/hint_cuit" />
 
         <RadioButton
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="@string/convenio_capitado" />
+            android:text="@string/hint_iibb" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/form_margin_bottom">
 
         <RadioButton
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="@string/servicio_topado" />
+            android:text="@string/hint_dni" />
 
         <RadioButton
             android:layout_width="0dp"
@@ -41,5 +50,11 @@
             android:text="@string/hint_others" />
 
     </LinearLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_if_selected_other_documents"
+        android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
 </LinearLayout>
