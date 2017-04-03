@@ -30,4 +30,5 @@ public class SaveStateKeys {
     public static final String DETAIL_OTHERS = "detailOthers";
     public static final String HIRED_SERVICE_AMOUNT = "hiredServiceAmount";
     public static final String OBSERVATIONS = "observations";
+    public static final String BILL_TO = "billTo";
 }

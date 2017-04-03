@@ -18,7 +18,7 @@ import com.prominente.android.vittal.constants.SaveStateKeys;
 public class ModalityFormFragment extends Fragment {
 
     EditText additionalPerExcedentHelpTextView;
-    EditText aditionalPerServiceRequest;
+    EditText additionalPerServiceRequest;
     EditText capitaAmountEditText;
     EditText coseguroEditText;
     EditText detailOtherEditText;
@@ -40,13 +40,13 @@ public class ModalityFormFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_modality_form, container, false);
 
-        EditText aditionalPerExcedentHelpTextView = (EditText) view.findViewById(R.id.fr_modality_form_et_additional_per_excedent_help);
-        EditText aditionalPerServiceRequest = (EditText) view.findViewById(R.id.fr_modality_form_et_aditional_per_service_request);
-        EditText capitaAmountEditText = (EditText) view.findViewById(R.id.fr_modality_form_et_capita_amount);
-        EditText coseguroEditText = (EditText) view.findViewById(R.id.fr_modality_form_et_coseguro);
-        EditText detailOtherEditText = (EditText) view.findViewById(R.id.fr_modality_form_et_detail_others);
-        EditText hiredServiceAmountEditText = (EditText) view.findViewById(R.id.fr_modality_form_et_hired_service_ammount);
-        EditText observationsEditText = (EditText) view.findViewById(R.id.fr_modality_form_et_observations);
+        additionalPerExcedentHelpTextView = (EditText) view.findViewById(R.id.fr_modality_form_et_additional_per_excedent_help);
+        additionalPerServiceRequest = (EditText) view.findViewById(R.id.fr_modality_form_et_aditional_per_service_request);
+        capitaAmountEditText = (EditText) view.findViewById(R.id.fr_modality_form_et_capita_amount);
+        coseguroEditText = (EditText) view.findViewById(R.id.fr_modality_form_et_coseguro);
+        detailOtherEditText = (EditText) view.findViewById(R.id.fr_modality_form_et_detail_others);
+        hiredServiceAmountEditText = (EditText) view.findViewById(R.id.fr_modality_form_et_hired_service_ammount);
+        observationsEditText = (EditText) view.findViewById(R.id.fr_modality_form_et_observations);
 
 
         return view;
@@ -56,7 +56,7 @@ public class ModalityFormFragment extends Fragment {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putString(SaveStateKeys.ADDITIONAL_PER_EXCEDENT_HELP , additionalPerExcedentHelpTextView.getText().toString());
-        outState.putString(SaveStateKeys.ADDITIONAL_PER_SERVICE_REQUEST ,aditionalPerServiceRequest.getText().toString());
+        outState.putString(SaveStateKeys.ADDITIONAL_PER_SERVICE_REQUEST , additionalPerServiceRequest.getText().toString());
         outState.putString(SaveStateKeys.CAPITA_AMOUNT ,capitaAmountEditText.getText().toString());
         outState.putString(SaveStateKeys.COSEGURO ,coseguroEditText.getText().toString());
         outState.putString(SaveStateKeys.DETAIL_OTHERS ,detailOtherEditText.getText().toString());
@@ -69,7 +69,7 @@ public class ModalityFormFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         if(savedInstanceState != null) {
             additionalPerExcedentHelpTextView.setText(savedInstanceState.getString(SaveStateKeys.ADDITIONAL_PER_EXCEDENT_HELP));
-            aditionalPerServiceRequest.setText(savedInstanceState.getString(SaveStateKeys.ADDITIONAL_PER_SERVICE_REQUEST));
+            additionalPerServiceRequest.setText(savedInstanceState.getString(SaveStateKeys.ADDITIONAL_PER_SERVICE_REQUEST));
             capitaAmountEditText.setText(savedInstanceState.getString(SaveStateKeys.CAPITA_AMOUNT));
             coseguroEditText.setText(savedInstanceState.getString(SaveStateKeys.COSEGURO));
             detailOtherEditText.setText(savedInstanceState.getString(SaveStateKeys.DETAIL_OTHERS));

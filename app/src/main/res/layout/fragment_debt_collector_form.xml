@@ -15,6 +15,7 @@
 
 
         <EditText
+            android:id="@+id/fr_debt_collector_et_street"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_street"
@@ -28,6 +29,7 @@
             android:orientation="horizontal">
 
             <EditText
+                android:id="@+id/fr_debt_collector_et_number"
                 android:layout_height="match_parent"
                 android:layout_width="0dp"
                 android:layout_weight="5"
@@ -35,6 +37,7 @@
                 android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
             <EditText
+                android:id="@+id/fr_debt_collector_et_floor"
                 android:layout_height="match_parent"
                 android:layout_width="0dp"
                 android:layout_weight="3"
@@ -42,6 +45,7 @@
                 android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
             <EditText
+                android:id="@+id/fr_debt_collector_et_dpto"
                 android:layout_height="match_parent"
                 android:layout_width="0dp"
                 android:layout_weight="3"
@@ -51,6 +55,7 @@
         </LinearLayout>
 
         <EditText
+            android:id="@+id/fr_debt_collector_et_between_street"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_between_street"
@@ -58,6 +63,7 @@
 
 
         <EditText
+            android:id="@+id/fr_debt_collector_et_and_street"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_and_street"
@@ -71,6 +77,7 @@
             ></Spinner>
 
         <EditText
+            android:id="@+id/fr_debt_collector_et_cp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_cp"
@@ -78,12 +85,14 @@
 
 
         <EditText
+            android:id="@+id/fr_debt_collector_et_phones"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_phones"
             android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
         <EditText
+            android:id="@+id/fr_debt_collector_et_bill_to"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_between_bill_to"
@@ -91,6 +100,7 @@
 
 
         <EditText
+            android:id="@+id/fr_debt_collector_et_observations"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:lines="4"
