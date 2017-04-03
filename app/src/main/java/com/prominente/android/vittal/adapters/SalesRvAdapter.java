@@ -18,7 +18,7 @@ import com.prominente.android.vittal.model.Sale;
 
 import java.util.List;
 
-public class SalesRvAdapter extends SelectableRvAdapter<Sale>
+public class SalesRvAdapter extends FilterableRvAdapter<Sale>
 {
     private Activity parentActivity;
     private ActionMode actionMode;
@@ -86,7 +86,7 @@ public class SalesRvAdapter extends SelectableRvAdapter<Sale>
     {
         Sale sale = getItems().get(position);
         SaleViewHolder saleViewHolder = (SaleViewHolder) holder;
-        saleViewHolder.itemView.setActivated(isSelected(position));
+        saleViewHolder.itemView.setSelected(isSelected(position));
         saleViewHolder.tv_sale_title.setText(sale.getClient());
         saleViewHolder.tv_sale_area_address.setText(String.format(saleViewHolder.itemView.getContext().getResources().getString(R.string.sales_rv_item_area_address_format), sale.getArea(), sale.getAddress()));
     }
@@ -111,10 +111,20 @@ public class SalesRvAdapter extends SelectableRvAdapter<Sale>
 
         for(int selectedItem: selectedItems)
         {
-            Sale sale = getItems().remove(selectedItem);
-            notifyItemRemoved(selectedItem);
+            Sale sale = remove(selectedItem);
             //TODO: Remove item from actual data
         }
+    }
+
+    @Override
+    public boolean containsFilter(Sale sale, CharSequence constraint)
+    {
+        if(sale.getClient().toLowerCase().contains(constraint.toString().toLowerCase()))
+        {
+            return true;
+        }
+
+        return false;
     }
 
     private class ActionModeCallback implements ActionMode.Callback

@@ -5,10 +5,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -22,7 +27,10 @@ import com.prominente.android.vittal.model.Sale;
 
 public class SalesFragment extends Fragment
 {
+    private static int newItemId = 1000;
+
     private SalesRvAdapter adapter;
+    private FloatingActionButton fab_sales_add;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -38,7 +46,7 @@ public class SalesFragment extends Fragment
 
         adapter.addAll(DummyDataProvider.getInstance().getSales());
 
-        FloatingActionButton fab_sales_add = (FloatingActionButton) rootView.findViewById(R.id.fab_sales_add);
+        fab_sales_add = (FloatingActionButton) rootView.findViewById(R.id.fab_sales_add);
         fab_sales_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
@@ -47,7 +55,55 @@ public class SalesFragment extends Fragment
             }
         });
 
+        setHasOptionsMenu(true);
+
         return rootView;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
+    {
+        inflater.inflate(R.menu.sales, menu);
+        MenuItem searchItem = menu.findItem(R.id.action_sales_search);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query)
+            {
+                if(adapter !=null)
+                {
+                    adapter.getFilter().filter(query);
+                }
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText)
+            {
+                if(adapter !=null)
+                {
+                    adapter.getFilter().filter(newText);
+                }
+                return true;
+            }
+        });
+
+        //Hide FAB when searchView is expanded
+        MenuItemCompat.setOnActionExpandListener(searchItem, new MenuItemCompat.OnActionExpandListener() {
+            @Override
+            public boolean onMenuItemActionExpand(MenuItem item)
+            {
+                fab_sales_add.hide();
+                return true;
+            }
+
+            @Override
+            public boolean onMenuItemActionCollapse(MenuItem item)
+            {
+                fab_sales_add.show();
+                return true;
+            }
+        });
     }
 
     private void startNewSaleForm()
@@ -65,6 +121,8 @@ public class SalesFragment extends Fragment
             {
                 case RequestCodes.REQUEST_NEW_SALE:
                     Sale sale = (Sale) data.getSerializableExtra(ExtraKeys.SALE);
+                    //TODO: Revisar esto despues, se coloca un id al nuevo elemento
+                    sale.setId(newItemId++);
                     adapter.add(sale);
                     break;
 

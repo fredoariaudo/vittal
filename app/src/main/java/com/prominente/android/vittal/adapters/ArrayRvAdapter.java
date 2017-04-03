@@ -20,10 +20,11 @@ public abstract class ArrayRvAdapter<T> extends RecyclerView.Adapter<RecyclerVie
         notifyItemRangeInserted(this.items.size(), items.size());
     }
 
-    public void remove(int position)
+    public T remove(int position)
     {
-        this.items.remove(position);
+        T item = this.items.remove(position);
         notifyItemRemoved(position);
+        return item;
     }
 
     public void clear(boolean notifyClear)
