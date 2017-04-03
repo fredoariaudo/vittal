@@ -15,4 +15,12 @@ public class SaveStateKeys {
     public static final String FANTASY_NAME = "fantasyName";
     public static final String FAX = "fax";
     public static final String PHONES = "phones";
+    public static final String LOCATION = "location";
+    public static final String BETWEEN_STREET = "betweenStreet";
+    public static final String AND_STREET = "andStreet";
+    public static final String DPTO = "dpto";
+    public static final String FLOOR = "floor";
+    public static final String NUMBER = "number";
+    public static final String STREET = "street";
+    public static final String COVERAGE_TYPE = "coverageType";
 }
