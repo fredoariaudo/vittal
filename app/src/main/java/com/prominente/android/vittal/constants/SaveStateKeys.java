@@ -4,7 +4,7 @@ package com.prominente.android.vittal.constants;
  * Created by PPoza on 31/3/2017.
  */
 
-public class SaveKeys {
+public class SaveStateKeys {
     public static final String NAME = "name";
     public static final String RAZON_SOCIAL = "razon_social";
     public static final String ADDRESS = "address";

@@ -15,7 +15,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.prominente.android.vittal.R;
-import com.prominente.android.vittal.constants.SaveKeys;
+import com.prominente.android.vittal.constants.SaveStateKeys;
 
 
 public class ApplicantFormFragment extends Fragment implements DatePickerDialog.OnDateSetListener {
@@ -93,30 +93,30 @@ public class ApplicantFormFragment extends Fragment implements DatePickerDialog.
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString(SaveKeys.RAZON_SOCIAL, razonSocialEditText.getText().toString());
-        outState.putString(SaveKeys.ADDRESS, addressEditText.getText().toString());
-        outState.putString(SaveKeys.CELLPHONES, cellponesEditText.getText().toString());
-        outState.putString(SaveKeys.CP, cpEditText.getText().toString());
-        outState.putString(SaveKeys.CUIT, cuitEditText.getText().toString());
-        outState.putString(SaveKeys.EMAIL, emailEditText.getText().toString());
-        outState.putString(SaveKeys.FANTASY_NAME, fantasyNameEditext.getText().toString());
-        outState.putString(SaveKeys.FAX, faxEditText.getText().toString());
-        outState.putString(SaveKeys.PHONES, phonesEditText.getText().toString());
+        outState.putString(SaveStateKeys.RAZON_SOCIAL, razonSocialEditText.getText().toString());
+        outState.putString(SaveStateKeys.ADDRESS, addressEditText.getText().toString());
+        outState.putString(SaveStateKeys.CELLPHONES, cellponesEditText.getText().toString());
+        outState.putString(SaveStateKeys.CP, cpEditText.getText().toString());
+        outState.putString(SaveStateKeys.CUIT, cuitEditText.getText().toString());
+        outState.putString(SaveStateKeys.EMAIL, emailEditText.getText().toString());
+        outState.putString(SaveStateKeys.FANTASY_NAME, fantasyNameEditext.getText().toString());
+        outState.putString(SaveStateKeys.FAX, faxEditText.getText().toString());
+        outState.putString(SaveStateKeys.PHONES, phonesEditText.getText().toString());
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         if(savedInstanceState != null) {
-            razonSocialEditText.setText(savedInstanceState.getString(SaveKeys.RAZON_SOCIAL));
-            addressEditText.setText(savedInstanceState.getString(SaveKeys.ADDRESS));
-            cellponesEditText.setText(savedInstanceState.getString(SaveKeys.CELLPHONES));
-            cpEditText.setText(savedInstanceState.getString(SaveKeys.CP));
-            cuitEditText.setText(savedInstanceState.getString(SaveKeys.CUIT));
-            emailEditText.setText(savedInstanceState.getString(SaveKeys.EMAIL));
-            fantasyNameEditext.setText(savedInstanceState.getString(SaveKeys.FANTASY_NAME));
-            faxEditText.setText(savedInstanceState.getString(SaveKeys.FAX));
-            phonesEditText.setText(savedInstanceState.getString(SaveKeys.PHONES));
+            razonSocialEditText.setText(savedInstanceState.getString(SaveStateKeys.RAZON_SOCIAL));
+            addressEditText.setText(savedInstanceState.getString(SaveStateKeys.ADDRESS));
+            cellponesEditText.setText(savedInstanceState.getString(SaveStateKeys.CELLPHONES));
+            cpEditText.setText(savedInstanceState.getString(SaveStateKeys.CP));
+            cuitEditText.setText(savedInstanceState.getString(SaveStateKeys.CUIT));
+            emailEditText.setText(savedInstanceState.getString(SaveStateKeys.EMAIL));
+            fantasyNameEditext.setText(savedInstanceState.getString(SaveStateKeys.FANTASY_NAME));
+            faxEditText.setText(savedInstanceState.getString(SaveStateKeys.FAX));
+            phonesEditText.setText(savedInstanceState.getString(SaveStateKeys.PHONES));
         }
     }
 
