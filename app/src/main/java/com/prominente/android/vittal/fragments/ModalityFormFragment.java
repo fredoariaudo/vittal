@@ -8,9 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.RadioButton;
 
 import com.prominente.android.vittal.R;
 import com.prominente.android.vittal.constants.SaveStateKeys;
+import com.prominente.android.vittal.views.RadioButtonsManager;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,9 +28,11 @@ public class ModalityFormFragment extends Fragment {
     EditText detailOtherEditText;
     EditText hiredServiceAmountEditText;
     EditText observationsEditText;
+    private ArrayList<RadioButton> modalitiesRadioButtons;
+    private RadioButtonsManager modalitiesRadioButtonsManager;
 
     public ModalityFormFragment() {
-        // Required empty public constructor
+
     }
 
     public static ModalityFormFragment newInstance() {
@@ -37,6 +43,7 @@ public class ModalityFormFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_modality_form, container, false);
 
@@ -48,6 +55,13 @@ public class ModalityFormFragment extends Fragment {
         hiredServiceAmountEditText = (EditText) view.findViewById(R.id.fr_modality_form_et_hired_service_ammount);
         observationsEditText = (EditText) view.findViewById(R.id.fr_modality_form_et_observations);
 
+        modalitiesRadioButtons = new ArrayList<RadioButton>();
+        modalitiesRadioButtons.add((RadioButton)view.findViewById(R.id.partial_modality_type_protected_area));
+        modalitiesRadioButtons.add((RadioButton)view.findViewById(R.id.partial_modality_type_convenio_capitado));
+        modalitiesRadioButtons.add((RadioButton)view.findViewById(R.id.partial_modality_type_bump_service));
+        modalitiesRadioButtons.add((RadioButton)view.findViewById(R.id.partial_modality_type_others));
+
+        modalitiesRadioButtonsManager = new RadioButtonsManager(modalitiesRadioButtons);
 
         return view;
     }
@@ -62,6 +76,7 @@ public class ModalityFormFragment extends Fragment {
         outState.putString(SaveStateKeys.DETAIL_OTHERS ,detailOtherEditText.getText().toString());
         outState.putString(SaveStateKeys.HIRED_SERVICE_AMOUNT ,hiredServiceAmountEditText.getText().toString());
         outState.putString(SaveStateKeys.OBSERVATIONS ,observationsEditText.getText().toString());
+        outState.putInt(SaveStateKeys.MODALITY_TYPE ,modalitiesRadioButtonsManager.getSelectedIndex());
     }
 
     @Override
@@ -75,6 +90,7 @@ public class ModalityFormFragment extends Fragment {
             detailOtherEditText.setText(savedInstanceState.getString(SaveStateKeys.DETAIL_OTHERS));
             hiredServiceAmountEditText.setText(savedInstanceState.getString(SaveStateKeys.HIRED_SERVICE_AMOUNT));
             observationsEditText.setText(savedInstanceState.getString(SaveStateKeys.OBSERVATIONS));
+            modalitiesRadioButtonsManager.setSelected(savedInstanceState.getInt(SaveStateKeys.MODALITY_TYPE));
         }
     }
 

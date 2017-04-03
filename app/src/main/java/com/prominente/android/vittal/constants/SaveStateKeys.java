@@ -38,4 +38,5 @@ public class SaveStateKeys {
     public static final String RADIUS = "radius";
     public static final String CIRCUIT = "circuit";
     public static final String PROMOS = "promos";
+    public static final String MODALITY_TYPE = "modalityType";
 }
