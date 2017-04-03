@@ -23,4 +23,11 @@ public class SaveStateKeys {
     public static final String NUMBER = "number";
     public static final String STREET = "street";
     public static final String COVERAGE_TYPE = "coverageType";
+    public static final String ADDITIONAL_PER_EXCEDENT_HELP = "additionalPerExcedentHelp";
+    public static final String ADDITIONAL_PER_SERVICE_REQUEST = "additionalPerServiceRequest";
+    public static final String CAPITA_AMOUNT = "capitaAmount";
+    public static final String COSEGURO = "coseguro";
+    public static final String DETAIL_OTHERS = "detailOthers";
+    public static final String HIRED_SERVICE_AMOUNT = "hiredServiceAmount";
+    public static final String OBSERVATIONS = "observations";
 }
