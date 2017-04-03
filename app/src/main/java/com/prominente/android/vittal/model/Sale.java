@@ -44,11 +44,6 @@ public class Sale implements Serializable
     @Override
     public boolean equals(Object obj)
     {
-        if(obj instanceof Sale)
-        {
-            return ((Sale)obj).getId() == this.getId();
-        }
-
-        return false;
+        return obj instanceof Sale && ((Sale) obj).getId() == this.getId();
     }
 }
