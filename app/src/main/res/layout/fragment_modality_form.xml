@@ -13,9 +13,12 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <include layout="@layout/partial_modality_types"/>
+        <include
+            android:id="@+id/fr_modality_form_partial_types"
+            layout="@layout/partial_modality_types"/>
 
         <EditText
+            android:id="@+id/fr_modality_form_et_detail_others"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_discribe_modality"
@@ -28,12 +31,14 @@
             android:orientation="horizontal">
 
             <RadioButton
+                android:id="@+id/fr_modality_form_rb_emergencias"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="@string/emergencies" />
 
             <RadioButton
+                android:id="@+id/fr_modality_form_rd_home_health_consultation"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
@@ -42,6 +47,7 @@
         </LinearLayout>
 
         <EditText
+            android:id="@+id/fr_modality_form_monthly_fee"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_monthly_fee"
@@ -49,12 +55,14 @@
 
 
         <EditText
+            android:id="@+id/fr_modality_form_et_hired_service_ammount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_hired_service_ammount"
             android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
         <EditText
+            android:id="@+id/fr_modality_form_et_aditional_per_service_request"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_aditional_per_service_request"
@@ -62,6 +70,7 @@
 
 
         <EditText
+            android:id="@+id/fr_modality_form_et_capita_amount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_capitas_count"
@@ -69,6 +78,7 @@
 
 
         <EditText
+            android:id="@+id/fr_modality_form_et_coseguro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_coseguro"
@@ -76,14 +86,17 @@
 
 
         <EditText
+            android:id="@+id/fr_modality_form_et_additional_per_excedent_help"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_aditional_per_excedent_help"
             android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
         <EditText
+            android:id="@+id/fr_modality_form_et_observations"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="top"
             android:lines="4"
             android:hint="@string/hint_observations"
             android:layout_marginBottom="@dimen/form_margin_bottom"/>
