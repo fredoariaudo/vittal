@@ -2,14 +2,17 @@ package com.prominente.android.vittal.fragments;
 
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.prominente.android.vittal.R;
+import com.prominente.android.vittal.constants.SaveStateKeys;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +28,14 @@ public class SellerFormFragment extends Fragment {
     private Spinner circuitsSpinner;
     private String[] promos;
     private Spinner promosSpinner;
+
+    EditText amountIibbTextView;
+    EditText capitaTextView;
+    EditText monthlyFeeWhitoutIvaEditView;
+    private ArrayAdapter<String> sellerTypesAdapter;
+    private ArrayAdapter<String> radiusAdapter;
+    private ArrayAdapter<String> promosAdapter;
+    private ArrayAdapter<String> circuitsAdapter;
 
     public SellerFormFragment() {
         // Required empty public constructor
@@ -48,6 +59,11 @@ public class SellerFormFragment extends Fragment {
     }
 
     private void configureView(View view) {
+
+        amountIibbTextView = (EditText) view.findViewById(R.id.fr_seller_form_et_amount_iibb);
+        capitaTextView = (EditText) view.findViewById(R.id.fr_seller_form_et_capita);
+        monthlyFeeWhitoutIvaEditView = (EditText) view.findViewById(R.id.fr_seller_form_et_monthly_fee_whitout_iva);
+
         configureSpinners(view);
     }
 
@@ -58,9 +74,9 @@ public class SellerFormFragment extends Fragment {
         };
 
         sellerTypesSpinner  = (Spinner) view.findViewById(R.id.fr_seller_form_spn_seller);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),
+        sellerTypesAdapter = new ArrayAdapter<>(getContext(),
                 android.R.layout.simple_spinner_item, sellerTypes);
-        sellerTypesSpinner.setAdapter(adapter);
+        sellerTypesSpinner.setAdapter(sellerTypesAdapter);
 
 
         //
@@ -69,9 +85,9 @@ public class SellerFormFragment extends Fragment {
         };
 
         radiusSpinner  = (Spinner) view.findViewById(R.id.fr_seller_form_spn_radius);
-        adapter = new ArrayAdapter<>(getContext(),
+        radiusAdapter = new ArrayAdapter<>(getContext(),
                 android.R.layout.simple_spinner_item, radius);
-        radiusSpinner.setAdapter(adapter);
+        radiusSpinner.setAdapter(radiusAdapter);
 
         //
         circuits = new String[] {
@@ -79,9 +95,9 @@ public class SellerFormFragment extends Fragment {
         };
 
         circuitsSpinner  = (Spinner) view.findViewById(R.id.fr_seller_form_spn_circuit);
-        adapter = new ArrayAdapter<>(getContext(),
+        circuitsAdapter = new ArrayAdapter<>(getContext(),
                 android.R.layout.simple_spinner_item, circuits);
-        circuitsSpinner.setAdapter(adapter);
+        circuitsSpinner.setAdapter(circuitsAdapter);
 
 
         //
@@ -90,10 +106,35 @@ public class SellerFormFragment extends Fragment {
         };
 
         promosSpinner  = (Spinner) view.findViewById(R.id.fr_seller_form_spn_promo);
-        adapter = new ArrayAdapter<>(getContext(),
+        promosAdapter = new ArrayAdapter<>(getContext(),
                 android.R.layout.simple_spinner_item, promos);
-        promosSpinner.setAdapter(adapter);
+        promosSpinner.setAdapter(promosAdapter);
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(SaveStateKeys.AMOUNT_IIBB, amountIibbTextView.getText().toString());
+        outState.putString(SaveStateKeys.CAPITA, capitaTextView.getText().toString());
+        outState.putString(SaveStateKeys.MONTHLY_FEE_WHITOUT_IVA, monthlyFeeWhitoutIvaEditView.getText().toString());
+        outState.putInt(SaveStateKeys.SELLER, sellerTypesAdapter.getPosition(sellerTypesSpinner.getSelectedItem().toString()));
+        outState.putInt(SaveStateKeys.RADIUS, radiusAdapter.getPosition(radiusSpinner.getSelectedItem().toString()));
+        outState.putInt(SaveStateKeys.CIRCUIT, circuitsAdapter.getPosition(circuitsSpinner.getSelectedItem().toString()));
+        outState.putInt(SaveStateKeys.PROMOS, promosAdapter.getPosition(promosSpinner.getSelectedItem().toString()));
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        if(savedInstanceState != null) {
+            amountIibbTextView.setText(savedInstanceState.getString(SaveStateKeys.AMOUNT_IIBB));
+            capitaTextView.setText(savedInstanceState.getString(SaveStateKeys.CAPITA));
+            monthlyFeeWhitoutIvaEditView.setText(savedInstanceState.getString(SaveStateKeys.MONTHLY_FEE_WHITOUT_IVA));
+            sellerTypesSpinner.setSelection(savedInstanceState.getInt(SaveStateKeys.SELLER));
+            radiusSpinner.setSelection(savedInstanceState.getInt(SaveStateKeys.RADIUS));
+            circuitsSpinner.setSelection(savedInstanceState.getInt(SaveStateKeys.CIRCUIT));
+            promosSpinner.setSelection(savedInstanceState.getInt(SaveStateKeys.PROMOS));
+        }
+    }
 
 }

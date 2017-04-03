@@ -31,4 +31,11 @@ public class SaveStateKeys {
     public static final String HIRED_SERVICE_AMOUNT = "hiredServiceAmount";
     public static final String OBSERVATIONS = "observations";
     public static final String BILL_TO = "billTo";
+    public static final String AMOUNT_IIBB = "ammountIibb";
+    public static final String CAPITA = "capita";
+    public static final String MONTHLY_FEE_WHITOUT_IVA = "monthlyFeeWhitoutIva";
+    public static final String SELLER = "seller";
+    public static final String RADIUS = "radius";
+    public static final String CIRCUIT = "circuit";
+    public static final String PROMOS = "promos";
 }

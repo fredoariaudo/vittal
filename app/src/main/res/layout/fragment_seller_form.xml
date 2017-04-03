@@ -43,12 +43,14 @@
             ></Spinner>
 
         <EditText
+            android:id="@+id/fr_seller_form_et_monthly_fee_whitout_iva"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_fee_without_iva"
             android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
         <EditText
+            android:id="@+id/fr_seller_form_et_amount_iibb"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_iibb_amount"
@@ -56,6 +58,7 @@
 
 
         <EditText
+            android:id="@+id/fr_seller_form_et_capita"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_capita"
