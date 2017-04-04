@@ -7,7 +7,7 @@ import android.databinding.Bindable;
  * Created by Pablo Poza on 4/4/2017.
  */
 
-public class ApplicantForm extends BaseObservable{
+public class ApplicantForm extends FormModel{
 
     private String razonSocial;
     private String address;
@@ -108,5 +108,10 @@ public class ApplicantForm extends BaseObservable{
 
     public void setPhones(String phones) {
         this.phones = phones;
+    }
+
+    @Override
+    public boolean isValid() {
+        return false;
     }
 }

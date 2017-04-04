@@ -9,9 +9,13 @@ import android.databinding.Bindable;
 
 public class SellerForm extends BaseObservable{
 
-    String amountIibb;
-    String capita;
-    String monthlyFeeWhitoutIva;
+    private String amountIibb;
+    private String capita;
+    private String monthlyFeeWhitoutIva;
+    private int radius;
+    private int circuit;
+    private int promo;
+    private int seller;
 
     @Bindable
     public String getAmountIibb() {
@@ -38,5 +42,41 @@ public class SellerForm extends BaseObservable{
 
     public void setMonthlyFeeWhitoutIva(String monthlyFeeWhitoutIva) {
         this.monthlyFeeWhitoutIva = monthlyFeeWhitoutIva;
+    }
+
+    @Bindable
+    public int getRadius() {
+        return radius;
+    }
+
+    public void setRadius(int radius) {
+        this.radius = radius;
+    }
+
+    @Bindable
+    public int getCircuit() {
+        return circuit;
+    }
+
+    public void setCircuit(int circuit) {
+        this.circuit = circuit;
+    }
+
+    @Bindable
+    public int getPromo() {
+        return promo;
+    }
+
+    public void setPromo(int promo) {
+        this.promo = promo;
+    }
+
+    @Bindable
+    public int getSeller() {
+        return seller;
+    }
+
+    public void setSeller(int seller) {
+        this.seller = seller;
     }
 }

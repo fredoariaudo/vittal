@@ -51,7 +51,6 @@ public class SellerFormFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        // Inflate the layout for this fragment
         ViewDataBinding binding = DataBindingUtil.inflate(inflater,R.layout.fragment_seller_form, container, false);
         binding.setVariable(BR.sellerForm,sellerForm);
         binding.executePendingBindings();

@@ -1,6 +1,7 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable name="sellerForm" type="com.prominente.android.vittal.model.SellerForm"/>
@@ -21,33 +22,36 @@
         android:orientation="vertical">
 
 
-        <Spinner
-            android:id="@+id/fr_seller_form_spn_seller"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/form_margin_bottom"
-            ></Spinner>
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/fr_seller_form_spn_seller"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/form_margin_bottom"
+                app:selectedValue="@={sellerForm.seller}" />
 
-        <Spinner
-            android:id="@+id/fr_seller_form_spn_radius"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/form_margin_bottom"
-            ></Spinner>
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/fr_seller_form_spn_radius"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/form_margin_bottom"
+                app:selectedValue="@={sellerForm.radius}"
+                />
 
-        <Spinner
-            android:id="@+id/fr_seller_form_spn_circuit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/form_margin_bottom"
-            ></Spinner>
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/fr_seller_form_spn_circuit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/form_margin_bottom"
+                app:selectedValue="@={sellerForm.circuit}"
+                />
 
-        <Spinner
-            android:id="@+id/fr_seller_form_spn_promo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/form_margin_bottom"
-            ></Spinner>
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/fr_seller_form_spn_promo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/form_margin_bottom"
+                app:selectedValue="@={sellerForm.promo}"
+                />
 
         <EditText
             android:id="@+id/fr_seller_form_et_monthly_fee_whitout_iva"
