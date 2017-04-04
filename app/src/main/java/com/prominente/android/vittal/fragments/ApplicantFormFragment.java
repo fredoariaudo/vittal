@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.Spinner;
+import android.support.v7.widget.AppCompatSpinner;
 
 import com.prominente.android.vittal.R;
 import com.prominente.android.vittal.BR;
@@ -63,7 +63,7 @@ public class ApplicantFormFragment extends Fragment implements DatePickerDialog.
         arraySpinner = new String[] {
                 "AP#100", "AP#200", "AP#300", "AP#400", "AP#500"
         };
-        Spinner s = (Spinner) view.findViewById(R.id.fr_applicant_form_spn_protected_area_code);
+        AppCompatSpinner s = (AppCompatSpinner) view.findViewById(R.id.fr_applicant_form_spn_protected_area_code);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),
                 android.R.layout.simple_spinner_item, arraySpinner);
         s.setAdapter(adapter);

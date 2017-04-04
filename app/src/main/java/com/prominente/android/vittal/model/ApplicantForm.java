@@ -18,6 +18,16 @@ public class ApplicantForm extends BaseObservable{
     private String fantasyName;
     private String fax;
     private String phones;
+    private int plan;
+
+    @Bindable
+    public int getPlan() {
+        return plan;
+    }
+
+    public void setPlan(int plan) {
+        this.plan = plan;
+    }
 
     @Bindable
     public String getRazonSocial() {
