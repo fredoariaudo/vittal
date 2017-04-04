@@ -1,6 +1,7 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable name="coverageForm" type="com.prominente.android.vittal.model.CoverageForm"/>
@@ -21,12 +22,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <Spinner
+        <android.support.v7.widget.AppCompatSpinner
             android:id="@+id/fr_coverage_form_spn_protected_area_type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:selectedValue="@={coverageForm.protectedArea}"
             android:layout_marginBottom="@dimen/form_margin_bottom"
-            ></Spinner>
+            />
 
 
         <EditText

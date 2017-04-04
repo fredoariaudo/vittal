@@ -9,13 +9,13 @@ import android.databinding.Bindable;
 
 public class CoverageForm extends BaseObservable{
 
-    String entreCalle;
-    String andStreet;
-    String dpto;
-    String floor;
-    String number;
-    String street;
-
+    private String entreCalle;
+    private String andStreet;
+    private String dpto;
+    private String floor;
+    private String number;
+    private String street;
+    private int protectedArea;
 
     @Bindable
     public String getEntreCalle() {
@@ -69,5 +69,14 @@ public class CoverageForm extends BaseObservable{
 
     public void setStreet(String street) {
         this.street = street;
+    }
+
+    @Bindable
+    public int getProtectedArea() {
+        return protectedArea;
+    }
+
+    public void setProtectedArea(int protectedArea) {
+        this.protectedArea = protectedArea;
     }
 }

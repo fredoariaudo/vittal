@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/form_margin_bottom"
             app:selectedValue="@={applicantForm.plan}"
-            ></android.support.v7.widget.AppCompatSpinner>
+            />
 
         <Button
             android:id="@+id/fr_applicant_form_btn_pick_date"
