@@ -9,7 +9,7 @@ import android.support.v4.content.LocalBroadcastManager;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.android.gms.iid.InstanceID;
 import com.prominente.android.vittal.R;
-import com.prominente.android.vittal.constants.GCMPreferences;
+import com.prominente.android.vittal.constants.GcmPreferences;
 
 public class RegistrationIntentService extends IntentService
 {
@@ -42,7 +42,7 @@ public class RegistrationIntentService extends IntentService
             // You should store a boolean that indicates whether the generated token has been
             // sent to your server. If the boolean is false, send the token to your server,
             // otherwise your server should have already received the token.
-            sharedPreferences.edit().putBoolean(GCMPreferences.SENT_TOKEN_TO_SERVER, true).apply();
+            sharedPreferences.edit().putBoolean(GcmPreferences.SENT_TOKEN_TO_SERVER, true).apply();
             // [END register_for_gcm]
         }
         catch (Exception e)
@@ -50,10 +50,10 @@ public class RegistrationIntentService extends IntentService
             System.out.println("Failed to complete token refresh");
             // If an exception happens while fetching the new token or updating our registration data
             // on a third-party server, this ensures that we'll attempt the update at a later time.
-            sharedPreferences.edit().putBoolean(GCMPreferences.SENT_TOKEN_TO_SERVER, false).apply();
+            sharedPreferences.edit().putBoolean(GcmPreferences.SENT_TOKEN_TO_SERVER, false).apply();
         }
         // Notify UI that registration has completed, so the progress indicator can be hidden.
-        Intent registrationComplete = new Intent(GCMPreferences.REGISTRATION_COMPLETE);
+        Intent registrationComplete = new Intent(GcmPreferences.REGISTRATION_COMPLETE);
         LocalBroadcastManager.getInstance(this).sendBroadcast(registrationComplete);
     }
 
