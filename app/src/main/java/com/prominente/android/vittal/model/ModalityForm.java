@@ -3,7 +3,7 @@ package com.prominente.android.vittal.model;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 
-import com.android.databinding.library.baseAdapters.BR;
+import com.prominente.android.vittal.BR;
 
 
 /**

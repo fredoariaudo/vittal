@@ -4,21 +4,14 @@ package com.prominente.android.vittal.fragments;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.RadioButton;
 
 import com.prominente.android.vittal.BR;
 import com.prominente.android.vittal.R;
-import com.prominente.android.vittal.constants.SaveStateKeys;
 import com.prominente.android.vittal.model.ModalityForm;
-import com.prominente.android.vittal.views.RadioButtonsManager;
-
-import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
