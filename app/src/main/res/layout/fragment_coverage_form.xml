@@ -92,12 +92,13 @@
             android:text="@={coverageForm.andStreet}"
             android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
-        <Spinner
+        <android.support.v7.widget.AppCompatSpinner
             android:id="@+id/fr_coverage_form_spn_location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:selectedValue="@={coverageForm.location}"
             android:layout_marginBottom="@dimen/form_margin_bottom"
-            ></Spinner>
+            />
 
     </LinearLayout>
 

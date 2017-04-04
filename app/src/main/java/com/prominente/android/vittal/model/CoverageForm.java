@@ -16,6 +16,7 @@ public class CoverageForm extends BaseObservable{
     private String number;
     private String street;
     private int protectedArea;
+    private int location;
 
     @Bindable
     public String getEntreCalle() {
@@ -78,5 +79,14 @@ public class CoverageForm extends BaseObservable{
 
     public void setProtectedArea(int protectedArea) {
         this.protectedArea = protectedArea;
+    }
+
+    @Bindable
+    public int getLocation() {
+        return location;
+    }
+
+    public void setLocation(int location) {
+        this.location = location;
     }
 }
