@@ -9,7 +9,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.prominente.android.vittal.BR;
 import com.prominente.android.vittal.R;
@@ -24,6 +26,9 @@ import static com.prominente.android.vittal.BR.applicantForm;
 public class DebtCollectorFormFragment extends Fragment {
 
     private final DebtCollectorForm debtCollectorForm;
+    private String[] locations;
+    private Spinner locationsSpinners;
+    private ArrayAdapter<String> locationsAdapter;
 
     public DebtCollectorFormFragment() {
         debtCollectorForm = new DebtCollectorForm();
@@ -43,6 +48,16 @@ public class DebtCollectorFormFragment extends Fragment {
         binding.executePendingBindings();
 
         View view = binding.getRoot();
+
+        locations = new String[] {
+                "Localidad","Avellaneda", "Lanus", "Capital Federal"
+        };
+
+        locationsSpinners= (Spinner) view.findViewById(R.id.fr_debt_collector_form_spn_location);
+        locationsAdapter = new ArrayAdapter<>(getContext(),
+                android.R.layout.simple_spinner_item, locations);
+        locationsSpinners.setAdapter(locationsAdapter);
+
         return view;
     }
 

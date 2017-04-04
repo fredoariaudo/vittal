@@ -1,6 +1,7 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable name="debtCollectorForm" type="com.prominente.android.vittal.model.DebtCollectorForm"/>
@@ -82,12 +83,13 @@
                 android:text="@={debtCollectorForm.andStreet}"
                 android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
-            <Spinner
-                android:id="@+id/fr_coverage_form_spn_location"
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/fr_debt_collector_form_spn_location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:selectedValue="@={debtCollectorForm.location}"
                 android:layout_marginBottom="@dimen/form_margin_bottom"
-                ></Spinner>
+                />
 
             <EditText
                 android:id="@+id/fr_debt_collector_et_cp"

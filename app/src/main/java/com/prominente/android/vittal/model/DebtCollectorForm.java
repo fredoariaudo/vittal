@@ -20,6 +20,7 @@ public class DebtCollectorForm extends BaseObservable{
     String observations;
     String phones;
     String street;
+    int location;
 
     @Bindable
     public String getAndStreet() {
@@ -109,5 +110,14 @@ public class DebtCollectorForm extends BaseObservable{
 
     public void setStreet(String street) {
         this.street = street;
+    }
+
+    @Bindable
+    public int getLocation() {
+        return location;
+    }
+
+    public void setLocation(int location) {
+        this.location = location;
     }
 }
