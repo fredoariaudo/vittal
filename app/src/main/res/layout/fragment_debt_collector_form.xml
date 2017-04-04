@@ -1,117 +1,136 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:paddingTop="20dp"
-    android:paddingLeft="20dp"
-    android:paddingRight="20dp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    tools:context="com.prominente.android.vittal.fragments.DebtCollectorFormFragment">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
+    <data>
+        <variable name="debtCollectorForm" type="com.prominente.android.vittal.model.DebtCollectorForm"/>
+    </data>
+
+    <ScrollView
+        android:paddingTop="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-
-        <EditText
-            android:id="@+id/fr_debt_collector_et_street"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_street"
-            android:layout_marginBottom="@dimen/form_margin_bottom"/>
-
-
+        android:orientation="vertical"
+        tools:context="com.prominente.android.vittal.fragments.DebtCollectorFormFragment">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
+
 
             <EditText
-                android:id="@+id/fr_debt_collector_et_number"
-                android:layout_height="match_parent"
-                android:layout_width="0dp"
-                android:layout_weight="5"
-                android:hint="@string/hint_number"
+                android:id="@+id/fr_debt_collector_et_street"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_street"
+                android:text="@={debtCollectorForm.street}"
+                android:layout_marginBottom="@dimen/form_margin_bottom"/>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/fr_debt_collector_et_number"
+                    android:layout_height="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="5"
+                    android:hint="@string/hint_number"
+                    android:text="@={debtCollectorForm.number}"
+                    android:layout_marginBottom="@dimen/form_margin_bottom"/>
+
+                <EditText
+                    android:id="@+id/fr_debt_collector_et_floor"
+                    android:layout_height="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:hint="@string/hint_floor"
+                    android:text="@={debtCollectorForm.floor}"
+                    android:layout_marginBottom="@dimen/form_margin_bottom"/>
+
+                <EditText
+                    android:id="@+id/fr_debt_collector_et_dpto"
+                    android:layout_height="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:hint="@string/hint_dpto"
+                    android:text="@={debtCollectorForm.dpto}"
+                    android:layout_marginBottom="@dimen/form_margin_bottom"/>
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/fr_debt_collector_et_between_street"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_between_street"
+                android:text="@={debtCollectorForm.betweenStreet}"
+                android:layout_marginBottom="@dimen/form_margin_bottom"/>
+
+
+            <EditText
+                android:id="@+id/fr_debt_collector_et_and_street"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_and_street"
+                android:text="@={debtCollectorForm.andStreet}"
+                android:layout_marginBottom="@dimen/form_margin_bottom"/>
+
+            <Spinner
+                android:id="@+id/fr_coverage_form_spn_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/form_margin_bottom"
+                ></Spinner>
+
+            <EditText
+                android:id="@+id/fr_debt_collector_et_cp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_cp"
+                android:text="@={debtCollectorForm.cp}"
+                android:layout_marginBottom="@dimen/form_margin_bottom"/>
+
+
+            <EditText
+                android:id="@+id/fr_debt_collector_et_phones"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_phones"
+                android:text="@={debtCollectorForm.phones}"
                 android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
             <EditText
-                android:id="@+id/fr_debt_collector_et_floor"
-                android:layout_height="match_parent"
-                android:layout_width="0dp"
-                android:layout_weight="3"
-                android:hint="@string/hint_floor"
+                android:id="@+id/fr_debt_collector_et_bill_to"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_between_bill_to"
+                android:text="@={debtCollectorForm.billTo}"
                 android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
+
             <EditText
-                android:id="@+id/fr_debt_collector_et_dpto"
-                android:layout_height="match_parent"
-                android:layout_width="0dp"
-                android:layout_weight="3"
-                android:hint="@string/hint_dpto"
+                android:id="@+id/fr_debt_collector_et_observations"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="4"
+                android:gravity="top"
+                android:hint="@string/hint_observations"
+                android:text="@={debtCollectorForm.observations}"
                 android:layout_marginBottom="@dimen/form_margin_bottom"/>
+
+            <include layout="@layout/partial_condition_vs_iva" />
+
+            <include layout="@layout/partial_delivered_documents" />
 
         </LinearLayout>
 
-        <EditText
-            android:id="@+id/fr_debt_collector_et_between_street"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_between_street"
-            android:layout_marginBottom="@dimen/form_margin_bottom"/>
+    </ScrollView>
 
-
-        <EditText
-            android:id="@+id/fr_debt_collector_et_and_street"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_and_street"
-            android:layout_marginBottom="@dimen/form_margin_bottom"/>
-
-        <Spinner
-            android:id="@+id/fr_coverage_form_spn_location"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/form_margin_bottom"
-            ></Spinner>
-
-        <EditText
-            android:id="@+id/fr_debt_collector_et_cp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_cp"
-            android:layout_marginBottom="@dimen/form_margin_bottom"/>
-
-
-        <EditText
-            android:id="@+id/fr_debt_collector_et_phones"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_phones"
-            android:layout_marginBottom="@dimen/form_margin_bottom"/>
-
-        <EditText
-            android:id="@+id/fr_debt_collector_et_bill_to"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_between_bill_to"
-            android:layout_marginBottom="@dimen/form_margin_bottom"/>
-
-
-        <EditText
-            android:id="@+id/fr_debt_collector_et_observations"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:lines="4"
-            android:gravity="top"
-            android:hint="@string/hint_observations"
-            android:layout_marginBottom="@dimen/form_margin_bottom"/>
-
-        <include layout="@layout/partial_condition_vs_iva" />
-
-        <include layout="@layout/partial_delivered_documents" />
-
-    </LinearLayout>
-
-</ScrollView>
+</layout>
