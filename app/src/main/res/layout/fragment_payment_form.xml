@@ -33,25 +33,25 @@
             <include
                 android:id="@+id/view_cash"
                 layout="@layout/partial_payment_mode_cash"
-                android:visibility="gone"
-                />
+                app:isVisible="@{paymentForm.paymentMode == 1}"/>
+
 
             <include
                 android:id="@+id/view_in_cash"
                 layout="@layout/partial_payment_mode_in_cash"
-                android:visibility="gone"
+                app:isVisible="@{paymentForm.paymentMode == 2}"
                 />
 
             <include
                 android:id="@+id/view_check"
                 layout="@layout/partial_payment_mode_check"
-                android:visibility="gone"
+                app:isVisible="@{paymentForm.paymentMode == 3}"
                 />
 
             <include
                 android:id="@+id/view_credit_card_or_cbu"
                 layout="@layout/partial_payment_mode_credit_card_or_cbu"
-                android:visibility="gone"
+                app:isVisible="@{paymentForm.paymentMode == 4}"
                 />
 
             <LinearLayout

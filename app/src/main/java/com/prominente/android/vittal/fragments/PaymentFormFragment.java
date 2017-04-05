@@ -25,12 +25,6 @@ public class PaymentFormFragment extends Fragment {
     private String[] paymentsMode;
     private ArrayAdapter<String> adapter;
     private Spinner paymentsModeSpinners;
-    private View currentView;
-    private View cashView;
-    private View defaultView;
-    private View checkView;
-    private View inChashView;
-    private View creditCardOrCbuView;
 
     public PaymentFormFragment() {
         paymentForm = new PaymentForm();
@@ -51,13 +45,6 @@ public class PaymentFormFragment extends Fragment {
 
         View view = binding.getRoot();
 
-        //View
-        inChashView         = view.findViewById(R.id.view_in_cash);
-        cashView            = view.findViewById(R.id.view_cash);
-        checkView           = view.findViewById(R.id.view_check);
-        creditCardOrCbuView = view.findViewById(R.id.view_credit_card_or_cbu);
-        defaultView         = new View(getContext());
-        currentView         = defaultView;
         //
         paymentsMode = new String[] {
                 "Tipo de pago", "Tarjeta de credito/CBU", "Cheque", "Efectivo", "Contado"
@@ -67,26 +54,6 @@ public class PaymentFormFragment extends Fragment {
         adapter = new ArrayAdapter<>(getContext(),
                 android.R.layout.simple_spinner_item, paymentsMode);
         paymentsModeSpinners.setAdapter(adapter);
-
-        paymentsModeSpinners.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                currentView.setVisibility(View.GONE);
-                switch (position) {
-                    case 1: currentView  = creditCardOrCbuView; break;
-                    case 2: currentView  = checkView; break;
-                    case 3: currentView  = cashView; break;
-                    case 4: currentView  = inChashView; break;
-                    default: currentView = defaultView; break;
-                }
-                currentView.setVisibility(View.VISIBLE);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
 
         return view;
     }
