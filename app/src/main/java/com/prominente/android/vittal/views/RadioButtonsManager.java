@@ -13,8 +13,21 @@ public class RadioButtonsManager {
 
     RadioButton selected = null;
     List<RadioButton> buttons;
+    OnRadioButtonSelectedListener listener;
 
-    public RadioButtonsManager(List<RadioButton> buttons) {
+    int selectedIndex = -1;
+
+    public RadioButtonsManager(List<RadioButton> buttons, OnRadioButtonSelectedListener listener) {
+        this.listener = listener;
+
+        setButtons(buttons);
+    }
+
+    public RadioButtonsManager(OnRadioButtonSelectedListener listener) {
+        this.listener = listener;
+    }
+
+    public void setButtons(List<RadioButton> buttons) {
         this.buttons = buttons;
 
         for (RadioButton rb : buttons) {
@@ -26,18 +39,26 @@ public class RadioButtonsManager {
             });
         }
 
+        setSelected(selectedIndex);
     }
 
     public void radioButtonSelected(RadioButton radioButton) {
         selected = radioButton;
-
-        for (RadioButton rb :buttons) {
-            rb.setChecked(rb == selected);
+        for (int i = 0; i < buttons.size(); i++) {
+            RadioButton rb = buttons.get(i);
+            boolean b = rb == selected;
+            rb.setChecked(b);
+            if(b){
+                selectedIndex = i;
+                if(listener != null) {
+                    listener.onRadioButtonSelected(i);
+                }
+            }
         }
-
     }
 
     public void setSelected(int index) {
+        selectedIndex = index;
         for (int i = 0 ; i < buttons.size() ; i++) {
             boolean b = i == index;
             buttons.get(i).setChecked(b);
@@ -46,10 +67,10 @@ public class RadioButtonsManager {
     }
 
     public int getSelectedIndex () {
-        for (int i = 0 ; i < buttons.size() ; i++) {
-            if (buttons.get(i) == selected) return i;
-        }
-        return -1;
+        return selectedIndex;
     }
 
+    public interface OnRadioButtonSelectedListener {
+        void onRadioButtonSelected(int index);
+    }
 }

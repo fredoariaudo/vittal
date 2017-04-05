@@ -19,13 +19,27 @@ public class ModalityForm extends BaseObservable {
     private String coseguro;
     private String detailOthers;
     private String observations;
-
-    public ModalityForm(String monthlyFee) {
-        this.monthlyFee = monthlyFee;
-    }
+    private String modality;
+    private String type;
 
     public ModalityForm() {
 
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getModality() {
+        return modality;
+    }
+
+    public void setModality(String modality) {
+        this.modality = modality;
     }
 
     @Bindable
