@@ -8,6 +8,10 @@
             name="isVisible"
             type="boolean"/>
 
+        <variable
+            name="creditCardOrCbuPaymentForm"
+            type="com.prominente.android.vittal.model.CreditCardOrCbuPaymentForm"/>
+
     </data>
 
     <LinearLayout
@@ -27,6 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_owner_name"
+        android:text="@={creditCardOrCbuPaymentForm.name}"
         android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
 
@@ -34,12 +39,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_branch"
+        android:text="@={creditCardOrCbuPaymentForm.branch}"
         android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_card_number"
+        android:text="@={creditCardOrCbuPaymentForm.cardNumber}"
         android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
 
@@ -47,12 +54,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_cbu"
+        android:text="@={creditCardOrCbuPaymentForm.cbu}"
         android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_expire_date"
+        android:text="@={creditCardOrCbuPaymentForm.expirationDate}"
         android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
 
@@ -60,12 +69,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_dni"
+        android:text="@={creditCardOrCbuPaymentForm.dni}"
         android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_cuit_number"
+        android:text="@={creditCardOrCbuPaymentForm.cuit}"
         android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
 
@@ -73,11 +84,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_cupon_number"
+        android:text="@={creditCardOrCbuPaymentForm.nroCupon}"
         android:layout_marginBottom="@dimen/form_margin_bottom"/>
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_between_payment_ammount"
+        android:text="@={creditCardOrCbuPaymentForm.paymentAmount}"
         android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
 </LinearLayout>

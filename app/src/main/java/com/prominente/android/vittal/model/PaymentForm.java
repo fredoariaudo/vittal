@@ -1,7 +1,6 @@
 package com.prominente.android.vittal.model;
 
 import android.databinding.Bindable;
-import android.databinding.Observable;
 
 import com.prominente.android.vittal.BR;
 
@@ -14,6 +13,7 @@ public class PaymentForm extends FormModel {
     private NowPaymentForm nowPaymentForm;
     private CashPaymentForm cashPaymentForm;
     private CheckPaymentForm checkPaymentForm;
+    private CreditCardOrCbuPaymentForm creditCardOrCbuPaymentForm;
     int paymentMode;
 
 
@@ -21,6 +21,16 @@ public class PaymentForm extends FormModel {
         cashPaymentForm = new CashPaymentForm();
         nowPaymentForm = new NowPaymentForm();
         checkPaymentForm = new CheckPaymentForm();
+        creditCardOrCbuPaymentForm = new CreditCardOrCbuPaymentForm();
+    }
+
+    @Bindable
+    public CreditCardOrCbuPaymentForm getCreditCardOrCbuPaymentForm() {
+        return creditCardOrCbuPaymentForm;
+    }
+
+    public void setCreditCardOrCbuPaymentForm(CreditCardOrCbuPaymentForm creditCardOrCbuPaymentForm) {
+        this.creditCardOrCbuPaymentForm = creditCardOrCbuPaymentForm;
     }
 
     @Bindable

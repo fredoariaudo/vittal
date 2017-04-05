@@ -55,6 +55,7 @@
                 android:id="@+id/view_credit_card_or_cbu"
                 layout="@layout/partial_payment_mode_credit_card_or_cbu"
                 app:isVisible="@{paymentForm.paymentMode == 4}"
+                app:creditCardOrCbuPaymentForm="@{paymentForm.creditCardOrCbuPaymentForm}"
                 />
 
             <LinearLayout
