@@ -22,11 +22,11 @@ public class LoginActivity extends AppCompatActivity
         setContentView(R.layout.activity_login);
 
         EditText et_login_user = (EditText) findViewById(R.id.et_login_user);
-        setCompoundDrawable(R.drawable.ic_person_outline_white_24dp, ResourceUtil.getThemedColor(this, R.attr.colorControlNormal), et_login_user);
+        setEditTextDrawable(R.drawable.ic_person_outline_white_24dp, ResourceUtil.getThemedColor(this, R.attr.colorControlNormal), et_login_user);
 
         EditText et_login_password = (EditText) findViewById(R.id.et_login_password);
         et_login_password.setTypeface(Typeface.DEFAULT);
-        setCompoundDrawable(R.drawable.ic_lock_outline_white_24dp, ResourceUtil.getThemedColor(this, R.attr.colorControlNormal), et_login_password);
+        setEditTextDrawable(R.drawable.ic_lock_outline_white_24dp, ResourceUtil.getThemedColor(this, R.attr.colorControlNormal), et_login_password);
 
         Button btn_login = (Button) findViewById(R.id.btn_login);
         btn_login.setOnClickListener(new View.OnClickListener() {
@@ -38,11 +38,11 @@ public class LoginActivity extends AppCompatActivity
         });
     }
 
-    private void setCompoundDrawable(int drawable, int color, EditText e)
+    private void setEditTextDrawable(int drawable, int color, EditText editText)
     {
         Drawable compoundDrawable = DrawableCompat.wrap(ContextCompat.getDrawable(this, drawable));
         DrawableCompat.setTint(compoundDrawable, color);
-        e.setCompoundDrawablesWithIntrinsicBounds(compoundDrawable, null, null, null);
+        editText.setCompoundDrawablesWithIntrinsicBounds(compoundDrawable, null, null, null);
     }
 
     private void login()
