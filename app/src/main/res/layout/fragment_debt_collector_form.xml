@@ -131,6 +131,12 @@
 
             <include layout="@layout/partial_delivered_documents" />
 
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_if_selected_other_documents"
+                android:layout_marginBottom="@dimen/form_margin_bottom"/>
+
         </LinearLayout>
 
     </ScrollView>

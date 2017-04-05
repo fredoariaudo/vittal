@@ -9,24 +9,46 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 
 import com.prominente.android.vittal.BR;
 import com.prominente.android.vittal.R;
 import com.prominente.android.vittal.model.DebtCollectorForm;
+import com.prominente.android.vittal.views.RadioButtonsManager;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+import java.util.ArrayList;
+import java.util.List;
+
+
 public class DebtCollectorFormFragment extends Fragment {
 
     private final DebtCollectorForm debtCollectorForm;
+    private final RadioButtonsManager conditionVsIvaRadioButtonsManager;
     private String[] locations;
     private Spinner locationsSpinners;
     private ArrayAdapter<String> locationsAdapter;
+    private List<RadioButton> conditionVsIvaRadioButton;
+    private List<RadioButton> deliveredDocumentsRadioButton;
+    private RadioButtonsManager deliveredDocumentsRadioButtonManager;
 
     public DebtCollectorFormFragment() {
         debtCollectorForm = new DebtCollectorForm();
+
+        conditionVsIvaRadioButtonsManager = new RadioButtonsManager(new RadioButtonsManager.OnRadioButtonSelectedListener() {
+            @Override
+            public void onRadioButtonSelected(int index) {
+
+            }
+        });
+
+        deliveredDocumentsRadioButtonManager = new RadioButtonsManager(new RadioButtonsManager.OnRadioButtonSelectedListener() {
+            @Override
+            public void onRadioButtonSelected(int index) {
+
+            }
+        });
+
     }
 
     public static DebtCollectorFormFragment newInstance() {
@@ -52,6 +74,22 @@ public class DebtCollectorFormFragment extends Fragment {
         locationsAdapter = new ArrayAdapter<>(getContext(),
                 android.R.layout.simple_spinner_item, locations);
         locationsSpinners.setAdapter(locationsAdapter);
+
+
+        conditionVsIvaRadioButton = new ArrayList<>();
+        conditionVsIvaRadioButton.add((RadioButton)view.findViewById(R.id.partial_condition_vs_iva_rb_exento));
+        conditionVsIvaRadioButton.add((RadioButton)view.findViewById(R.id.partial_condition_vs_iva_rb_cf));
+        conditionVsIvaRadioButton.add((RadioButton)view.findViewById(R.id.partial_condition_vs_iva_rb_ri));
+        conditionVsIvaRadioButton.add((RadioButton)view.findViewById(R.id.partial_condition_vs_iva_rb_mt));
+        conditionVsIvaRadioButton.add((RadioButton)view.findViewById(R.id.partial_condition_vs_iva_rb_ten_fifty));
+        conditionVsIvaRadioButtonsManager.setButtons(conditionVsIvaRadioButton);
+
+        deliveredDocumentsRadioButton = new ArrayList<>();
+        deliveredDocumentsRadioButton.add((RadioButton)view.findViewById(R.id.partial_delivered_documents_cuit));
+        deliveredDocumentsRadioButton.add((RadioButton)view.findViewById(R.id.partial_delivered_documents_iibb));
+        deliveredDocumentsRadioButton.add((RadioButton)view.findViewById(R.id.partial_delivered_documents_dni));
+        deliveredDocumentsRadioButton.add((RadioButton)view.findViewById(R.id.partial_delivered_documents_others));
+        deliveredDocumentsRadioButtonManager.setButtons(deliveredDocumentsRadioButton);
 
         return view;
     }

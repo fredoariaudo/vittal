@@ -18,12 +18,14 @@
         android:layout_marginBottom="@dimen/form_margin_bottom">
 
         <RadioButton
+            android:id="@+id/partial_condition_vs_iva_rb_exento"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="@string/title_exempt" />
 
         <RadioButton
+            android:id="@+id/partial_condition_vs_iva_rb_cf"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -38,12 +40,14 @@
         android:layout_marginBottom="@dimen/form_margin_bottom">
 
         <RadioButton
+            android:id="@+id/partial_condition_vs_iva_rb_ri"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="@string/hint_ri" />
 
         <RadioButton
+            android:id="@+id/partial_condition_vs_iva_rb_mt"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -52,6 +56,7 @@
     </LinearLayout>
 
     <RadioButton
+        android:id="@+id/partial_condition_vs_iva_rb_ten_fifty"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/hint_10_5"
