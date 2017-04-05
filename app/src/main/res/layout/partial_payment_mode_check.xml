@@ -8,6 +8,10 @@
             name="isVisible"
             type="boolean"/>
 
+        <variable
+            name="checkPaymentForm"
+            type="com.prominente.android.vittal.model.CheckPaymentForm"/>
+
     </data>
 
     <LinearLayout
@@ -35,7 +39,8 @@
             android:layout_weight="2"
             android:hint="@string/hint_branch"
             android:layout_marginBottom="@dimen/form_margin_bottom"
-            android:layout_marginRight="@dimen/form_margin_horizontal" />
+            android:layout_marginRight="@dimen/form_margin_horizontal"
+            android:text="@={checkPaymentForm.branch}"/>
 
 
         <EditText
@@ -43,6 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="@string/hint_number"
+            android:text="@={checkPaymentForm.number}"
             android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
     </LinearLayout>
@@ -58,6 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="@string/hint_days"
+            android:text="@={checkPaymentForm.days}"
             android:layout_marginBottom="@dimen/form_margin_bottom"
             android:layout_marginRight="@dimen/form_margin_horizontal" />
 
@@ -67,6 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="@string/hint_date"
+            android:text="@={checkPaymentForm.date}"
             android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
     </LinearLayout>

@@ -13,12 +13,23 @@ public class PaymentForm extends FormModel {
 
     private NowPaymentForm nowPaymentForm;
     private CashPaymentForm cashPaymentForm;
+    private CheckPaymentForm checkPaymentForm;
     int paymentMode;
 
 
     public PaymentForm() {
         cashPaymentForm = new CashPaymentForm();
         nowPaymentForm = new NowPaymentForm();
+        checkPaymentForm = new CheckPaymentForm();
+    }
+
+    @Bindable
+    public CheckPaymentForm getCheckPaymentForm() {
+        return checkPaymentForm;
+    }
+
+    public void setCheckPaymentForm(CheckPaymentForm checkPaymentForm) {
+        this.checkPaymentForm = checkPaymentForm;
     }
 
     @Bindable

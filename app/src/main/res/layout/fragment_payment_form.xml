@@ -48,6 +48,7 @@
                 android:id="@+id/view_check"
                 layout="@layout/partial_payment_mode_check"
                 app:isVisible="@{paymentForm.paymentMode == 3}"
+                app:checkPaymentForm="@={paymentForm.checkPaymentForm}"
                 />
 
             <include

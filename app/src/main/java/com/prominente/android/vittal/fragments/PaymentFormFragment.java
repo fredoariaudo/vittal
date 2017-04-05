@@ -47,7 +47,7 @@ public class PaymentFormFragment extends Fragment {
 
         //
         paymentsMode = new String[] {
-                "Tipo de pago",  "Efectivo", "Contado" ,"Tarjeta de credito/CBU", "Cheque"
+                "Tipo de pago",  "Efectivo", "Contado", "Cheque" ,"Tarjeta de credito/CBU"
         };
 
         paymentsModeSpinners= (Spinner) view.findViewById(R.id.fr_payment_form_spn_payment_mode);
