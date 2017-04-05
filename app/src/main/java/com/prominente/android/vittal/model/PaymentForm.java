@@ -11,10 +11,32 @@ import com.prominente.android.vittal.BR;
 
 public class PaymentForm extends FormModel {
 
+    private NowPaymentForm nowPaymentForm;
+    private CashPaymentForm cashPaymentForm;
     int paymentMode;
 
-    public PaymentForm() {
 
+    public PaymentForm() {
+        cashPaymentForm = new CashPaymentForm();
+        nowPaymentForm = new NowPaymentForm();
+    }
+
+    @Bindable
+    public CashPaymentForm getCashPaymentForm() {
+        return cashPaymentForm;
+    }
+
+    public void setCashPaymentForm(CashPaymentForm cashPaymentForm) {
+        this.cashPaymentForm = cashPaymentForm;
+    }
+
+    @Bindable
+    public NowPaymentForm getNowPaymentForm() {
+        return nowPaymentForm;
+    }
+
+    public void setNowPaymentForm(NowPaymentForm nowPaymentForm) {
+        this.nowPaymentForm = nowPaymentForm;
     }
 
     @Bindable

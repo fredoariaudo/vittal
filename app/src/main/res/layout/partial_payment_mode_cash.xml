@@ -8,6 +8,10 @@
             name="isVisible"
             type="boolean"/>
 
+        <variable
+            name="cashPaymentForm"
+            type="com.prominente.android.vittal.model.CashPaymentForm"/>
+
     </data>
 
     <LinearLayout
@@ -23,7 +27,8 @@
         android:layout_weight="1"
         android:hint="@string/hint_number"
         android:layout_marginBottom="@dimen/form_margin_bottom"
-        android:layout_marginRight="@dimen/form_margin_horizontal" />
+        android:layout_marginRight="@dimen/form_margin_horizontal"
+        android:text="@={cashPaymentForm.number}" />
 
 
     <EditText
@@ -31,6 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:hint="@string/hint_letter"
+        android:text="@={cashPaymentForm.letter}"
         android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
     </LinearLayout>
