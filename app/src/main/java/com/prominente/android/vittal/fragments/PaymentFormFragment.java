@@ -1,7 +1,8 @@
 package com.prominente.android.vittal.fragments;
 
 
-import android.app.MediaRouteButton;
+import android.databinding.DataBindingUtil;
+import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,13 +12,16 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.prominente.android.vittal.BR;
 import com.prominente.android.vittal.R;
+import com.prominente.android.vittal.model.PaymentForm;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class PaymentFormFragment extends Fragment {
 
+    private final PaymentForm paymentForm;
     private String[] paymentsMode;
     private ArrayAdapter<String> adapter;
     private Spinner paymentsModeSpinners;
@@ -29,7 +33,7 @@ public class PaymentFormFragment extends Fragment {
     private View creditCardOrCbuView;
 
     public PaymentFormFragment() {
-        // Required empty public constructor
+        paymentForm = new PaymentForm();
     }
 
     public static PaymentFormFragment newInstance() {
@@ -41,7 +45,11 @@ public class PaymentFormFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_payment_form, container, false);
+        ViewDataBinding binding = DataBindingUtil.inflate(inflater,R.layout.fragment_payment_form, container, false);
+        binding.setVariable(BR.paymentForm,paymentForm);
+        binding.executePendingBindings();
+
+        View view = binding.getRoot();
 
         //View
         inChashView         = view.findViewById(R.id.view_in_cash);

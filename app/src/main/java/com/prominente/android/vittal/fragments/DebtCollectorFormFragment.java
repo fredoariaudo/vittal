@@ -4,21 +4,16 @@ package com.prominente.android.vittal.fragments;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.prominente.android.vittal.BR;
 import com.prominente.android.vittal.R;
-import com.prominente.android.vittal.constants.SaveStateKeys;
 import com.prominente.android.vittal.model.DebtCollectorForm;
-
-import static com.prominente.android.vittal.BR.applicantForm;
 
 /**
  * A simple {@link Fragment} subclass.

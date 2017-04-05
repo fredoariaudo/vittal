@@ -1,68 +1,80 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingTop="20dp"
-    android:paddingLeft="20dp"
-    android:paddingRight="20dp"
-    tools:context="com.prominente.android.vittal.fragments.PaymentFormFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
+    <data>
+        <variable name="paymentForm" type="com.prominente.android.vittal.model.PaymentForm"/>
+    </data>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <Spinner
-            android:id="@+id/fr_payment_form_spn_payment_mode"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/form_margin_bottom"
-            ></Spinner>
-
-        <include
-            android:id="@+id/view_cash"
-            layout="@layout/partial_payment_mode_cash"
-            android:visibility="gone"
-            />
-
-        <include
-            android:id="@+id/view_in_cash"
-            layout="@layout/partial_payment_mode_in_cash"
-            android:visibility="gone"
-            />
-
-        <include
-            android:id="@+id/view_check"
-            layout="@layout/partial_payment_mode_check"
-            android:visibility="gone"
-            />
-
-        <include
-            android:id="@+id/view_credit_card_or_cbu"
-            layout="@layout/partial_payment_mode_credit_card_or_cbu"
-            android:visibility="gone"
-            />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        tools:context="com.prominente.android.vittal.fragments.PaymentFormFragment">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <RadioButton
-                android:layout_width="0dp"
-                android:layout_weight="1"
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/fr_payment_form_spn_payment_mode"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/hint_overdue_month" />
+                android:layout_marginBottom="@dimen/form_margin_bottom"
+                app:selectedValue="@={paymentForm.paymentMode}"
+                />
 
-            <RadioButton
-                android:layout_width="0dp"
-                android:layout_weight="1"
+
+            <include
+                android:id="@+id/view_cash"
+                layout="@layout/partial_payment_mode_cash"
+                android:visibility="gone"
+                />
+
+            <include
+                android:id="@+id/view_in_cash"
+                layout="@layout/partial_payment_mode_in_cash"
+                android:visibility="gone"
+                />
+
+            <include
+                android:id="@+id/view_check"
+                layout="@layout/partial_payment_mode_check"
+                android:visibility="gone"
+                />
+
+            <include
+                android:id="@+id/view_credit_card_or_cbu"
+                layout="@layout/partial_payment_mode_credit_card_or_cbu"
+                android:visibility="gone"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/hint_early_month" />
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hint_overdue_month" />
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hint_early_month" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
-    </LinearLayout>
+    </ScrollView>
 
-</ScrollView>
+</layout>
