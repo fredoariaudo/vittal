@@ -4,10 +4,12 @@ import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 import android.os.BaseBundle;
 
+import org.greenrobot.greendao.annotation.Entity;
+
 /**
  * Created by Pablo Poza on 4/4/2017.
  */
-
+@Entity
 public class DebtCollectorForm extends BaseObservable{
 
     String andStreet;

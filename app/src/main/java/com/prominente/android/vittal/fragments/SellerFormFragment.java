@@ -41,7 +41,7 @@ public class SellerFormFragment extends Fragment {
         sellerForm = new SellerForm();
     }
 
-    public static SellerFormFragment newInstance() {
+    public static SellerFormFragment newInstance(SellerForm sellerForm) {
         SellerFormFragment fragment = new SellerFormFragment();
         return fragment;
     }

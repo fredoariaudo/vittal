@@ -23,7 +23,7 @@ import java.util.List;
 
 public class DebtCollectorFormFragment extends Fragment {
 
-    private final DebtCollectorForm debtCollectorForm;
+    private DebtCollectorForm debtCollectorForm;
     private final RadioButtonsManager conditionVsIvaRadioButtonsManager;
     private String[] locations;
     private Spinner locationsSpinners;
@@ -33,7 +33,6 @@ public class DebtCollectorFormFragment extends Fragment {
     private RadioButtonsManager deliveredDocumentsRadioButtonManager;
 
     public DebtCollectorFormFragment() {
-        debtCollectorForm = new DebtCollectorForm();
 
         conditionVsIvaRadioButtonsManager = new RadioButtonsManager(new RadioButtonsManager.OnRadioButtonSelectedListener() {
             @Override
@@ -51,8 +50,9 @@ public class DebtCollectorFormFragment extends Fragment {
 
     }
 
-    public static DebtCollectorFormFragment newInstance() {
+    public static DebtCollectorFormFragment newInstance(DebtCollectorForm debtCollectorForm) {
         DebtCollectorFormFragment fragment = new DebtCollectorFormFragment();
+        fragment.debtCollectorForm = debtCollectorForm;
         return fragment;
     }
 

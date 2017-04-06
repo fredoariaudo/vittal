@@ -3,10 +3,12 @@ package com.prominente.android.vittal.model;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 
+import org.greenrobot.greendao.annotation.Entity;
+
 /**
  * Created by Pablo Poza on 4/4/2017.
  */
-
+@Entity
 public class SellerForm extends BaseObservable{
 
     private String amountIibb;

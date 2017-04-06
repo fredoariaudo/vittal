@@ -34,6 +34,9 @@ public class NewSaleFormActivity extends NavUpActivity {
 
     private ViewPager mViewPager;
 
+    Sale sale = new Sale();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -134,12 +137,12 @@ public class NewSaleFormActivity extends NavUpActivity {
 
             switch (position) {
 
-                case 0 : return ApplicantFormFragment.newInstance();
-                case 1 : return CoverageFormFragment.newInstance();
-                case 2 : return ModalityFormFragment.newInstance();
-                case 3 : return PaymentFormFragment.newInstance();
-                case 4 : return DebtCollectorFormFragment.newInstance();
-                case 5 : return SellerFormFragment.newInstance();
+                case 0 : return ApplicantFormFragment.newInstance(sale.getApplicantForm());
+                case 1 : return CoverageFormFragment.newInstance(sale.getCoverageForm());
+                case 2 : return ModalityFormFragment.newInstance(sale.getModalityForm());
+                case 3 : return PaymentFormFragment.newInstance(sale.getPaymentForm());
+                case 4 : return DebtCollectorFormFragment.newInstance(sale.getDebtCollectorForm());
+                case 5 : return SellerFormFragment.newInstance(sale.getSellerForm());
             }
 
             return PlaceholderFragment.newInstance(position + 1);
