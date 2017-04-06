@@ -31,8 +31,9 @@ import com.prominente.android.vittal.model.Sale;
 public class NewSaleFormActivity extends NavUpActivity {
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
-
     private ViewPager mViewPager;
+
+    private Sale sale;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,8 @@ public class NewSaleFormActivity extends NavUpActivity {
 
         //Hide actionbar title
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        sale = (Sale) getIntent().getSerializableExtra(ExtraKeys.SALE);
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -77,8 +80,26 @@ public class NewSaleFormActivity extends NavUpActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra(ExtraKeys.SALE, sale);
+
         switch (item.getItemId())
         {
+            case R.id.action_sales_delete:
+                setResult(RESULT_OK, resultIntent);
+                finish();
+                return true;
+
+            case R.id.action_sales_edit:
+                setResult(RESULT_OK, resultIntent);
+                finish();
+                return true;
+
+            case R.id.action_sales_send:
+                setResult(RESULT_OK, resultIntent);
+                finish();
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }

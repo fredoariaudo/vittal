@@ -125,13 +125,18 @@ public class SalesFragment extends Fragment implements RvAdapterListener
     {
         if(resultCode == Activity.RESULT_OK)
         {
+            Sale sale;
+
             switch (requestCode)
             {
                 case RequestCodes.REQUEST_NEW_SALE:
-                    Sale sale = (Sale) data.getSerializableExtra(ExtraKeys.SALE);
+                    sale = (Sale) data.getSerializableExtra(ExtraKeys.SALE);
                     //TODO: Revisar esto despues, se coloca un id al nuevo elemento
                     sale.setId(newItemId++);
                     adapter.add(sale);
+                    break;
+
+                case RequestCodes.REQUEST_MODIFY_SALE:
                     break;
 
                 default:
@@ -150,7 +155,9 @@ public class SalesFragment extends Fragment implements RvAdapterListener
         else
         {
             Intent intent = new Intent(getContext(), NewSaleFormActivity.class);
-            startActivity(intent);
+            Sale sale = adapter.getItems().get(itemPosition);
+            intent.putExtra(ExtraKeys.SALE, sale);
+            startActivityForResult(intent, RequestCodes.REQUEST_MODIFY_SALE);
         }
     }
 

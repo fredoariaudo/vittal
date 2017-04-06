@@ -15,29 +15,27 @@
     </data>
 
     <LinearLayout
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:visibility="@{isVisible ? View.VISIBLE : View.GONE}">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:visibility="@{isVisible ? View.VISIBLE : View.GONE}">
 
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/hint_number"
+            android:layout_marginBottom="@dimen/form_margin_bottom"
+            android:layout_marginRight="@dimen/form_margin_horizontal"
+            android:text="@={cashPaymentForm.number}" />
 
-    <EditText
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:hint="@string/hint_number"
-        android:layout_marginBottom="@dimen/form_margin_bottom"
-        android:layout_marginRight="@dimen/form_margin_horizontal"
-        android:text="@={cashPaymentForm.number}" />
-
-
-    <EditText
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:hint="@string/hint_letter"
-        android:text="@={cashPaymentForm.letter}"
-        android:layout_marginBottom="@dimen/form_margin_bottom"/>
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/hint_letter"
+            android:text="@={cashPaymentForm.letter}"
+            android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
     </LinearLayout>
 
