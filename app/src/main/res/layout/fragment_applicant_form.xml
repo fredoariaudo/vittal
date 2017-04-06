@@ -6,110 +6,104 @@
         <variable name="applicantForm" type="com.prominente.android.vittal.model.ApplicantForm"/>
     </data>
 
-
-    <ScrollView
-        android:paddingTop="20dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context="com.prominente.android.vittal.fragments.ApplicantFormFragment">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <android.support.v7.widget.AppCompatSpinner
-            android:id="@+id/fr_applicant_form_spn_protected_area_code"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/form_margin_bottom"
-            app:selectedValue="@={applicantForm.plan}"
-            />
+            android:padding="@dimen/activity_horizontal_margin"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/fr_applicant_form_btn_pick_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@={applicantForm.date}"
-            android:layout_marginBottom="@dimen/form_margin_bottom"/>
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/fr_applicant_form_spn_protected_area_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/form_margin_bottom"
+                app:selectedValue="@={applicantForm.plan}"/>
 
-        <EditText
-            android:id="@+id/fr_applicant_form_et_razon_social"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_razon_social"
-            android:text="@={applicantForm.razonSocial}"
-            android:layout_marginBottom="@dimen/form_margin_bottom"/>
+            <Button
+                android:id="@+id/fr_applicant_form_btn_pick_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={applicantForm.date}"
+                android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
+            <EditText
+                android:id="@+id/fr_applicant_form_et_razon_social"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_razon_social"
+                android:text="@={applicantForm.razonSocial}"
+                android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
-        <EditText
-            android:id="@+id/fr_applicant_form_et_fantasy_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_fantasy_name"
-            android:text="@={applicantForm.fantasyName}"
-            android:layout_marginBottom="@dimen/form_margin_bottom"/>
+            <EditText
+                android:id="@+id/fr_applicant_form_et_fantasy_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_fantasy_name"
+                android:text="@={applicantForm.fantasyName}"
+                android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
-        <EditText
-            android:id="@+id/fr_applicant_form_et_cuit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_number_cuit"
-            android:text="@={applicantForm.cuit}"
-            android:layout_marginBottom="@dimen/form_margin_bottom"/>
+            <EditText
+                android:id="@+id/fr_applicant_form_et_cuit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_number_cuit"
+                android:text="@={applicantForm.cuit}"
+                android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
-        <EditText
-            android:id="@+id/fr_applicant_form_et_address"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_address"
-            android:text="@={applicantForm.address}"
-            android:layout_marginBottom="@dimen/form_margin_bottom"/>
+            <EditText
+                android:id="@+id/fr_applicant_form_et_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_address"
+                android:text="@={applicantForm.address}"
+                android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
-        <EditText
-            android:id="@+id/fr_applicant_form_et_cp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_cp"
-            android:layout_marginBottom="@dimen/form_margin_bottom"/>
+            <EditText
+                android:id="@+id/fr_applicant_form_et_cp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_cp"
+                android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
-        <EditText
-            android:id="@+id/fr_applicant_form_et_phones"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_phones"
-            android:text="@={applicantForm.phones}"
-            android:layout_marginBottom="@dimen/form_margin_bottom"/>
+            <EditText
+                android:id="@+id/fr_applicant_form_et_phones"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_phones"
+                android:text="@={applicantForm.phones}"
+                android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
-        <EditText
-            android:id="@+id/fr_applicant_form_et_cellphones"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_cell_phones"
-            android:layout_marginBottom="@dimen/form_margin_bottom"/>
+            <EditText
+                android:id="@+id/fr_applicant_form_et_cellphones"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_cell_phones"
+                android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
-        <EditText
-            android:id="@+id/fr_applicant_form_et_fax"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_fax"
-            android:text="@={applicantForm.fax}"
-            android:layout_marginBottom="@dimen/form_margin_bottom"/>
+            <EditText
+                android:id="@+id/fr_applicant_form_et_fax"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_fax"
+                android:text="@={applicantForm.fax}"
+                android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
+            <EditText
+                android:id="@+id/fr_applicant_form_et_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/email"
+                android:text="@={applicantForm.email}"
+                android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
-        <EditText
-            android:id="@+id/fr_applicant_form_et_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/email"
-            android:text="@={applicantForm.email}"
-            android:layout_marginBottom="@dimen/form_margin_bottom"/>
+        </LinearLayout>
 
-    </LinearLayout>
-
-</ScrollView>
+    </android.support.v4.widget.NestedScrollView>
 
 </layout>
