@@ -1,13 +1,55 @@
 package com.prominente.android.vittal.model;
 
+import org.greenrobot.greendao.annotation.Entity;
+
 import java.io.Serializable;
 
+@Entity
 public class Sale implements Serializable
 {
     private long id;
     private String client;
     private String area;
     private String address;
+    private ApplicantForm applicantForm ;
+    private CoverageForm coverageForm;
+    private DebtCollectorForm debtCollectorForm;
+    private ModalityForm modalityForm;
+    private PaymentForm paymentForm;
+    private SellerForm sellerForm;
+
+    public Sale() {
+        applicantForm  = new ApplicantForm();
+        coverageForm = new CoverageForm();
+        debtCollectorForm =  new DebtCollectorForm();
+        modalityForm = new ModalityForm();
+        paymentForm = new PaymentForm();
+        sellerForm  = new SellerForm();
+    }
+
+    public ApplicantForm getApplicantForm() {
+        return applicantForm;
+    }
+
+    public CoverageForm getCoverageForm() {
+        return coverageForm;
+    }
+
+    public DebtCollectorForm getDebtCollectorForm() {
+        return debtCollectorForm;
+    }
+
+    public ModalityForm getModalityForm() {
+        return modalityForm;
+    }
+
+    public PaymentForm getPaymentForm() {
+        return paymentForm;
+    }
+
+    public SellerForm getSellerForm() {
+        return sellerForm;
+    }
 
     public long getId() {
         return id;

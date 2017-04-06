@@ -31,6 +31,7 @@ import com.prominente.android.vittal.model.Sale;
 public class NewSaleFormActivity extends NavUpActivity {
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
+
     private ViewPager mViewPager;
 
     private Sale sale;

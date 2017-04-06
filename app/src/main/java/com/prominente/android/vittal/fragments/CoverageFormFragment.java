@@ -13,6 +13,7 @@ import android.widget.Spinner;
 
 import com.prominente.android.vittal.BR;
 import com.prominente.android.vittal.R;
+import com.prominente.android.vittal.model.ApplicantForm;
 import com.prominente.android.vittal.model.CoverageForm;
 
 /**
@@ -21,7 +22,7 @@ import com.prominente.android.vittal.model.CoverageForm;
 public class CoverageFormFragment extends Fragment {
 
 
-    private final CoverageForm coverageForm;
+    private CoverageForm coverageForm;
     private String[] covergaTypes;
     private Spinner coverageTypesSpinner;
     private Spinner locationsSpinners;
@@ -30,15 +31,13 @@ public class CoverageFormFragment extends Fragment {
     private ArrayAdapter<String> covergaTypesAdapter;
     private ArrayAdapter<String> locationsAdapter;
 
-    public static CoverageFormFragment newInstance() {
-        Bundle args = new Bundle();
+    public static CoverageFormFragment newInstance(CoverageForm coverageForm) {
         CoverageFormFragment fragment = new CoverageFormFragment();
-        fragment.setArguments(args);
+        fragment.coverageForm = coverageForm;
         return fragment;
     }
 
     public CoverageFormFragment() {
-        coverageForm = new CoverageForm();
     }
 
 

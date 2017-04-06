@@ -30,7 +30,6 @@ public class ModalityFormFragment extends Fragment {
     private List<RadioButton> typesRadioButtons;
 
     public ModalityFormFragment() {
-        modalityForm = new ModalityForm();
         modalitiesRadioButtonsManager = new RadioButtonsManager(new RadioButtonsManager.OnRadioButtonSelectedListener() {
             @Override
             public void onRadioButtonSelected(int index) {
@@ -47,8 +46,9 @@ public class ModalityFormFragment extends Fragment {
 
     }
 
-    public static ModalityFormFragment newInstance() {
+    public static ModalityFormFragment newInstance(ModalityForm modalityForm) {
         ModalityFormFragment fragment = new ModalityFormFragment();
+        fragment.modalityForm = modalityForm;
         return fragment;
     }
 

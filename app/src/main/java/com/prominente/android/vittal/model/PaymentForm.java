@@ -4,10 +4,12 @@ import android.databinding.Bindable;
 
 import com.prominente.android.vittal.BR;
 
+import org.greenrobot.greendao.annotation.Entity;
+
 /**
  * Created by Pablo Poza on 4/4/2017.
  */
-
+@Entity
 public class PaymentForm extends FormModel {
 
     private NowPaymentForm nowPaymentForm;

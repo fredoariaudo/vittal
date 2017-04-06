@@ -25,7 +25,7 @@ import java.util.ArrayList;
  */
 public class PaymentFormFragment extends Fragment {
 
-    private final PaymentForm paymentForm;
+    private PaymentForm paymentForm;
     private String[] paymentsMode;
     private ArrayAdapter<String> adapter;
     private Spinner paymentsModeSpinners;
@@ -33,8 +33,6 @@ public class PaymentFormFragment extends Fragment {
     private RadioButtonsManager paymentExpirationDateRadioButtonsManager;
 
     public PaymentFormFragment() {
-        paymentForm = new PaymentForm();
-
 
         paymentExpirationDateRadioButtonsManager = new RadioButtonsManager(new RadioButtonsManager.OnRadioButtonSelectedListener() {
             @Override
@@ -44,10 +42,9 @@ public class PaymentFormFragment extends Fragment {
         });
     }
 
-    public static PaymentFormFragment newInstance() {
+    public static PaymentFormFragment newInstance(PaymentForm paymentForm) {
         PaymentFormFragment fragment = new PaymentFormFragment();
-
-
+        fragment.paymentForm = paymentForm;
         return fragment;
     }
 
