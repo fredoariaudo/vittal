@@ -15,6 +15,7 @@ public class PaymentForm extends FormModel {
     private CheckPaymentForm checkPaymentForm;
     private CreditCardOrCbuPaymentForm creditCardOrCbuPaymentForm;
     int paymentMode;
+    int expirationPayment;
 
 
     public PaymentForm() {
@@ -22,6 +23,14 @@ public class PaymentForm extends FormModel {
         nowPaymentForm = new NowPaymentForm();
         checkPaymentForm = new CheckPaymentForm();
         creditCardOrCbuPaymentForm = new CreditCardOrCbuPaymentForm();
+    }
+
+    public int getExpirationPayment() {
+        return expirationPayment;
+    }
+
+    public void setExpirationPayment(int expirationPayment) {
+        this.expirationPayment = expirationPayment;
     }
 
     @Bindable

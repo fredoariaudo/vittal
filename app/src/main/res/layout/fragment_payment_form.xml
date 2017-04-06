@@ -64,12 +64,14 @@
                 android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/fr_payment_form_rb_overdue_month"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="@string/hint_overdue_month" />
 
                 <RadioButton
+                    android:id="@+id/fr_payment_form_rb_early_month"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"

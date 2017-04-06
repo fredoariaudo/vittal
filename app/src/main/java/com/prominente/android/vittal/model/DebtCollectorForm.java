@@ -20,7 +20,35 @@ public class DebtCollectorForm extends BaseObservable{
     String observations;
     String phones;
     String street;
+    String others;
     int location;
+    int conditionVsIva;
+    int deliverDocuments;
+
+    public int getConditionVsIva() {
+        return conditionVsIva;
+    }
+
+    public void setConditionVsIva(int conditionVsIva) {
+        this.conditionVsIva = conditionVsIva;
+    }
+
+    public int getDeliverDocuments() {
+        return deliverDocuments;
+    }
+
+    public void setDeliverDocuments(int deliverDocuments) {
+        this.deliverDocuments = deliverDocuments;
+    }
+
+    @Bindable
+    public String getOthers() {
+        return others;
+    }
+
+    public void setOthers(String others) {
+        this.others = others;
+    }
 
     @Bindable
     public String getAndStreet() {

@@ -10,11 +10,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 
 import com.prominente.android.vittal.BR;
 import com.prominente.android.vittal.R;
 import com.prominente.android.vittal.model.PaymentForm;
+import com.prominente.android.vittal.views.RadioButtonsManager;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,13 +29,25 @@ public class PaymentFormFragment extends Fragment {
     private String[] paymentsMode;
     private ArrayAdapter<String> adapter;
     private Spinner paymentsModeSpinners;
+    private ArrayList<RadioButton> paymentExpirationDateRadioButtons;
+    private RadioButtonsManager paymentExpirationDateRadioButtonsManager;
 
     public PaymentFormFragment() {
         paymentForm = new PaymentForm();
+
+
+        paymentExpirationDateRadioButtonsManager = new RadioButtonsManager(new RadioButtonsManager.OnRadioButtonSelectedListener() {
+            @Override
+            public void onRadioButtonSelected(int index) {
+                paymentForm.setExpirationPayment(index);
+            }
+        });
     }
 
     public static PaymentFormFragment newInstance() {
         PaymentFormFragment fragment = new PaymentFormFragment();
+
+
         return fragment;
     }
 
@@ -54,6 +70,11 @@ public class PaymentFormFragment extends Fragment {
         adapter = new ArrayAdapter<>(getContext(),
                 android.R.layout.simple_spinner_item, paymentsMode);
         paymentsModeSpinners.setAdapter(adapter);
+
+        paymentExpirationDateRadioButtons = new ArrayList<>();
+        paymentExpirationDateRadioButtons.add((RadioButton)view.findViewById(R.id.fr_payment_form_rb_overdue_month));
+        paymentExpirationDateRadioButtons.add((RadioButton)view.findViewById(R.id.fr_payment_form_rb_early_month));
+        paymentExpirationDateRadioButtonsManager.setButtons(paymentExpirationDateRadioButtons);
 
         return view;
     }

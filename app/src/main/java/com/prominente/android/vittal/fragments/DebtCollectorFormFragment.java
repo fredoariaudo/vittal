@@ -38,14 +38,14 @@ public class DebtCollectorFormFragment extends Fragment {
         conditionVsIvaRadioButtonsManager = new RadioButtonsManager(new RadioButtonsManager.OnRadioButtonSelectedListener() {
             @Override
             public void onRadioButtonSelected(int index) {
-
+                debtCollectorForm.setConditionVsIva(index);
             }
         });
 
         deliveredDocumentsRadioButtonManager = new RadioButtonsManager(new RadioButtonsManager.OnRadioButtonSelectedListener() {
             @Override
             public void onRadioButtonSelected(int index) {
-
+                debtCollectorForm.setDeliverDocuments(index);
             }
         });
 
