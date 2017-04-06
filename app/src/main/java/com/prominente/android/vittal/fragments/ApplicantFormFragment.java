@@ -16,18 +16,26 @@ import android.support.v7.widget.AppCompatSpinner;
 
 import com.prominente.android.vittal.R;
 import com.prominente.android.vittal.BR;
+import com.prominente.android.vittal.application.VittalApplication;
 import com.prominente.android.vittal.model.ApplicantForm;
+import com.prominente.android.vittal.model.ApplicantFormDao;
+import com.prominente.android.vittal.model.DaoSession;
+
+import java.util.List;
 
 
 public class ApplicantFormFragment extends Fragment implements DatePickerDialog.OnDateSetListener {
 
 
-    private final ApplicantForm applicantForm;
+    private ApplicantForm applicantForm;
+    private ApplicantFormDao applicantFormDao;
     private String[] arraySpinner;
 
     public ApplicantFormFragment() {
+
         // Required empty public constructor
         applicantForm = new ApplicantForm();
+
     }
 
     public static ApplicantFormFragment newInstance() {
@@ -55,7 +63,7 @@ public class ApplicantFormFragment extends Fragment implements DatePickerDialog.
         pickDateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new DatePickerDialog(getContext(),ApplicantFormFragment.this, 1,2,2017).show();
+                new DatePickerDialog(getContext(),ApplicantFormFragment.this, 2011,1,1).show();
             }
         });
 
@@ -76,5 +84,7 @@ public class ApplicantFormFragment extends Fragment implements DatePickerDialog.
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
         applicantForm.setDate(dayOfMonth + "/" + (month  + 1)+ "/" + year);
     }
+
+
 
 }

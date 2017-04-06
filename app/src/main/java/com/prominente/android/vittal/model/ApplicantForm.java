@@ -3,10 +3,14 @@ package com.prominente.android.vittal.model;
 import android.databinding.Bindable;
 import com.prominente.android.vittal.BR;
 
+import org.greenrobot.greendao.annotation.Entity;
+import org.greenrobot.greendao.annotation.Generated;
+
 /**
  * Created by Pablo Poza on 4/4/2017.
  */
 
+@Entity
 public class ApplicantForm extends FormModel{
 
     private String razonSocial;
@@ -20,6 +24,27 @@ public class ApplicantForm extends FormModel{
     private String phones;
     private String date = "dd/mm/aaaa";
     private int plan;
+
+    @Generated(hash = 853230720)
+    public ApplicantForm(String razonSocial, String address, String cellpones,
+            String cp, String cuit, String email, String fantasyName, String fax,
+            String phones, String date, int plan) {
+        this.razonSocial = razonSocial;
+        this.address = address;
+        this.cellpones = cellpones;
+        this.cp = cp;
+        this.cuit = cuit;
+        this.email = email;
+        this.fantasyName = fantasyName;
+        this.fax = fax;
+        this.phones = phones;
+        this.date = date;
+        this.plan = plan;
+    }
+
+    @Generated(hash = 201606879)
+    public ApplicantForm() {
+    }
 
     @Bindable
     public String getDate() {
