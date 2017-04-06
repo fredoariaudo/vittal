@@ -33,7 +33,7 @@
             android:id="@+id/fr_applicant_form_btn_pick_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="dd/mm/aaaa"
+            android:text="@={applicantForm.date}"
             android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
         <EditText

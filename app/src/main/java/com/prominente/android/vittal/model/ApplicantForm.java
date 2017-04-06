@@ -1,7 +1,7 @@
 package com.prominente.android.vittal.model;
 
-import android.databinding.BaseObservable;
 import android.databinding.Bindable;
+import com.prominente.android.vittal.BR;
 
 /**
  * Created by Pablo Poza on 4/4/2017.
@@ -18,7 +18,18 @@ public class ApplicantForm extends FormModel{
     private String fantasyName;
     private String fax;
     private String phones;
+    private String date = "dd/mm/aaaa";
     private int plan;
+
+    @Bindable
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+        notifyPropertyChanged(BR.date);
+    }
 
     @Bindable
     public int getPlan() {
