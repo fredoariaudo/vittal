@@ -7,18 +7,16 @@
         <variable name="paymentForm" type="com.prominente.android.vittal.model.PaymentForm"/>
     </data>
 
-    <ScrollView
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingTop="20dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
         tools:context="com.prominente.android.vittal.fragments.PaymentFormFragment">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="@dimen/activity_horizontal_margin"
             android:orientation="vertical">
 
             <android.support.v7.widget.AppCompatSpinner
@@ -26,9 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/form_margin_bottom"
-                app:selectedValue="@={paymentForm.paymentMode}"
-                />
-
+                app:selectedValue="@={paymentForm.paymentMode}"/>
 
             <include
                 android:id="@+id/view_cash"
@@ -36,27 +32,23 @@
                 app:isVisible="@{paymentForm.paymentMode == 1}"
                 app:cashPaymentForm="@={paymentForm.cashPaymentForm}"/>
 
-
             <include
                 android:id="@+id/view_now"
                 layout="@layout/partial_payment_mode_now"
                 app:isVisible="@{paymentForm.paymentMode == 2}"
-                app:nowPaymentForm="@={paymentForm.nowPaymentForm}"
-                />
+                app:nowPaymentForm="@={paymentForm.nowPaymentForm}"/>
 
             <include
                 android:id="@+id/view_check"
                 layout="@layout/partial_payment_mode_check"
                 app:isVisible="@{paymentForm.paymentMode == 3}"
-                app:checkPaymentForm="@={paymentForm.checkPaymentForm}"
-                />
+                app:checkPaymentForm="@={paymentForm.checkPaymentForm}"/>
 
             <include
                 android:id="@+id/view_credit_card_or_cbu"
                 layout="@layout/partial_payment_mode_credit_card_or_cbu"
                 app:isVisible="@{paymentForm.paymentMode == 4}"
-                app:creditCardOrCbuPaymentForm="@{paymentForm.creditCardOrCbuPaymentForm}"
-                />
+                app:creditCardOrCbuPaymentForm="@{paymentForm.creditCardOrCbuPaymentForm}"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -81,6 +73,6 @@
 
         </LinearLayout>
 
-    </ScrollView>
+    </android.support.v4.widget.NestedScrollView>
 
 </layout>
