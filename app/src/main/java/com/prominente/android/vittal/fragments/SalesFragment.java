@@ -3,7 +3,9 @@ package com.prominente.android.vittal.fragments;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.BaseTransientBottomBar;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -28,6 +30,7 @@ import com.prominente.android.vittal.constants.RequestCodes;
 import com.prominente.android.vittal.dataprovider.DummyDataProvider;
 import com.prominente.android.vittal.model.Sale;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SalesFragment extends Fragment implements RvAdapterListener
@@ -35,6 +38,8 @@ public class SalesFragment extends Fragment implements RvAdapterListener
     private static int newItemId = 1000;
 
     private View rootView;
+    private RecyclerView rv_sales;
+    private LinearLayoutManager rvLayoutManager;
     private SalesRvAdapter adapter;
     private FloatingActionButton fab_sales_add;
     private ActionMode actionMode;
@@ -45,8 +50,9 @@ public class SalesFragment extends Fragment implements RvAdapterListener
     {
         rootView = inflater.inflate(R.layout.fragment_sales, container, false);
 
-        RecyclerView rv_sales = (RecyclerView) rootView.findViewById(R.id.rv_sales);
-        rv_sales.setLayoutManager(new LinearLayoutManager(getContext()));
+        rv_sales = (RecyclerView) rootView.findViewById(R.id.rv_sales);
+        rvLayoutManager = new LinearLayoutManager(getContext());
+        rv_sales.setLayoutManager(rvLayoutManager);
         rv_sales.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
 
         adapter = new SalesRvAdapter(this);
@@ -178,13 +184,56 @@ public class SalesFragment extends Fragment implements RvAdapterListener
 
     private void removeSelected()
     {
+        //Get selected items ordered in reverse order to prevent IndexOutOfBoundsException on delete
         final List<Integer> selectedItems = adapter.getSelectedItems(true, true);
+        //Save deleted items to restore on undo
+        final ArrayList<Sale> deletedItems = new ArrayList<Sale>();
+        //Save deleted items original indexes to restore on undo
+        final ArrayList<Integer> deletedItemsOriginalIndexes = new ArrayList<Integer>();
+        //RecyclerView first item position
+        final int actualScroll = rvLayoutManager.findFirstVisibleItemPosition();
+        //RecyclerView actual scroll offset
+        final int actualScrollOffset = rv_sales.getChildAt(0) == null ? 0 : (rv_sales.getChildAt(0).getTop() - rv_sales.getPaddingTop());
 
         for(int selectedItem: selectedItems)
         {
-            //TODO: Remove item from actual data
-            Sale sale = adapter.remove(selectedItem);
+            Sale sale = adapter.getItems().get(selectedItem);
+            deletedItems.add(sale);
+            deletedItemsOriginalIndexes.add(adapter.originalIndexOf(sale));
+            adapter.remove(selectedItem);
         }
+
+        Snackbar snackbar = Snackbar.make(rootView, getResources().getQuantityString(R.plurals.sales_deleted, selectedItems.size(), selectedItems.size()), Snackbar.LENGTH_SHORT);
+        snackbar.setAction(R.string.undo, new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                //Reverse add to prevent IndexOutOfBoundsException
+                for(int i=selectedItems.size()-1; i>=0; i--)
+                {
+                    adapter.add(deletedItemsOriginalIndexes.get(i), selectedItems.get(i), deletedItems.get(i));
+                }
+                //Restore scroll position to original before remove
+                rvLayoutManager.scrollToPositionWithOffset(actualScroll, actualScrollOffset);
+            }
+        });
+        snackbar.addCallback(new BaseTransientBottomBar.BaseCallback<Snackbar>() {
+            @Override
+            public void onDismissed(Snackbar transientBottomBar, int event)
+            {
+                if(event != DISMISS_EVENT_ACTION) //Undo not pressed
+                {
+                    //TODO: Remover items de la base de datos
+                }
+            }
+
+            @Override
+            public void onShown(Snackbar transientBottomBar)
+            {
+                super.onShown(transientBottomBar);
+            }
+        });
+        snackbar.show();
     }
 
     private void startNewSaleForm()
