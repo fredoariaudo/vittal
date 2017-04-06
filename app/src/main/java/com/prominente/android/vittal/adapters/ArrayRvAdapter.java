@@ -14,6 +14,12 @@ public abstract class ArrayRvAdapter<T> extends RecyclerView.Adapter<RecyclerVie
         notifyItemInserted(this.items.size() - 1);
     }
 
+    public void add(int position, T item)
+    {
+        this.items.add(position, item);
+        notifyItemInserted(position);
+    }
+
     public void addAll(ArrayList<T> items)
     {
         this.items.addAll(items);

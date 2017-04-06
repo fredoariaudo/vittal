@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="sales_deleted">
+        <item quantity="one">%d venta elminada</item>
+        <item quantity="other">%d  ventas eliminadas</item>
+    </plurals>
+</resources>
