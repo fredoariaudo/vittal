@@ -3,9 +3,6 @@ package com.prominente.android.vittal.activities;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -21,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.prominente.android.vittal.R;
+import com.prominente.android.vittal.components.NavUpActivity;
 import com.prominente.android.vittal.constants.ExtraKeys;
 import com.prominente.android.vittal.fragments.ApplicantFormFragment;
 import com.prominente.android.vittal.fragments.CoverageFormFragment;
@@ -30,7 +28,7 @@ import com.prominente.android.vittal.fragments.PaymentFormFragment;
 import com.prominente.android.vittal.fragments.SellerFormFragment;
 import com.prominente.android.vittal.model.Sale;
 
-public class NewSaleFormActivity extends AppCompatActivity {
+public class NewSaleFormActivity extends NavUpActivity {
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
@@ -39,14 +37,10 @@ public class NewSaleFormActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_sale_form);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //Hide actionbar title
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_TITLE);
-        }
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -69,25 +63,25 @@ public class NewSaleFormActivity extends AppCompatActivity {
     }
 
     @Override
+    protected int getContentView()
+    {
+        return R.layout.activity_new_sale_form;
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_new_sale_form, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId())
+        {
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 
     private void saveSale()
@@ -128,7 +122,6 @@ public class NewSaleFormActivity extends AppCompatActivity {
             return rootView;
         }
     }
-
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 

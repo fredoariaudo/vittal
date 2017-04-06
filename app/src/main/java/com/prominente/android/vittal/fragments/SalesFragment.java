@@ -263,12 +263,12 @@ public class SalesFragment extends Fragment implements RvAdapterListener
             //Change select/unselect all action text and icon
             if(adapter.getSelectedItemCount() == adapter.getItemCount())
             {
-                menu.findItem(R.id.action_select_unselect_all).setTitle(getString(R.string.unselect_all));
+                menu.findItem(R.id.action_select_unselect_all).setTitle(R.string.unselect_all);
                 menu.findItem(R.id.action_select_unselect_all).setIcon(R.drawable.ic_check_box_outline_blank_white_24dp);
             }
             else
             {
-                menu.findItem(R.id.action_select_unselect_all).setTitle(getString(R.string.select_all));
+                menu.findItem(R.id.action_select_unselect_all).setTitle(R.string.select_all);
                 menu.findItem(R.id.action_select_unselect_all).setIcon(R.drawable.ic_check_box_white_24dp);
             }
 
