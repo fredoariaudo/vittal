@@ -4,16 +4,16 @@ import android.databinding.Bindable;
 
 import com.prominente.android.vittal.interfaces.Formeable;
 
-import org.greenrobot.greendao.annotation.Entity;
-
 /**
  * Created by Pablo Poza on 5/4/2017.
  */
-@Entity
+
 public class CashPaymentForm extends FormModel implements Formeable {
+
 
     String number;
     String letter;
+
 
     @Bindable
     public String getNumber() {
@@ -37,4 +37,8 @@ public class CashPaymentForm extends FormModel implements Formeable {
     public boolean isValid() {
         return false;
     }
+
+
+
+
 }

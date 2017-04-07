@@ -4,12 +4,11 @@ import android.databinding.Bindable;
 
 import com.prominente.android.vittal.interfaces.Formeable;
 
-import org.greenrobot.greendao.annotation.Entity;
 
 /**
  * Created by Pablo Poza on 5/4/2017.
  */
-@Entity
+
 public class CreditCardOrCbuPaymentForm extends FormModel implements Formeable {
 
     String name;
@@ -21,7 +20,6 @@ public class CreditCardOrCbuPaymentForm extends FormModel implements Formeable {
     String cuit;
     String nroCupon;
     String paymentAmount;
-
 
     @Bindable
     public String getName() {

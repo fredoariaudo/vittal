@@ -4,21 +4,16 @@ import android.databinding.Bindable;
 
 import com.prominente.android.vittal.BR;
 
-import org.greenrobot.greendao.annotation.Entity;
 
-/**
- * Created by Pablo Poza on 4/4/2017.
- */
-@Entity
-public class PaymentForm extends FormModel {
+public class PaymentForm extends SaleSubFormModel {
 
-    private NowPaymentForm nowPaymentForm;
     private CashPaymentForm cashPaymentForm;
+    private NowPaymentForm nowPaymentForm;
     private CheckPaymentForm checkPaymentForm;
     private CreditCardOrCbuPaymentForm creditCardOrCbuPaymentForm;
+
     int paymentMode;
     int expirationPayment;
-
 
     public PaymentForm() {
         cashPaymentForm = new CashPaymentForm();
@@ -27,12 +22,25 @@ public class PaymentForm extends FormModel {
         creditCardOrCbuPaymentForm = new CreditCardOrCbuPaymentForm();
     }
 
+
+
+
+    @Bindable
     public int getExpirationPayment() {
         return expirationPayment;
     }
 
     public void setExpirationPayment(int expirationPayment) {
         this.expirationPayment = expirationPayment;
+    }
+
+    @Bindable
+    public CashPaymentForm getCashPaymentForm() {
+        return cashPaymentForm;
+    }
+
+    public void setCashPaymentForm(CashPaymentForm cashPaymentForm) {
+        this.cashPaymentForm = cashPaymentForm;
     }
 
     @Bindable
@@ -53,14 +61,6 @@ public class PaymentForm extends FormModel {
         this.checkPaymentForm = checkPaymentForm;
     }
 
-    @Bindable
-    public CashPaymentForm getCashPaymentForm() {
-        return cashPaymentForm;
-    }
-
-    public void setCashPaymentForm(CashPaymentForm cashPaymentForm) {
-        this.cashPaymentForm = cashPaymentForm;
-    }
 
     @Bindable
     public NowPaymentForm getNowPaymentForm() {
@@ -85,4 +85,5 @@ public class PaymentForm extends FormModel {
     public boolean isValid() {
         return false;
     }
+
 }

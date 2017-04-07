@@ -1,16 +1,12 @@
 package com.prominente.android.vittal.model;
 
-import android.databinding.BaseObservable;
 import android.databinding.Bindable;
-import android.os.BaseBundle;
-
-import org.greenrobot.greendao.annotation.Entity;
 
 /**
  * Created by Pablo Poza on 4/4/2017.
- */
-@Entity
-public class DebtCollectorForm extends BaseObservable{
+*/
+
+public class DebtCollectorForm extends SaleSubFormModel{
 
     String andStreet;
     String betweenStreet;
@@ -26,6 +22,8 @@ public class DebtCollectorForm extends BaseObservable{
     int location;
     int conditionVsIva;
     int deliverDocuments;
+
+
 
     public int getConditionVsIva() {
         return conditionVsIva;
@@ -149,5 +147,10 @@ public class DebtCollectorForm extends BaseObservable{
 
     public void setLocation(int location) {
         this.location = location;
+    }
+
+    @Override
+    public boolean isValid() {
+        return false;
     }
 }

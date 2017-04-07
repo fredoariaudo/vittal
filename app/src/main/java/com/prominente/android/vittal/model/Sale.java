@@ -1,16 +1,11 @@
 package com.prominente.android.vittal.model;
 
-import org.greenrobot.greendao.annotation.Entity;
-
-import java.io.Serializable;
-
-@Entity
-public class Sale implements Serializable
+public class Sale extends FormModel
 {
-    private long id;
     private String client;
     private String area;
     private String address;
+
     private ApplicantForm applicantForm ;
     private CoverageForm coverageForm;
     private DebtCollectorForm debtCollectorForm;
@@ -19,7 +14,7 @@ public class Sale implements Serializable
     private SellerForm sellerForm;
 
     public Sale() {
-        applicantForm  = new ApplicantForm();
+        applicantForm = new ApplicantForm();
         coverageForm = new CoverageForm();
         debtCollectorForm =  new DebtCollectorForm();
         modalityForm = new ModalityForm();
@@ -51,13 +46,6 @@ public class Sale implements Serializable
         return sellerForm;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getClient() {
         return client;
@@ -84,8 +72,7 @@ public class Sale implements Serializable
     }
 
     @Override
-    public boolean equals(Object obj)
-    {
-        return obj instanceof Sale && ((Sale) obj).getId() == this.getId();
+    public boolean isValid() {
+        return false;
     }
 }

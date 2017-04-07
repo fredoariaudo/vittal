@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.prominente.android.vittal.R;
+import com.prominente.android.vittal.application.VittalApplication;
 import com.prominente.android.vittal.components.NavUpActivity;
 import com.prominente.android.vittal.constants.ExtraKeys;
 import com.prominente.android.vittal.fragments.ApplicantFormFragment;
@@ -27,6 +28,8 @@ import com.prominente.android.vittal.fragments.ModalityFormFragment;
 import com.prominente.android.vittal.fragments.PaymentFormFragment;
 import com.prominente.android.vittal.fragments.SellerFormFragment;
 import com.prominente.android.vittal.model.Sale;
+
+import java.io.FileOutputStream;
 
 public class NewSaleFormActivity extends NavUpActivity {
 
@@ -89,14 +92,11 @@ public class NewSaleFormActivity extends NavUpActivity {
 
     private void saveSale()
     {
-        //TODO: Reemplazar esto por datos tomados de los formularios
-        Sale sale = new Sale();
-        sale.setClient("Juan Pedro Lopez");
-        sale.setArea("B8");
-        sale.setAddress("Avellaneda 900");
+        sale.setId(1);
+
 
         Intent data = new Intent();
-        data.putExtra(ExtraKeys.SALE, sale);
+        //data.putExtra(ExtraKeys.SALE, sale);
         setResult(RESULT_OK, data);
         finish();
     }

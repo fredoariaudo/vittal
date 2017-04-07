@@ -2,16 +2,12 @@ package com.prominente.android.vittal.model;
 
 import android.databinding.Bindable;
 import com.prominente.android.vittal.BR;
-
-import org.greenrobot.greendao.annotation.Entity;
-import org.greenrobot.greendao.annotation.Generated;
-
 /**
  * Created by Pablo Poza on 4/4/2017.
  */
 
-@Entity
-public class ApplicantForm extends FormModel{
+
+public class ApplicantForm extends SaleSubFormModel{
 
     private String razonSocial;
     private String address;
@@ -25,24 +21,7 @@ public class ApplicantForm extends FormModel{
     private String date = "dd/mm/aaaa";
     private int plan;
 
-    @Generated(hash = 853230720)
-    public ApplicantForm(String razonSocial, String address, String cellpones,
-            String cp, String cuit, String email, String fantasyName, String fax,
-            String phones, String date, int plan) {
-        this.razonSocial = razonSocial;
-        this.address = address;
-        this.cellpones = cellpones;
-        this.cp = cp;
-        this.cuit = cuit;
-        this.email = email;
-        this.fantasyName = fantasyName;
-        this.fax = fax;
-        this.phones = phones;
-        this.date = date;
-        this.plan = plan;
-    }
 
-    @Generated(hash = 201606879)
     public ApplicantForm() {
     }
 
@@ -150,4 +129,5 @@ public class ApplicantForm extends FormModel{
     public boolean isValid() {
         return false;
     }
+
 }

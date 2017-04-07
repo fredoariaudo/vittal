@@ -1,38 +1,23 @@
 package com.prominente.android.vittal.application;
 
 import android.app.Application;
-import android.database.sqlite.SQLiteDatabase;
-
-import com.prominente.android.vittal.model.DaoMaster;
-import com.prominente.android.vittal.model.DaoSession;
-
 /**
  * Created by Pablo Poza on 6/4/2017.
  */
 
 public class VittalApplication extends Application {
 
-    private DaoMaster.DevOpenHelper helper;
-    private SQLiteDatabase db;
-    private DaoMaster daoMaster;
-    private DaoSession daoSession;
+    private static VittalApplication application;
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        helper = new DaoMaster.DevOpenHelper(this, "vittal-db", null);
-        db = helper.getWritableDatabase();
-        daoMaster = new DaoMaster(db);
-        daoSession = daoMaster.newSession();
-
+        VittalApplication.application = this;
     }
 
-    public DaoSession getDaoSession() {
-        return daoSession;
+    public static VittalApplication getApplication() {
+        return VittalApplication.application;
     }
 
-    public void setDaoSession(DaoSession daoSession) {
-        this.daoSession = daoSession;
-    }
 }
