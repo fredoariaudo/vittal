@@ -66,7 +66,7 @@ public class SalesFragment extends Fragment implements RvAdapterListener
             @Override
             public void onClick(View v)
             {
-                add();
+                startSaleForm();
             }
         });
 
@@ -131,12 +131,16 @@ public class SalesFragment extends Fragment implements RvAdapterListener
             switch (requestCode)
             {
                 case RequestCodes.REQUEST_NEW_SALE:
-                    save(sale);
+                    add(sale);
                     break;
 
                 case RequestCodes.REQUEST_MODIFY_SALE:
                     String action = data.getAction();
-                    if(action.equals(IntentActions.ACTION_DELETE))
+                    if(action.equals(IntentActions.ACTION_SAVE))
+                    {
+                        save(sale);
+                    }
+                    else if(action.equals(IntentActions.ACTION_DELETE))
                     {
                         remove(sale);
                     }
@@ -267,11 +271,17 @@ public class SalesFragment extends Fragment implements RvAdapterListener
         Snackbar.make(rootView, getResources().getQuantityString(R.plurals.sales_sent, selectedItems.size(), selectedItems.size()), Snackbar.LENGTH_SHORT).show();
     }
 
-    private void save(Sale sale)
+    private void add(Sale sale)
     {
         //TODO: Revisar esto despues, se coloca un id al nuevo elemento
         sale.setId(newItemId++);
         adapter.add(sale);
+    }
+
+    private void save(Sale sale)
+    {
+        //TODO: Revisar esto, aqui se modifica la venta
+        adapter.set(adapter.getItems().indexOf(sale), sale);
     }
 
     private void remove(Sale sale)
@@ -288,9 +298,10 @@ public class SalesFragment extends Fragment implements RvAdapterListener
         send(selectedItems);
     }
 
-    private void add()
+    private void startSaleForm()
     {
         Intent intent = new Intent(getContext(), NewSaleFormActivity.class);
+        intent.putExtra(ExtraKeys.SALE, new Sale());
         startActivityForResult(intent, RequestCodes.REQUEST_NEW_SALE);
     }
 

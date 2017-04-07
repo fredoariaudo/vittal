@@ -26,6 +26,12 @@ public abstract class ArrayRvAdapter<T> extends RecyclerView.Adapter<RecyclerVie
         notifyItemRangeInserted(this.items.size(), items.size());
     }
 
+    public void set(int position, T item)
+    {
+        this.items.set(position, item);
+        notifyItemChanged(position);
+    }
+
     public T remove(int position)
     {
         T item = this.items.remove(position);

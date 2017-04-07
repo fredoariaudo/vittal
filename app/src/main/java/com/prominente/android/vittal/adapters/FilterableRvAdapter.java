@@ -46,6 +46,21 @@ public abstract class FilterableRvAdapter<T> extends SelectableRvAdapter<T> impl
     }
 
     @Override
+    public void set(int position, T item)
+    {
+        super.set(position, item);
+
+        if(filteredItems.size() > 0)
+        {
+            originalItems.set(originalItems.indexOf(item), item);
+        }
+        else
+        {
+            originalItems.set(position, item);
+        }
+    }
+
+    @Override
     public T remove(int position)
     {
         T item = super.remove(position);

@@ -105,10 +105,14 @@ public class NewSaleFormActivity extends NavUpActivity {
 
     private void save()
     {
-
+        //TODO: Reemplazar esto por datos tomados de los formularios
+        sale.setClient("Juan Pedro Lopez");
+        sale.setArea("B8");
+        sale.setAddress("Avellaneda 900");
 
         Intent data = new Intent();
         data.putExtra(ExtraKeys.SALE, sale);
+        data.setAction(IntentActions.ACTION_SAVE);
         setResult(RESULT_OK, data);
         finish();
     }
