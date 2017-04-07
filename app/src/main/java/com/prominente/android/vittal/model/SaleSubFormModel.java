@@ -1,8 +1,5 @@
 package com.prominente.android.vittal.model;
 
-import com.prominente.android.vittal.application.VittalApplication;
-
-
 public class SaleSubFormModel extends FormModel {
 
 

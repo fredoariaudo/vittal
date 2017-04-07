@@ -14,7 +14,6 @@ import java.io.Serializable;
 
 public abstract class FormModel extends BaseObservable implements Formeable,Serializable {
 
-
     private static final long serialVersionUID = 7526472295622776147L;
     protected long id;
 
@@ -25,4 +24,5 @@ public abstract class FormModel extends BaseObservable implements Formeable,Seri
     public void setId(long id) {
         this.id = id;
     }
+
 }
