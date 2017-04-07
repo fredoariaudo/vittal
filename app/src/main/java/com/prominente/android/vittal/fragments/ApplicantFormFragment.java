@@ -17,14 +17,12 @@ import android.widget.DatePicker;
 import com.prominente.android.vittal.BR;
 import com.prominente.android.vittal.R;
 import com.prominente.android.vittal.model.ApplicantForm;
-import com.prominente.android.vittal.model.ApplicantFormDao;
 
 
 public class ApplicantFormFragment extends Fragment implements DatePickerDialog.OnDateSetListener {
 
 
     private ApplicantForm applicantForm;
-    private ApplicantFormDao applicantFormDao;
     private String[] arraySpinner;
 
     public ApplicantFormFragment() {

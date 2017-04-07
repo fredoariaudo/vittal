@@ -1,15 +1,11 @@
 package com.prominente.android.vittal.model;
 
-import android.databinding.BaseObservable;
 import android.databinding.Bindable;
-
-import org.greenrobot.greendao.annotation.Entity;
-
 /**
  * Created by Pablo Poza on 4/4/2017.
  */
-@Entity
-public class CoverageForm extends BaseObservable{
+
+public class CoverageForm extends SaleSubFormModel{
 
     private String entreCalle;
     private String andStreet;
@@ -19,6 +15,7 @@ public class CoverageForm extends BaseObservable{
     private String street;
     private int protectedArea;
     private int location;
+
 
     @Bindable
     public String getEntreCalle() {
@@ -90,5 +87,10 @@ public class CoverageForm extends BaseObservable{
 
     public void setLocation(int location) {
         this.location = location;
+    }
+
+    @Override
+    public boolean isValid() {
+        return false;
     }
 }

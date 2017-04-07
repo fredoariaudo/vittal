@@ -1,18 +1,16 @@
 package com.prominente.android.vittal.model;
 
-import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 
 import com.prominente.android.vittal.BR;
-
-import org.greenrobot.greendao.annotation.Entity;
 
 
 /**
  * Created by Pablo Poza on 3/4/2017.
  */
-@Entity
-public class ModalityForm extends BaseObservable {
+
+public class ModalityForm extends SaleSubFormModel {
+
     private String monthlyFee;
     private String hiredServicesAmount;
     private String additionalPerServiceRequest;
@@ -27,6 +25,7 @@ public class ModalityForm extends BaseObservable {
     public ModalityForm() {
 
     }
+
 
     public String getType() {
         return type;
@@ -115,6 +114,11 @@ public class ModalityForm extends BaseObservable {
 
     public void setDetailOthers(String detailOthers) {
         this.detailOthers = detailOthers;
+    }
+
+    @Override
+    public boolean isValid() {
+        return false;
     }
 }
 
