@@ -26,6 +26,7 @@ import com.prominente.android.vittal.activities.NewSaleFormActivity;
 import com.prominente.android.vittal.adapters.SalesRvAdapter;
 import com.prominente.android.vittal.adapters.RvAdapterListener;
 import com.prominente.android.vittal.constants.ExtraKeys;
+import com.prominente.android.vittal.constants.IntentActions;
 import com.prominente.android.vittal.constants.RequestCodes;
 import com.prominente.android.vittal.dataprovider.DummyDataProvider;
 import com.prominente.android.vittal.model.Sale;
@@ -65,7 +66,7 @@ public class SalesFragment extends Fragment implements RvAdapterListener
             @Override
             public void onClick(View v)
             {
-                startNewSaleForm();
+                add();
             }
         });
 
@@ -125,18 +126,24 @@ public class SalesFragment extends Fragment implements RvAdapterListener
     {
         if(resultCode == Activity.RESULT_OK)
         {
-            Sale sale;
+            Sale sale = (Sale) data.getSerializableExtra(ExtraKeys.SALE);
 
             switch (requestCode)
             {
                 case RequestCodes.REQUEST_NEW_SALE:
-                    sale = (Sale) data.getSerializableExtra(ExtraKeys.SALE);
-                    //TODO: Revisar esto despues, se coloca un id al nuevo elemento
-                    sale.setId(newItemId++);
-                    adapter.add(sale);
+                    save(sale);
                     break;
 
                 case RequestCodes.REQUEST_MODIFY_SALE:
+                    String action = data.getAction();
+                    if(action.equals(IntentActions.ACTION_DELETE))
+                    {
+                        remove(sale);
+                    }
+                    else if(action.equals(IntentActions.ACTION_SEND))
+                    {
+                        send(sale);
+                    }
                     break;
 
                 default:
@@ -189,10 +196,8 @@ public class SalesFragment extends Fragment implements RvAdapterListener
         }
     }
 
-    private void removeSelected()
+    private void remove(final List<Integer> selectedItems)
     {
-        //Get selected items ordered in reverse order to prevent IndexOutOfBoundsException on delete
-        final List<Integer> selectedItems = adapter.getSelectedItems(true, true);
         //Save deleted items to restore on undo
         final ArrayList<Sale> deletedItems = new ArrayList<Sale>();
         //Save deleted items original indexes to restore on undo
@@ -210,6 +215,7 @@ public class SalesFragment extends Fragment implements RvAdapterListener
             adapter.remove(selectedItem);
         }
 
+        //Create and show Undo SnackBar
         Snackbar snackbar = Snackbar.make(rootView, getResources().getQuantityString(R.plurals.sales_deleted, selectedItems.size(), selectedItems.size()), Snackbar.LENGTH_SHORT);
         snackbar.setAction(R.string.undo, new View.OnClickListener() {
             @Override
@@ -243,7 +249,46 @@ public class SalesFragment extends Fragment implements RvAdapterListener
         snackbar.show();
     }
 
-    private void startNewSaleForm()
+    private void edit(final List<Integer> selectedItems)
+    {
+        Sale sale = adapter.getItems().get(selectedItems.get(0));
+        Intent intent = new Intent(getContext(), NewSaleFormActivity.class);
+        intent.putExtra(ExtraKeys.SALE, sale);
+        startActivityForResult(intent, RequestCodes.REQUEST_MODIFY_SALE);
+    }
+
+    private void send(final List<Integer> selectedItems)
+    {
+        for(int selectedItem: selectedItems)
+        {
+            //TODO: Ejecutar el servicio de envio de ventas
+        }
+
+        Snackbar.make(rootView, getResources().getQuantityString(R.plurals.sales_sent, selectedItems.size(), selectedItems.size()), Snackbar.LENGTH_SHORT).show();
+    }
+
+    private void save(Sale sale)
+    {
+        //TODO: Revisar esto despues, se coloca un id al nuevo elemento
+        sale.setId(newItemId++);
+        adapter.add(sale);
+    }
+
+    private void remove(Sale sale)
+    {
+        ArrayList<Integer> selectedItems = new ArrayList<Integer>();
+        selectedItems.add(adapter.getItems().indexOf(sale));
+        remove(selectedItems);
+    }
+
+    private void send(Sale sale)
+    {
+        ArrayList<Integer> selectedItems = new ArrayList<Integer>();
+        selectedItems.add(adapter.getItems().indexOf(sale));
+        send(selectedItems);
+    }
+
+    private void add()
     {
         Intent intent = new Intent(getContext(), NewSaleFormActivity.class);
         startActivityForResult(intent, RequestCodes.REQUEST_NEW_SALE);
@@ -291,18 +336,19 @@ public class SalesFragment extends Fragment implements RvAdapterListener
             switch(item.getItemId())
             {
                 case R.id.action_sales_delete:
-                    removeSelected();
+                    //Get selected items ordered in reverse order to prevent IndexOutOfBoundsException on delete
+                    remove(adapter.getSelectedItems(true, true));
                     mode.finish();
                     return true;
 
                 case R.id.action_sales_edit:
+                    edit(adapter.getSelectedItems(true, false));
                     adapter.clearSelection(true);
                     mode.finish();
-                    Intent intent = new Intent(getContext(), NewSaleFormActivity.class);
-                    startActivity(intent);
                     return true;
 
                 case R.id.action_sales_send:
+                    send(adapter.getSelectedItems(true, false));
                     adapter.clearSelection(true);
                     mode.finish();
                     return true;

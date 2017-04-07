@@ -4,4 +4,8 @@
         <item quantity="one">%d venta elminada</item>
         <item quantity="other">%d  ventas eliminadas</item>
     </plurals>
+    <plurals name="sales_sent">
+        <item quantity="one">%d venta enviada</item>
+        <item quantity="other">%d  ventas enviadas</item>
+    </plurals>
 </resources>

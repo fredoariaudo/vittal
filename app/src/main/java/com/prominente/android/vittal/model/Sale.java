@@ -75,4 +75,10 @@ public class Sale extends FormModel
     public boolean isValid() {
         return false;
     }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        return obj instanceof Sale && ((Sale) obj).getId() == id;
+    }
 }

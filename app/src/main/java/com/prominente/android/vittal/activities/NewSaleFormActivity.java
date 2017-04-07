@@ -9,18 +9,14 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-
-import android.widget.TextView;
 
 import com.prominente.android.vittal.R;
-import com.prominente.android.vittal.application.VittalApplication;
 import com.prominente.android.vittal.components.NavUpActivity;
 import com.prominente.android.vittal.constants.ExtraKeys;
+import com.prominente.android.vittal.constants.IntentActions;
 import com.prominente.android.vittal.fragments.ApplicantFormFragment;
 import com.prominente.android.vittal.fragments.CoverageFormFragment;
 import com.prominente.android.vittal.fragments.DebtCollectorFormFragment;
@@ -28,8 +24,6 @@ import com.prominente.android.vittal.fragments.ModalityFormFragment;
 import com.prominente.android.vittal.fragments.PaymentFormFragment;
 import com.prominente.android.vittal.fragments.SellerFormFragment;
 import com.prominente.android.vittal.model.Sale;
-
-import java.io.FileOutputStream;
 
 public class NewSaleFormActivity extends NavUpActivity {
 
@@ -64,7 +58,7 @@ public class NewSaleFormActivity extends NavUpActivity {
             @Override
             public void onClick(View v)
             {
-                saveSale();
+                save();
             }
         });
     }
@@ -90,16 +84,16 @@ public class NewSaleFormActivity extends NavUpActivity {
         switch (item.getItemId())
         {
             case R.id.action_sales_delete:
+                resultIntent.setAction(IntentActions.ACTION_DELETE);
                 setResult(RESULT_OK, resultIntent);
                 finish();
                 return true;
 
             case R.id.action_sales_edit:
-                setResult(RESULT_OK, resultIntent);
-                finish();
                 return true;
 
             case R.id.action_sales_send:
+                resultIntent.setAction(IntentActions.ACTION_SEND);
                 setResult(RESULT_OK, resultIntent);
                 finish();
                 return true;
@@ -109,40 +103,18 @@ public class NewSaleFormActivity extends NavUpActivity {
         }
     }
 
-    private void saveSale()
+    private void save()
     {
-        sale.setId(1);
-
+        //TODO: Reemplazar esto por datos tomados de los formularios
+        Sale sale = new Sale();
+        sale.setClient("Juan Pedro Lopez");
+        sale.setArea("B8");
+        sale.setAddress("Avellaneda 900");
 
         Intent data = new Intent();
-        //data.putExtra(ExtraKeys.SALE, sale);
+        data.putExtra(ExtraKeys.SALE, sale);
         setResult(RESULT_OK, data);
         finish();
-    }
-
-    public static class PlaceholderFragment extends Fragment {
-
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        public PlaceholderFragment() {
-        }
-
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_new_sale_form, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
-            return rootView;
-        }
     }
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
@@ -156,15 +128,14 @@ public class NewSaleFormActivity extends NavUpActivity {
 
             switch (position) {
 
-                case 0 : return ApplicantFormFragment.newInstance();
-                case 1 : return CoverageFormFragment.newInstance();
-                case 2 : return ModalityFormFragment.newInstance();
-                case 3 : return PaymentFormFragment.newInstance();
-                case 4 : return DebtCollectorFormFragment.newInstance();
-                case 5 : return SellerFormFragment.newInstance();
+                case 0 : return ApplicantFormFragment.newInstance(sale.getApplicantForm());
+                case 1 : return CoverageFormFragment.newInstance(sale.getCoverageForm());
+                case 2 : return ModalityFormFragment.newInstance(sale.getModalityForm());
+                case 3 : return PaymentFormFragment.newInstance(sale.getPaymentForm());
+                case 4 : return DebtCollectorFormFragment.newInstance(sale.getDebtCollectorForm());
+                case 5 : return SellerFormFragment.newInstance(sale.getSellerForm());
+                default: return null;
             }
-
-            return PlaceholderFragment.newInstance(position + 1);
         }
 
         @Override
