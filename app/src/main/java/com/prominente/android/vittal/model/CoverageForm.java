@@ -16,6 +16,9 @@ public class CoverageForm extends SaleSubFormModel{
     private int protectedArea;
     private int location;
 
+    public CoverageForm(Long saleId) {
+        this.saleId = saleId;
+    }
 
     @Bindable
     public String getEntreCalle() {

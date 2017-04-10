@@ -18,6 +18,10 @@ public class SellerForm extends SaleSubFormModel{
     private int seller;
     private boolean stickerDelivered;
 
+    public SellerForm(Long saleId) {
+        this.saleId = saleId;
+    }
+
     @Bindable
     public String getAmountIibb() {
         return amountIibb;

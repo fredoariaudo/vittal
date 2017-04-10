@@ -22,10 +22,9 @@ public class ModalityForm extends SaleSubFormModel {
     private String modality;
     private String type;
 
-    public ModalityForm() {
-
+    public ModalityForm(Long saleId) {
+        this.saleId = saleId;
     }
-
 
     public String getType() {
         return type;

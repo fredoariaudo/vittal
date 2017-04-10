@@ -14,35 +14,68 @@ public class Sale extends FormModel
     private SellerForm sellerForm;
 
     public Sale() {
-        applicantForm = new ApplicantForm();
-        coverageForm = new CoverageForm();
-        debtCollectorForm =  new DebtCollectorForm();
-        modalityForm = new ModalityForm();
-        paymentForm = new PaymentForm();
-        sellerForm  = new SellerForm();
+
     }
 
     public ApplicantForm getApplicantForm() {
+        if (applicantForm ==  null) {
+            applicantForm = ApplicantForm.find(ApplicantForm.class,"saleId = ?",getId() + "").get(0);
+            if (applicantForm ==  null) {
+                applicantForm = new ApplicantForm(getId());
+            }
+        }
+
         return applicantForm;
     }
 
     public CoverageForm getCoverageForm() {
+        if (coverageForm ==  null) {
+            coverageForm = CoverageForm.find(CoverageForm.class,"saleId = ?",getId() + "").get(0);
+            if (coverageForm ==  null) {
+                coverageForm = new CoverageForm(getId());
+            }
+        }
         return coverageForm;
     }
 
     public DebtCollectorForm getDebtCollectorForm() {
+        if (debtCollectorForm ==  null) {
+            debtCollectorForm = DebtCollectorForm.find(DebtCollectorForm.class,"saleId = ?",getId() + "").get(0);
+            if (debtCollectorForm ==  null) {
+                debtCollectorForm = new DebtCollectorForm(getId());
+            }
+        }
         return debtCollectorForm;
     }
 
     public ModalityForm getModalityForm() {
+        if (modalityForm ==  null) {
+            modalityForm = ModalityForm.find(ModalityForm.class,"saleId = ?",getId() + "").get(0);
+            if (modalityForm ==  null) {
+                modalityForm = new ModalityForm(getId());
+            }
+        }
         return modalityForm;
     }
 
     public PaymentForm getPaymentForm() {
+        if (paymentForm ==  null) {
+            paymentForm = PaymentForm.find(PaymentForm.class,"saleId = ?",getId() + "").get(0);
+            if (paymentForm ==  null) {
+                paymentForm = new PaymentForm(getId());
+            }
+            return paymentForm;
+        }
         return paymentForm;
     }
 
     public SellerForm getSellerForm() {
+        if (sellerForm ==  null) {
+            sellerForm = SellerForm.find(SellerForm.class,"saleId = ?",getId() + "").get(0);
+            if (sellerForm ==  null) {
+                sellerForm = new SellerForm(getId());
+            }
+        }
         return sellerForm;
     }
 
@@ -79,6 +112,17 @@ public class Sale extends FormModel
     @Override
     public boolean equals(Object obj)
     {
-        return obj instanceof Sale && ((Sale) obj).getId() == id;
+        return obj instanceof Sale && ((Sale) obj).getId() == getId();
+    }
+
+    @Override
+    public long save() {
+        getApplicantForm().save();
+        getCoverageForm().save();
+        getDebtCollectorForm().save();
+        getModalityForm().save();
+        getPaymentForm().save();
+        getSellerForm().save();
+        return super.save();
     }
 }

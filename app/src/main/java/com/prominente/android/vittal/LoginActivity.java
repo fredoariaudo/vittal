@@ -11,7 +11,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.prominente.android.vittal.model.Sale;
 import com.prominente.android.vittal.util.ResourceUtil;
+
+import java.util.List;
 
 public class LoginActivity extends AppCompatActivity
 {

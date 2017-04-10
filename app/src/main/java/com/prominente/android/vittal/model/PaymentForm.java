@@ -22,8 +22,9 @@ public class PaymentForm extends SaleSubFormModel {
         creditCardOrCbuPaymentForm = new CreditCardOrCbuPaymentForm();
     }
 
-
-
+    public PaymentForm(Long saleId) {
+        this.saleId = saleId;
+    }
 
     @Bindable
     public int getExpirationPayment() {

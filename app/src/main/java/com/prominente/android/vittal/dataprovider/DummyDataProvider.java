@@ -27,7 +27,7 @@ public class DummyDataProvider
         for(int i=0; i<6; i++)
         {
             Sale sale = new Sale();
-            sale.setId(i);
+            sale.setId(new Long(i));
             sale.setClient("Cliente "+(i+1));
             sale.setArea("AP#100");
             sale.setAddress("Calle falsa "+(i+1));

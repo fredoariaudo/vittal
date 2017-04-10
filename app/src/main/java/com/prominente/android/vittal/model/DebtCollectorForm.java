@@ -23,7 +23,9 @@ public class DebtCollectorForm extends SaleSubFormModel{
     int conditionVsIva;
     int deliverDocuments;
 
-
+    public DebtCollectorForm(Long saleId) {
+        this.saleId = saleId;
+    }
 
     public int getConditionVsIva() {
         return conditionVsIva;
