@@ -36,7 +36,6 @@
     <string name="hint_between_street">Entre calle</string>
     <string name="hint_and_street">y calle</string>
     <string name="hint_observations">Observaciones</string>
-    <string name="hint_excedent_price">Precio por auxilio excedente</string>
     <string name="hint_coseguro">Coseguro</string>
     <string name="hint_capitas_count">Cant. Cápitas</string>
     <string name="hint_aditional_per_excedent_help">Precio por auxilio excendente</string>

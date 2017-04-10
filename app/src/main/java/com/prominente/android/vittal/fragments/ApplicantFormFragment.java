@@ -34,11 +34,6 @@ public class ApplicantFormFragment extends Fragment implements DatePickerDialog.
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         ViewDataBinding binding = DataBindingUtil.inflate(inflater,R.layout.fragment_applicant_form, container, false);

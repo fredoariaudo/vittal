@@ -1,12 +1,10 @@
 package com.prominente.android.vittal.model;
 
 
-import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 import android.databinding.Observable;
 import android.databinding.PropertyChangeRegistry;
 
-import com.prominente.android.vittal.application.VittalApplication;
 import com.prominente.android.vittal.interfaces.Formeable;
 
 import java.io.Serializable;
