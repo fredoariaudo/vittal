@@ -1,4 +1,4 @@
-package com.prominente.android.vittal;
+package com.prominente.android.vittal.activities;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.prominente.android.vittal.R;
 import com.prominente.android.vittal.util.ResourceUtil;
 
 public class LoginActivity extends AppCompatActivity

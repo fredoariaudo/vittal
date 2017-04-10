@@ -1,4 +1,4 @@
-package com.prominente.android.vittal;
+package com.prominente.android.vittal.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.prominente.android.vittal.R;
 import com.prominente.android.vittal.constants.GcmPreferences;
 import com.prominente.android.vittal.fragments.QueriesFragment;
 import com.prominente.android.vittal.fragments.QuotationsFragment;

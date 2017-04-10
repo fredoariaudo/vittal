@@ -10,7 +10,7 @@ import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 
 import com.google.android.gms.gcm.GcmListenerService;
-import com.prominente.android.vittal.HomeActivity;
+import com.prominente.android.vittal.activities.HomeActivity;
 import com.prominente.android.vittal.R;
 
 public class VittalGcmListenerService extends GcmListenerService

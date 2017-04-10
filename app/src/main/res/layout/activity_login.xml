@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="@dimen/login_margin"
-    tools:context="com.prominente.android.vittal.LoginActivity">
+    tools:context="com.prominente.android.vittal.activities.LoginActivity">
 
     <ImageView
         android:layout_width="wrap_content"
