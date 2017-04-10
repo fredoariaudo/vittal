@@ -13,6 +13,7 @@ import android.widget.Spinner;
 import com.prominente.android.vittal.BR;
 import com.prominente.android.vittal.R;
 import com.prominente.android.vittal.model.CoverageForm;
+import com.prominente.android.vittal.model.Sale;
 
 public class CoverageFormFragment extends Fragment {
 
@@ -25,9 +26,10 @@ public class CoverageFormFragment extends Fragment {
     private ArrayAdapter<String> covergaTypesAdapter;
     private ArrayAdapter<String> locationsAdapter;
 
-    public static CoverageFormFragment newInstance(CoverageForm coverageForm) {
+    public static CoverageFormFragment newInstance(Sale sale, Bundle args) {
         CoverageFormFragment fragment = new CoverageFormFragment();
-        fragment.coverageForm = coverageForm;
+        fragment.coverageForm = sale.getCoverageForm();
+        fragment.setArguments(args);
         return fragment;
     }
 

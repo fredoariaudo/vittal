@@ -13,6 +13,7 @@ import android.widget.RadioButton;
 import com.prominente.android.vittal.BR;
 import com.prominente.android.vittal.R;
 import com.prominente.android.vittal.model.ModalityForm;
+import com.prominente.android.vittal.model.Sale;
 import com.prominente.android.vittal.views.RadioButtonsManager;
 
 import java.util.ArrayList;
@@ -46,9 +47,10 @@ public class ModalityFormFragment extends Fragment {
 
     }
 
-    public static ModalityFormFragment newInstance(ModalityForm modalityForm) {
+    public static ModalityFormFragment newInstance(Sale sale, Bundle args) {
         ModalityFormFragment fragment = new ModalityFormFragment();
-        fragment.modalityForm = modalityForm;
+        fragment.modalityForm = sale.getModalityForm();
+        fragment.setArguments(args);
         return fragment;
     }
 

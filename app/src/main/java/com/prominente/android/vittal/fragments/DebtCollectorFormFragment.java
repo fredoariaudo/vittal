@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import com.prominente.android.vittal.BR;
 import com.prominente.android.vittal.R;
 import com.prominente.android.vittal.model.DebtCollectorForm;
+import com.prominente.android.vittal.model.Sale;
 import com.prominente.android.vittal.views.RadioButtonsManager;
 
 import java.util.ArrayList;
@@ -47,9 +48,10 @@ public class DebtCollectorFormFragment extends Fragment {
         });
     }
 
-    public static DebtCollectorFormFragment newInstance(DebtCollectorForm debtCollectorForm) {
+    public static DebtCollectorFormFragment newInstance(Sale sale, Bundle args) {
         DebtCollectorFormFragment fragment = new DebtCollectorFormFragment();
-        fragment.debtCollectorForm = debtCollectorForm;
+        fragment.debtCollectorForm = sale.getDebtCollectorForm();
+        fragment.setArguments(args);
         return fragment;
     }
 

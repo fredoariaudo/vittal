@@ -16,6 +16,7 @@ import android.widget.EditText;
 import com.prominente.android.vittal.BR;
 import com.prominente.android.vittal.R;
 import com.prominente.android.vittal.model.ApplicantForm;
+import com.prominente.android.vittal.model.Sale;
 
 import java.util.Calendar;
 
@@ -27,9 +28,10 @@ public class ApplicantFormFragment extends Fragment implements DatePickerDialog.
     public ApplicantFormFragment() {
     }
 
-    public static ApplicantFormFragment newInstance(ApplicantForm applicantForm) {
+    public static ApplicantFormFragment newInstance(Sale sale, Bundle bundle) {
         ApplicantFormFragment fragment = new ApplicantFormFragment();
-        fragment.applicantForm = applicantForm;
+        fragment.applicantForm = sale.getApplicantForm();
+        fragment.setArguments(bundle);
         return fragment;
     }
 

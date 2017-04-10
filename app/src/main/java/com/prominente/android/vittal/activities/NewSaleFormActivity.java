@@ -5,8 +5,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.prominente.android.vittal.R;
+import com.prominente.android.vittal.adapters.SaleFormPagerAdapter;
 import com.prominente.android.vittal.components.NavUpActivity;
 import com.prominente.android.vittal.constants.ExtraKeys;
 import com.prominente.android.vittal.constants.IntentActions;
@@ -25,11 +24,9 @@ import com.prominente.android.vittal.fragments.PaymentFormFragment;
 import com.prominente.android.vittal.fragments.SellerFormFragment;
 import com.prominente.android.vittal.model.Sale;
 
+import java.util.ArrayList;
+
 public class NewSaleFormActivity extends NavUpActivity {
-
-    private SectionsPagerAdapter mSectionsPagerAdapter;
-
-    private ViewPager mViewPager;
 
     private Sale sale;
 
@@ -42,16 +39,12 @@ public class NewSaleFormActivity extends NavUpActivity {
 
         sale = (Sale) getIntent().getSerializableExtra(ExtraKeys.SALE);
 
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        SaleFormPagerAdapter mSectionsPagerAdapter = new SaleFormPagerAdapter(getSupportFragmentManager(), getFormTabs());
+        ViewPager vp_sale_form = (ViewPager) findViewById(R.id.vp_sale_form);
+        vp_sale_form.setAdapter(mSectionsPagerAdapter);
 
-        // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
-
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(mViewPager);
+        TabLayout tl_sale_form = (TabLayout) findViewById(R.id.tl_sale_form);
+        tl_sale_form.setupWithViewPager(vp_sale_form);
 
         FloatingActionButton fab_new_sale_save = (FloatingActionButton) findViewById(R.id.fab_new_sale_save);
         fab_new_sale_save.setOnClickListener(new View.OnClickListener() {
@@ -103,6 +96,37 @@ public class NewSaleFormActivity extends NavUpActivity {
         }
     }
 
+    private ArrayList<Fragment> getFormTabs()
+    {
+        ArrayList<Fragment> fragments = new ArrayList<>();
+
+        Bundle afBundle = new Bundle();
+        afBundle.putString(ExtraKeys.FORM_TAB_TITLE, getString(R.string.tab_title_applicant));
+        fragments.add(ApplicantFormFragment.newInstance(sale, afBundle));
+
+        Bundle cfBundle = new Bundle();
+        cfBundle.putString(ExtraKeys.FORM_TAB_TITLE, getString(R.string.tab_title_coverage));
+        fragments.add(CoverageFormFragment.newInstance(sale, cfBundle));
+
+        Bundle mfBundle = new Bundle();
+        mfBundle.putString(ExtraKeys.FORM_TAB_TITLE, getString(R.string.tab_title_modality));
+        fragments.add(ModalityFormFragment.newInstance(sale, mfBundle));
+
+        Bundle pfBundle = new Bundle();
+        pfBundle.putString(ExtraKeys.FORM_TAB_TITLE, getString(R.string.tab_title_payment));
+        fragments.add(PaymentFormFragment.newInstance(sale, pfBundle));
+
+        Bundle dcfBundle = new Bundle();
+        dcfBundle.putString(ExtraKeys.FORM_TAB_TITLE, getString(R.string.tab_title_debt_collector));
+        fragments.add(DebtCollectorFormFragment.newInstance(sale, dcfBundle));
+
+        Bundle sfBundle = new Bundle();
+        sfBundle.putString(ExtraKeys.FORM_TAB_TITLE, getString(R.string.tab_title_seller));
+        fragments.add(SellerFormFragment.newInstance(sale, sfBundle));
+
+        return fragments;
+    }
+
     private void save()
     {
         //TODO: Reemplazar esto por datos tomados de los formularios
@@ -115,45 +139,5 @@ public class NewSaleFormActivity extends NavUpActivity {
         data.setAction(IntentActions.ACTION_SAVE);
         setResult(RESULT_OK, data);
         finish();
-    }
-
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
-
-        public SectionsPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-
-            switch (position) {
-
-                case 0 : return ApplicantFormFragment.newInstance(sale.getApplicantForm());
-                case 1 : return CoverageFormFragment.newInstance(sale.getCoverageForm());
-                case 2 : return ModalityFormFragment.newInstance(sale.getModalityForm());
-                case 3 : return PaymentFormFragment.newInstance(sale.getPaymentForm());
-                case 4 : return DebtCollectorFormFragment.newInstance(sale.getDebtCollectorForm());
-                case 5 : return SellerFormFragment.newInstance(sale.getSellerForm());
-                default: return null;
-            }
-        }
-
-        @Override
-        public int getCount() {
-            return 6;
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            final String[] titles = {
-                                        "Solicitante",
-                                        "Cobertura",
-                                        "Modalidad",
-                                        "Forma de Pago",
-                                        "Cobrador",
-                                        "Vendedor"
-                                    };
-            return titles[position];
-        }
     }
 }

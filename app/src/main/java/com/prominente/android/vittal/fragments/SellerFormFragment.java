@@ -12,6 +12,7 @@ import android.widget.Spinner;
 
 import com.prominente.android.vittal.BR;
 import com.prominente.android.vittal.R;
+import com.prominente.android.vittal.model.Sale;
 import com.prominente.android.vittal.model.SellerForm;
 
 public class SellerFormFragment extends Fragment {
@@ -35,8 +36,9 @@ public class SellerFormFragment extends Fragment {
         sellerForm = new SellerForm();
     }
 
-    public static SellerFormFragment newInstance(SellerForm sellerForm) {
+    public static SellerFormFragment newInstance(Sale sale, Bundle args) {
         SellerFormFragment fragment = new SellerFormFragment();
+        fragment.setArguments(args);
         return fragment;
     }
 

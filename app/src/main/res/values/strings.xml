@@ -18,6 +18,12 @@
     <string name="search">Buscar</string>
     <string name="undo">Deshacer</string>
     <string name="sale_modified">venta modificada</string>
+    <string name="tab_title_applicant">Solicitante</string>
+    <string name="tab_title_coverage">Cobertura</string>
+    <string name="tab_title_modality">Modalidad</string>
+    <string name="tab_title_payment">Formas de pago</string>
+    <string name="tab_title_debt_collector">Cobrador</string>
+    <string name="tab_title_seller">Vendedor</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hint_razon_social">Razón Social</string>

@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import com.prominente.android.vittal.BR;
 import com.prominente.android.vittal.R;
 import com.prominente.android.vittal.model.PaymentForm;
+import com.prominente.android.vittal.model.Sale;
 import com.prominente.android.vittal.views.RadioButtonsManager;
 
 import java.util.ArrayList;
@@ -37,9 +38,10 @@ public class PaymentFormFragment extends Fragment {
         });
     }
 
-    public static PaymentFormFragment newInstance(PaymentForm paymentForm) {
+    public static PaymentFormFragment newInstance(Sale sale, Bundle args) {
         PaymentFormFragment fragment = new PaymentFormFragment();
-        fragment.paymentForm = paymentForm;
+        fragment.paymentForm = sale.getPaymentForm();
+        fragment.setArguments(args);
         return fragment;
     }
 
