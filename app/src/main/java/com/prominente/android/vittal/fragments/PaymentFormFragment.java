@@ -1,6 +1,5 @@
 package com.prominente.android.vittal.fragments;
 
-
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
@@ -19,9 +18,6 @@ import com.prominente.android.vittal.views.RadioButtonsManager;
 
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class PaymentFormFragment extends Fragment {
 
     private PaymentForm paymentForm;
@@ -48,8 +44,7 @@ public class PaymentFormFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         ViewDataBinding binding = DataBindingUtil.inflate(inflater,R.layout.fragment_payment_form, container, false);
         binding.setVariable(BR.paymentForm,paymentForm);
@@ -63,8 +58,7 @@ public class PaymentFormFragment extends Fragment {
         };
 
         paymentsModeSpinners= (Spinner) view.findViewById(R.id.fr_payment_form_spn_payment_mode);
-        adapter = new ArrayAdapter<>(getContext(),
-                android.R.layout.simple_spinner_item, paymentsMode);
+        adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, paymentsMode);
         paymentsModeSpinners.setAdapter(adapter);
 
         paymentExpirationDateRadioButtons = new ArrayList<>();
@@ -74,5 +68,4 @@ public class PaymentFormFragment extends Fragment {
 
         return view;
     }
-
 }

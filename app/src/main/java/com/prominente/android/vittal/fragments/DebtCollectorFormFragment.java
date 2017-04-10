@@ -1,6 +1,5 @@
 package com.prominente.android.vittal.fragments;
 
-
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
@@ -19,7 +18,6 @@ import com.prominente.android.vittal.views.RadioButtonsManager;
 
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class DebtCollectorFormFragment extends Fragment {
 
@@ -47,7 +45,6 @@ public class DebtCollectorFormFragment extends Fragment {
                 debtCollectorForm.setDeliverDocuments(index);
             }
         });
-
     }
 
     public static DebtCollectorFormFragment newInstance(DebtCollectorForm debtCollectorForm) {
@@ -57,8 +54,7 @@ public class DebtCollectorFormFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         ViewDataBinding binding = DataBindingUtil.inflate(inflater,R.layout.fragment_debt_collector_form, container, false);
         binding.setVariable(BR.debtCollectorForm,debtCollectorForm);
@@ -71,10 +67,8 @@ public class DebtCollectorFormFragment extends Fragment {
         };
 
         locationsSpinners= (Spinner) view.findViewById(R.id.fr_debt_collector_form_spn_location);
-        locationsAdapter = new ArrayAdapter<>(getContext(),
-                android.R.layout.simple_spinner_item, locations);
+        locationsAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, locations);
         locationsSpinners.setAdapter(locationsAdapter);
-
 
         conditionVsIvaRadioButton = new ArrayList<>();
         conditionVsIvaRadioButton.add((RadioButton)view.findViewById(R.id.partial_condition_vs_iva_rb_exento));
@@ -93,6 +87,4 @@ public class DebtCollectorFormFragment extends Fragment {
 
         return view;
     }
-
-
 }

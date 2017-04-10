@@ -25,11 +25,12 @@
                 android:layout_marginBottom="@dimen/form_margin_bottom"
                 app:selectedValue="@={applicantForm.plan}"/>
 
-            <Button
-                android:id="@+id/fr_applicant_form_btn_pick_date"
+            <EditText
+                android:id="@+id/fr_applicant_form_et_pick_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@={applicantForm.date}"
+                android:editable="false"
                 android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
             <EditText
@@ -83,7 +84,7 @@
                 android:id="@+id/fr_applicant_form_et_cellphones"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_cell_phones"
+                android:hint="@string/hint_cell_phone"
                 android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
             <EditText

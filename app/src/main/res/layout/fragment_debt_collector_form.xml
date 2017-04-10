@@ -69,7 +69,6 @@
                 android:text="@={debtCollectorForm.betweenStreet}"
                 android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
-
             <EditText
                 android:id="@+id/fr_debt_collector_et_and_street"
                 android:layout_width="match_parent"

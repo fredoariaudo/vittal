@@ -16,6 +16,7 @@ public class SellerForm extends SaleSubFormModel{
     private int circuit;
     private int promo;
     private int seller;
+    private boolean stickerDelivered;
 
     @Bindable
     public String getAmountIibb() {
@@ -80,4 +81,11 @@ public class SellerForm extends SaleSubFormModel{
         this.seller = seller;
     }
 
+    public boolean isStickerDelivered() {
+        return stickerDelivered;
+    }
+
+    public void setStickerDelivered(boolean stickerDelivered) {
+        this.stickerDelivered = stickerDelivered;
+    }
 }

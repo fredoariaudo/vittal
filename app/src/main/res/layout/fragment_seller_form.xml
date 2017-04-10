@@ -71,6 +71,12 @@
                 android:text="@={sellerForm.capita}"
                 android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
+            <android.support.v7.widget.AppCompatCheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sticker_delivered"
+                android:checked="@={sellerForm.stickerDelivered}"/>
+
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>

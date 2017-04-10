@@ -1,6 +1,5 @@
 package com.prominente.android.vittal.fragments;
 
-
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
@@ -13,14 +12,9 @@ import android.widget.Spinner;
 
 import com.prominente.android.vittal.BR;
 import com.prominente.android.vittal.R;
-import com.prominente.android.vittal.model.ApplicantForm;
 import com.prominente.android.vittal.model.CoverageForm;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class CoverageFormFragment extends Fragment {
-
 
     private CoverageForm coverageForm;
     private String[] covergaTypes;
@@ -40,10 +34,8 @@ public class CoverageFormFragment extends Fragment {
     public CoverageFormFragment() {
     }
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         ViewDataBinding binding = DataBindingUtil.inflate(inflater,R.layout.fragment_coverage_form, container, false);
         binding.setVariable(BR.coverageForm,coverageForm);
@@ -52,26 +44,22 @@ public class CoverageFormFragment extends Fragment {
         View view = binding.getRoot();
         //
         covergaTypes = new String[] {
-                "Tipo de aréa protegida","Comercio Menores", "Micro Escolar", "Pub", "Hotel", "Otro"
+                "Tipo de aréa protegida", "Comercio Menores", "Micro Escolar", "Pub", "Hotel", "Otro"
         };
 
         coverageTypesSpinner  = (Spinner) view.findViewById(R.id.fr_coverage_form_spn_protected_area_type);
-        covergaTypesAdapter = new ArrayAdapter<>(getContext(),
-                android.R.layout.simple_spinner_item, covergaTypes);
+        covergaTypesAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, covergaTypes);
         coverageTypesSpinner.setAdapter(covergaTypesAdapter);
-
 
         //
         locations = new String[] {
-                "Localidad","Avellaneda", "Lanus", "Capital Federal"
+                "Localidad", "Avellaneda", "Lanus", "Capital Federal"
         };
 
         locationsSpinners= (Spinner) view.findViewById(R.id.fr_coverage_form_spn_location);
-        locationsAdapter = new ArrayAdapter<>(getContext(),
-                android.R.layout.simple_spinner_item, locations);
+        locationsAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, locations);
         locationsSpinners.setAdapter(locationsAdapter);
         
         return view;
     }
-
 }

@@ -1,6 +1,5 @@
 package com.prominente.android.vittal.fragments;
 
-
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
@@ -15,11 +14,7 @@ import com.prominente.android.vittal.BR;
 import com.prominente.android.vittal.R;
 import com.prominente.android.vittal.model.SellerForm;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class SellerFormFragment extends Fragment {
-
 
     private final SellerForm sellerForm;
     private String[] sellerTypes;
@@ -30,7 +25,6 @@ public class SellerFormFragment extends Fragment {
     private Spinner circuitsSpinner;
     private String[] promos;
     private Spinner promosSpinner;
-
 
     private ArrayAdapter<String> sellerTypesAdapter;
     private ArrayAdapter<String> radiusAdapter;
@@ -46,10 +40,8 @@ public class SellerFormFragment extends Fragment {
         return fragment;
     }
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         ViewDataBinding binding = DataBindingUtil.inflate(inflater,R.layout.fragment_seller_form, container, false);
         binding.setVariable(BR.sellerForm,sellerForm);
@@ -73,10 +65,8 @@ public class SellerFormFragment extends Fragment {
         };
 
         sellerTypesSpinner  = (Spinner) view.findViewById(R.id.fr_seller_form_spn_seller);
-        sellerTypesAdapter = new ArrayAdapter<>(getContext(),
-                android.R.layout.simple_spinner_item, sellerTypes);
+        sellerTypesAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, sellerTypes);
         sellerTypesSpinner.setAdapter(sellerTypesAdapter);
-
 
         //
         radius = new String[] {
@@ -84,8 +74,7 @@ public class SellerFormFragment extends Fragment {
         };
 
         radiusSpinner  = (Spinner) view.findViewById(R.id.fr_seller_form_spn_radius);
-        radiusAdapter = new ArrayAdapter<>(getContext(),
-                android.R.layout.simple_spinner_item, radius);
+        radiusAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, radius);
         radiusSpinner.setAdapter(radiusAdapter);
 
         //
@@ -94,10 +83,8 @@ public class SellerFormFragment extends Fragment {
         };
 
         circuitsSpinner  = (Spinner) view.findViewById(R.id.fr_seller_form_spn_circuit);
-        circuitsAdapter = new ArrayAdapter<>(getContext(),
-                android.R.layout.simple_spinner_item, circuits);
+        circuitsAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, circuits);
         circuitsSpinner.setAdapter(circuitsAdapter);
-
 
         //
         promos = new String[] {
@@ -105,9 +92,7 @@ public class SellerFormFragment extends Fragment {
         };
 
         promosSpinner  = (Spinner) view.findViewById(R.id.fr_seller_form_spn_promo);
-        promosAdapter = new ArrayAdapter<>(getContext(),
-                android.R.layout.simple_spinner_item, promos);
+        promosAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, promos);
         promosSpinner.setAdapter(promosAdapter);
     }
-
 }
