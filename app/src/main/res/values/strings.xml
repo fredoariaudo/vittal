@@ -9,9 +9,6 @@
     <string name="user">Usuario</string>
     <string name="password">Contraseña</string>
     <string name="login">Login</string>
-    <string name="title_activity_new_sale_form">NewSaleFormActivity</string>
-    <string name="action_settings">Settings</string>
-    <string name="section_format">Hello World from section: %1$d</string>
     <string name="delete">Eliminar</string>
     <string name="edit">Editar</string>
     <string name="send">Enviar</string>
@@ -23,7 +20,6 @@
     <string name="sale_modified">venta modificada</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hint_razon_social">Razón Social</string>
     <string name="hint_fantasy_name">Nombre de Fantasia</string>
     <string name="hint_number_cuit">N° de CUIT</string>
