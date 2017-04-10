@@ -24,17 +24,17 @@ public abstract class FilterableRvAdapter<T> extends SelectableRvAdapter<T> impl
         throw new UnsupportedOperationException("Must call add(int itemPosition, int layoutPosition, T item) for FilterableRvAdapter to ensure correct add position when items are filtered");
     }
 
-    public void add(int itemPosition, int layoutPosition, T item)
+    public void add(int originalPosition, int adapterPosition, T item)
     {
-        super.add(layoutPosition, item);
+        super.add(adapterPosition, item);
 
         if(filteredItems.size() > 0)
         {
-            originalItems.add(itemPosition, item);
+            originalItems.add(originalPosition, item);
         }
         else
         {
-            originalItems.add(layoutPosition, item);
+            originalItems.add(adapterPosition, item);
         }
     }
 
