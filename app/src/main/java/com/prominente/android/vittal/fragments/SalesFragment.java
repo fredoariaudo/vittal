@@ -45,6 +45,7 @@ public class SalesFragment extends Fragment implements RvAdapterListener
     private FloatingActionButton fab_sales_add;
     private ActionMode actionMode;
     private ActionModeCallback actionModeCallback;
+    private SearchView searchView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -80,7 +81,7 @@ public class SalesFragment extends Fragment implements RvAdapterListener
     {
         inflater.inflate(R.menu.sales, menu);
         MenuItem searchItem = menu.findItem(R.id.action_sales_search);
-        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+        searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query)
@@ -282,6 +283,9 @@ public class SalesFragment extends Fragment implements RvAdapterListener
     {
         //TODO: Revisar esto, aqui se modifica la venta
         adapter.set(adapter.getItems().indexOf(sale), sale);
+        //Filter again to consider modified item
+        adapter.getFilter().filter(searchView.getQuery());
+        Snackbar.make(rootView, R.string.sale_modified, Snackbar.LENGTH_SHORT).show();
     }
 
     private void remove(Sale sale)

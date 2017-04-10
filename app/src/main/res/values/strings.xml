@@ -20,6 +20,7 @@
     <string name="sales_rv_item_area_address_format">"%1$s • %2$s"</string>
     <string name="search">Buscar</string>
     <string name="undo">Deshacer</string>
+    <string name="sale_modified">venta modificada</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
