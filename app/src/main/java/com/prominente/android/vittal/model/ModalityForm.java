@@ -23,7 +23,7 @@ public class ModalityForm extends SaleSubFormModel {
     private String type;
 
     public ModalityForm(Long saleId) {
-        this.saleId = saleId;
+        this.sale = saleId;
     }
 
     public String getType() {

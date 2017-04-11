@@ -16,7 +16,7 @@ import com.prominente.android.vittal.model.SellerForm;
 
 public class SellerFormFragment extends Fragment {
 
-    private final SellerForm sellerForm;
+    private SellerForm sellerForm;
     private String[] sellerTypes;
     private Spinner sellerTypesSpinner;
     private String[] radius;
@@ -32,11 +32,12 @@ public class SellerFormFragment extends Fragment {
     private ArrayAdapter<String> circuitsAdapter;
 
     public SellerFormFragment() {
-        sellerForm = new SellerForm();
+
     }
 
     public static SellerFormFragment newInstance(SellerForm sellerForm) {
         SellerFormFragment fragment = new SellerFormFragment();
+        fragment.sellerForm = sellerForm;
         return fragment;
     }
 

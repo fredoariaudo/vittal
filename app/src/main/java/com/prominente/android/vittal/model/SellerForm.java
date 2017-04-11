@@ -19,7 +19,7 @@ public class SellerForm extends SaleSubFormModel{
     private boolean stickerDelivered;
 
     public SellerForm(Long saleId) {
-        this.saleId = saleId;
+        this.sale = saleId;
     }
 
     @Bindable

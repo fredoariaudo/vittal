@@ -168,7 +168,7 @@ public class SalesFragment extends Fragment implements RvAdapterListener
         {
             Intent intent = new Intent(getContext(), NewSaleFormActivity.class);
             Sale sale = adapter.getItems().get(itemPosition);
-            intent.putExtra(ExtraKeys.SALE, sale);
+            intent.putExtra(ExtraKeys.SALE, sale.getId());
             startActivityForResult(intent, RequestCodes.REQUEST_MODIFY_SALE);
         }
     }

@@ -40,7 +40,13 @@ public class NewSaleFormActivity extends NavUpActivity {
         //Hide actionbar title
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        sale = (Sale) getIntent().getSerializableExtra(ExtraKeys.SALE);
+        Long id = getIntent().getLongExtra(ExtraKeys.SALE,0);
+
+        Sale tempSale = Sale.findById(Sale.class,id);
+
+        if (tempSale == null) tempSale = new Sale(id);
+
+        sale = tempSale;
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -105,10 +111,8 @@ public class NewSaleFormActivity extends NavUpActivity {
 
     private void save()
     {
-        //TODO: Reemplazar esto por datos tomados de los formularios
-        sale.setClient(sale.getApplicantForm().getRazonSocial());
-        sale.setArea("AP#100");
-        sale.setAddress(sale.getApplicantForm().getAddress());
+
+        sale.save();
 
         Intent data = new Intent();
         data.putExtra(ExtraKeys.SALE, sale);

@@ -1,12 +1,10 @@
 package com.prominente.android.vittal.model;
 
 
-import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 import android.databinding.Observable;
 import android.databinding.PropertyChangeRegistry;
 
-import com.prominente.android.vittal.application.VittalApplication;
 import com.prominente.android.vittal.interfaces.Formeable;
 
 import java.io.Serializable;
@@ -19,17 +17,17 @@ public abstract class FormModel extends VittalModel implements Formeable,Seriali
 
     private static final long serialVersionUID = 7526472295622776147L;
 
-    public long saleId;
+    public long sale;
 
     public FormModel() {
     }
 
-    public long getSaleId() {
-        return saleId;
+    public long getSale() {
+        return sale;
     }
 
-    public void setSaleId(long saleId) {
-        this.saleId = saleId;
+    public void setSale(long sale) {
+        this.sale = sale;
     }
 
     // Observable

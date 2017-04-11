@@ -23,7 +23,7 @@ public class PaymentForm extends SaleSubFormModel {
     }
 
     public PaymentForm(Long saleId) {
-        this.saleId = saleId;
+        this.sale = saleId;
     }
 
     @Bindable

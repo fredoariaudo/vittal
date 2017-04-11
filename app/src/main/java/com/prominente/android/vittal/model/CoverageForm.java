@@ -17,7 +17,7 @@ public class CoverageForm extends SaleSubFormModel{
     private int location;
 
     public CoverageForm(Long saleId) {
-        this.saleId = saleId;
+        this.sale = saleId;
     }
 
     @Bindable

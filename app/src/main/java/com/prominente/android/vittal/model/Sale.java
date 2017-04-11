@@ -13,13 +13,17 @@ public class Sale extends FormModel
     private PaymentForm paymentForm;
     private SellerForm sellerForm;
 
+    public Sale(Long id) {
+        this.setId(id);
+    }
+
     public Sale() {
 
     }
 
     public ApplicantForm getApplicantForm() {
         if (applicantForm ==  null) {
-            applicantForm = ApplicantForm.find(ApplicantForm.class,"saleId = ?",getId() + "").get(0);
+            applicantForm = ApplicantForm.find(ApplicantForm.class,"sale = ?",getId() + "").get(0);
             if (applicantForm ==  null) {
                 applicantForm = new ApplicantForm(getId());
             }
@@ -30,7 +34,7 @@ public class Sale extends FormModel
 
     public CoverageForm getCoverageForm() {
         if (coverageForm ==  null) {
-            coverageForm = CoverageForm.find(CoverageForm.class,"saleId = ?",getId() + "").get(0);
+            coverageForm = CoverageForm.find(CoverageForm.class,"sale = ?",getId() + "").get(0);
             if (coverageForm ==  null) {
                 coverageForm = new CoverageForm(getId());
             }
@@ -40,7 +44,7 @@ public class Sale extends FormModel
 
     public DebtCollectorForm getDebtCollectorForm() {
         if (debtCollectorForm ==  null) {
-            debtCollectorForm = DebtCollectorForm.find(DebtCollectorForm.class,"saleId = ?",getId() + "").get(0);
+            debtCollectorForm = DebtCollectorForm.find(DebtCollectorForm.class,"sale = ?",getId() + "").get(0);
             if (debtCollectorForm ==  null) {
                 debtCollectorForm = new DebtCollectorForm(getId());
             }
@@ -50,7 +54,7 @@ public class Sale extends FormModel
 
     public ModalityForm getModalityForm() {
         if (modalityForm ==  null) {
-            modalityForm = ModalityForm.find(ModalityForm.class,"saleId = ?",getId() + "").get(0);
+            modalityForm = ModalityForm.find(ModalityForm.class,"sale = ?",getId() + "").get(0);
             if (modalityForm ==  null) {
                 modalityForm = new ModalityForm(getId());
             }
@@ -60,7 +64,7 @@ public class Sale extends FormModel
 
     public PaymentForm getPaymentForm() {
         if (paymentForm ==  null) {
-            paymentForm = PaymentForm.find(PaymentForm.class,"saleId = ?",getId() + "").get(0);
+            paymentForm = PaymentForm.find(PaymentForm.class,"sale = ?",getId() + "").get(0);
             if (paymentForm ==  null) {
                 paymentForm = new PaymentForm(getId());
             }
@@ -71,7 +75,7 @@ public class Sale extends FormModel
 
     public SellerForm getSellerForm() {
         if (sellerForm ==  null) {
-            sellerForm = SellerForm.find(SellerForm.class,"saleId = ?",getId() + "").get(0);
+            sellerForm = SellerForm.find(SellerForm.class,"sale = ?",getId() + "").get(0);
             if (sellerForm ==  null) {
                 sellerForm = new SellerForm(getId());
             }

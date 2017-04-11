@@ -23,7 +23,7 @@ public class ApplicantForm extends SaleSubFormModel{
 
 
     public ApplicantForm(Long saleId) {
-        this.saleId = saleId;
+        this.sale = saleId;
     }
 
 
