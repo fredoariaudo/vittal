@@ -23,7 +23,14 @@ public class ApplicantForm extends SaleSubFormModel{
 
 
     public ApplicantForm() {
+
     }
+
+    public ApplicantForm(Long saleId) {
+        this.sale = saleId;
+    }
+
+
 
     @Bindable
     public String getDate() {

@@ -4,6 +4,8 @@ import android.databinding.Bindable;
 
 import com.prominente.android.vittal.BR;
 
+import java.util.Iterator;
+
 
 public class PaymentForm extends SaleSubFormModel {
 
@@ -16,14 +18,13 @@ public class PaymentForm extends SaleSubFormModel {
     int expirationPayment;
 
     public PaymentForm() {
-        cashPaymentForm = new CashPaymentForm();
-        nowPaymentForm = new NowPaymentForm();
-        checkPaymentForm = new CheckPaymentForm();
-        creditCardOrCbuPaymentForm = new CreditCardOrCbuPaymentForm();
     }
 
 
 
+    public PaymentForm(Long saleId) {
+        this.sale = saleId;
+    }
 
     @Bindable
     public int getExpirationPayment() {
@@ -36,6 +37,12 @@ public class PaymentForm extends SaleSubFormModel {
 
     @Bindable
     public CashPaymentForm getCashPaymentForm() {
+        if (cashPaymentForm ==  null) {
+            cashPaymentForm = CashPaymentForm.find(CashPaymentForm.class,"sale = ?",getId() + "").get(0);
+            if (cashPaymentForm ==  null) {
+                cashPaymentForm = new CashPaymentForm(getId());
+            }
+        }
         return cashPaymentForm;
     }
 
@@ -45,6 +52,12 @@ public class PaymentForm extends SaleSubFormModel {
 
     @Bindable
     public CreditCardOrCbuPaymentForm getCreditCardOrCbuPaymentForm() {
+        if (creditCardOrCbuPaymentForm ==  null) {
+            creditCardOrCbuPaymentForm = CreditCardOrCbuPaymentForm.find(CreditCardOrCbuPaymentForm.class,"sale = ?",getId() + "").get(0);
+            if (creditCardOrCbuPaymentForm ==  null) {
+                creditCardOrCbuPaymentForm = new CreditCardOrCbuPaymentForm(getId());
+            }
+        }
         return creditCardOrCbuPaymentForm;
     }
 
@@ -54,6 +67,12 @@ public class PaymentForm extends SaleSubFormModel {
 
     @Bindable
     public CheckPaymentForm getCheckPaymentForm() {
+        if (checkPaymentForm ==  null) {
+            checkPaymentForm = CheckPaymentForm.find(CheckPaymentForm.class,"sale = ?",getId() + "").get(0);
+            if (checkPaymentForm ==  null) {
+                checkPaymentForm = new CheckPaymentForm(getId());
+            }
+        }
         return checkPaymentForm;
     }
 
@@ -68,6 +87,12 @@ public class PaymentForm extends SaleSubFormModel {
     }
 
     public void setNowPaymentForm(NowPaymentForm nowPaymentForm) {
+        if (nowPaymentForm ==  null) {
+            nowPaymentForm = NowPaymentForm.find(NowPaymentForm.class,"sale = ?",getId() + "").get(0);
+            if (nowPaymentForm ==  null) {
+                nowPaymentForm = new NowPaymentForm(getId());
+            }
+        }
         this.nowPaymentForm = nowPaymentForm;
     }
 
@@ -86,4 +111,14 @@ public class PaymentForm extends SaleSubFormModel {
         return false;
     }
 
+    @Override
+    public long save() {
+
+        getCashPaymentForm().save();
+        getCheckPaymentForm().save();
+        getCreditCardOrCbuPaymentForm().save();
+        getNowPaymentForm().save();
+
+        return super.save();
+    }
 }

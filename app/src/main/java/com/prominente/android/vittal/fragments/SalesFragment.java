@@ -275,7 +275,7 @@ public class SalesFragment extends Fragment implements RvAdapterListener
     private void add(Sale sale)
     {
         //TODO: Revisar esto despues, se coloca un id al nuevo elemento
-        sale.setId(newItemId++);
+        sale.setId(new Long(newItemId++));
         adapter.add(sale);
     }
 

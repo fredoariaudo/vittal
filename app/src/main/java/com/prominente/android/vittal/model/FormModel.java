@@ -13,19 +13,22 @@ import java.io.Serializable;
  * Created by Pablo Poza on 4/4/2017.
  */
 
-public abstract class FormModel implements Formeable,Serializable, Observable {
+public abstract class FormModel extends VittalModel implements Formeable,Serializable, Observable {
 
     private static final long serialVersionUID = 7526472295622776147L;
-    protected long id;
 
-    public long getId() {
-        return id;
+    public long sale;
+
+    public FormModel() {
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public long getSale() {
+        return sale;
     }
 
+    public void setSale(long sale) {
+        this.sale = sale;
+    }
 
     // Observable
     private transient PropertyChangeRegistry mCallbacks;

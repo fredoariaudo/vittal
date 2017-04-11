@@ -19,28 +19,30 @@ public class ModalityForm extends SaleSubFormModel {
     private String coseguro;
     private String detailOthers;
     private String observations;
-    private String modality;
-    private String type;
+    private int modality = -1;
+    private int type     = -1;
 
     public ModalityForm() {
-
     }
 
-
-    public String getType() {
-        return type;
+    public ModalityForm(Long saleId) {
+        this.sale = saleId;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getModality() {
+    public int getModality() {
         return modality;
     }
 
-    public void setModality(String modality) {
+    public void setModality(int modality) {
         this.modality = modality;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 
     @Bindable
