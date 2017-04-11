@@ -22,6 +22,10 @@ public class ApplicantForm extends SaleSubFormModel{
     private int plan;
 
 
+    public ApplicantForm() {
+
+    }
+
     public ApplicantForm(Long saleId) {
         this.sale = saleId;
     }

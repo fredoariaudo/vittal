@@ -21,6 +21,9 @@ public class CreditCardOrCbuPaymentForm extends FormModel implements Formeable {
     String nroCupon;
     String paymentAmount;
 
+    public CreditCardOrCbuPaymentForm() {
+    }
+
     @Bindable
     public String getName() {
         return name;

@@ -43,7 +43,6 @@ public class ModalityFormFragment extends Fragment {
                 modalityForm.setType(index + "");
             }
         });
-
     }
 
     public static ModalityFormFragment newInstance(ModalityForm modalityForm) {

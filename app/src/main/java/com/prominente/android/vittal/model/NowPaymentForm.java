@@ -10,6 +10,9 @@ public class NowPaymentForm extends FormModel implements Formeable {
     String days;
     String date;
 
+    public NowPaymentForm() {
+    }
+
     @Bindable
     public String getDays() {
         return days;

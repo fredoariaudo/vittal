@@ -1,5 +1,8 @@
 package com.prominente.android.vittal.model;
 
+import java.util.Iterator;
+import java.util.List;
+
 public class Sale extends FormModel
 {
     private String client;
@@ -23,6 +26,7 @@ public class Sale extends FormModel
 
     public ApplicantForm getApplicantForm() {
         if (applicantForm ==  null) {
+            Iterator<ApplicantForm> all = ApplicantForm.findAll(ApplicantForm.class);
             applicantForm = ApplicantForm.find(ApplicantForm.class,"sale = ?",getId() + "").get(0);
             if (applicantForm ==  null) {
                 applicantForm = new ApplicantForm(getId());

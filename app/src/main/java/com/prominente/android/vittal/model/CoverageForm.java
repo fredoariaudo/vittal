@@ -16,6 +16,9 @@ public class CoverageForm extends SaleSubFormModel{
     private int protectedArea;
     private int location;
 
+    public CoverageForm() {
+    }
+
     public CoverageForm(Long saleId) {
         this.sale = saleId;
     }

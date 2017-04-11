@@ -13,6 +13,9 @@ public class CheckPaymentForm extends FormModel implements Formeable {
     String days;
     String date;
 
+    public CheckPaymentForm() {
+    }
+
     @Bindable
     public String getBranch() {
         return branch;

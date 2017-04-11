@@ -14,6 +14,8 @@ public class CashPaymentForm extends FormModel implements Formeable {
     String number;
     String letter;
 
+    public CashPaymentForm() {
+    }
 
     @Bindable
     public String getNumber() {
