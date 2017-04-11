@@ -30,7 +30,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@={applicantForm.date}"
-                android:editable="false"
                 android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
             <EditText
@@ -70,6 +69,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_cp"
+                android:text="@={applicantForm.cp}"
                 android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
             <EditText
@@ -85,6 +85,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_cell_phone"
+                android:text="@={applicantForm.cellpones}"
                 android:layout_marginBottom="@dimen/form_margin_bottom"/>
 
             <EditText
