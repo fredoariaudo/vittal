@@ -7,7 +7,6 @@ import com.prominente.android.vittal.interfaces.Formeable;
 
 public class CheckPaymentForm extends FormModel implements Formeable {
 
-
     String branch;
     String number;
     String days;

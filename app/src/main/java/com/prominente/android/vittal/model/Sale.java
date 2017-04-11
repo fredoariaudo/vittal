@@ -1,8 +1,5 @@
 package com.prominente.android.vittal.model;
 
-import java.util.Iterator;
-import java.util.List;
-
 public class Sale extends FormModel
 {
     private String client;
@@ -124,12 +121,13 @@ public class Sale extends FormModel
 
     @Override
     public long save() {
+        long id = super.save();
         getApplicantForm().save();
         getCoverageForm().save();
         getDebtCollectorForm().save();
         getModalityForm().save();
         getPaymentForm().save();
         getSellerForm().save();
-        return super.save();
+        return id;
     }
 }

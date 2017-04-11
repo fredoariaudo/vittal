@@ -38,7 +38,7 @@ public class PaymentForm extends SaleSubFormModel {
     @Bindable
     public CashPaymentForm getCashPaymentForm() {
         if (cashPaymentForm ==  null) {
-            cashPaymentForm = CashPaymentForm.find(CashPaymentForm.class,"sale = ?",getId() + "").get(0);
+            cashPaymentForm = CashPaymentForm.find(CashPaymentForm.class,"sale = ?",sale + "").get(0);
             if (cashPaymentForm ==  null) {
                 cashPaymentForm = new CashPaymentForm(sale);
             }
@@ -53,7 +53,7 @@ public class PaymentForm extends SaleSubFormModel {
     @Bindable
     public CreditCardOrCbuPaymentForm getCreditCardOrCbuPaymentForm() {
         if (creditCardOrCbuPaymentForm ==  null) {
-            creditCardOrCbuPaymentForm = CreditCardOrCbuPaymentForm.find(CreditCardOrCbuPaymentForm.class,"sale = ?",getId() + "").get(0);
+            creditCardOrCbuPaymentForm = CreditCardOrCbuPaymentForm.find(CreditCardOrCbuPaymentForm.class,"sale = ?",sale + "").get(0);
             if (creditCardOrCbuPaymentForm ==  null) {
                 creditCardOrCbuPaymentForm = new CreditCardOrCbuPaymentForm(sale);
             }
@@ -68,7 +68,7 @@ public class PaymentForm extends SaleSubFormModel {
     @Bindable
     public CheckPaymentForm getCheckPaymentForm() {
         if (checkPaymentForm ==  null) {
-            checkPaymentForm = CheckPaymentForm.find(CheckPaymentForm.class,"sale = ?",getId() + "").get(0);
+            checkPaymentForm = CheckPaymentForm.find(CheckPaymentForm.class,"sale = ?",sale + "").get(0);
             if (checkPaymentForm ==  null) {
                 checkPaymentForm = new CheckPaymentForm(sale);
             }
@@ -83,16 +83,16 @@ public class PaymentForm extends SaleSubFormModel {
 
     @Bindable
     public NowPaymentForm getNowPaymentForm() {
-        return nowPaymentForm;
-    }
-
-    public void setNowPaymentForm(NowPaymentForm nowPaymentForm) {
         if (nowPaymentForm ==  null) {
-            nowPaymentForm = NowPaymentForm.find(NowPaymentForm.class,"sale = ?",getId() + "").get(0);
+            nowPaymentForm = NowPaymentForm.find(NowPaymentForm.class,"sale = ?",sale + "").get(0);
             if (nowPaymentForm ==  null) {
                 nowPaymentForm = new NowPaymentForm(sale);
             }
         }
+        return nowPaymentForm;
+    }
+
+    public void setNowPaymentForm(NowPaymentForm nowPaymentForm) {
         this.nowPaymentForm = nowPaymentForm;
     }
 
@@ -113,12 +113,11 @@ public class PaymentForm extends SaleSubFormModel {
 
     @Override
     public long save() {
-
+        long id = super.save();
         getCashPaymentForm().save();
         getCheckPaymentForm().save();
         getCreditCardOrCbuPaymentForm().save();
         getNowPaymentForm().save();
-
-        return super.save();
+        return id;
     }
 }
