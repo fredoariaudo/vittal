@@ -40,7 +40,7 @@ public class PaymentForm extends SaleSubFormModel {
         if (cashPaymentForm ==  null) {
             cashPaymentForm = CashPaymentForm.find(CashPaymentForm.class,"sale = ?",getId() + "").get(0);
             if (cashPaymentForm ==  null) {
-                cashPaymentForm = new CashPaymentForm(getId());
+                cashPaymentForm = new CashPaymentForm(sale);
             }
         }
         return cashPaymentForm;
@@ -55,7 +55,7 @@ public class PaymentForm extends SaleSubFormModel {
         if (creditCardOrCbuPaymentForm ==  null) {
             creditCardOrCbuPaymentForm = CreditCardOrCbuPaymentForm.find(CreditCardOrCbuPaymentForm.class,"sale = ?",getId() + "").get(0);
             if (creditCardOrCbuPaymentForm ==  null) {
-                creditCardOrCbuPaymentForm = new CreditCardOrCbuPaymentForm(getId());
+                creditCardOrCbuPaymentForm = new CreditCardOrCbuPaymentForm(sale);
             }
         }
         return creditCardOrCbuPaymentForm;
@@ -70,7 +70,7 @@ public class PaymentForm extends SaleSubFormModel {
         if (checkPaymentForm ==  null) {
             checkPaymentForm = CheckPaymentForm.find(CheckPaymentForm.class,"sale = ?",getId() + "").get(0);
             if (checkPaymentForm ==  null) {
-                checkPaymentForm = new CheckPaymentForm(getId());
+                checkPaymentForm = new CheckPaymentForm(sale);
             }
         }
         return checkPaymentForm;
@@ -90,7 +90,7 @@ public class PaymentForm extends SaleSubFormModel {
         if (nowPaymentForm ==  null) {
             nowPaymentForm = NowPaymentForm.find(NowPaymentForm.class,"sale = ?",getId() + "").get(0);
             if (nowPaymentForm ==  null) {
-                nowPaymentForm = new NowPaymentForm(getId());
+                nowPaymentForm = new NowPaymentForm(sale);
             }
         }
         this.nowPaymentForm = nowPaymentForm;

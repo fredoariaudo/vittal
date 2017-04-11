@@ -28,7 +28,7 @@ import com.prominente.android.vittal.adapters.RvAdapterListener;
 import com.prominente.android.vittal.constants.ExtraKeys;
 import com.prominente.android.vittal.constants.IntentActions;
 import com.prominente.android.vittal.constants.RequestCodes;
-import com.prominente.android.vittal.dataprovider.DummyDataProvider;
+import com.prominente.android.vittal.data.DummyDataProvider;
 import com.prominente.android.vittal.model.Sale;
 
 import java.util.ArrayList;
