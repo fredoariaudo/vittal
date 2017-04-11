@@ -33,14 +33,14 @@ public class ModalityFormFragment extends Fragment {
         modalitiesRadioButtonsManager = new RadioButtonsManager(new RadioButtonsManager.OnRadioButtonSelectedListener() {
             @Override
             public void onRadioButtonSelected(int index) {
-                modalityForm.setModality(index + "");
+                modalityForm.setModality(index);
             }
         });
 
         typesRadioButtonsManager = new RadioButtonsManager(new RadioButtonsManager.OnRadioButtonSelectedListener() {
             @Override
             public void onRadioButtonSelected(int index) {
-                modalityForm.setType(index + "");
+                modalityForm.setType(index);
             }
         });
     }
@@ -67,11 +67,17 @@ public class ModalityFormFragment extends Fragment {
         modalitiesRadioButtons.add((RadioButton)view.findViewById(R.id.partial_modality_type_bump_service));
         modalitiesRadioButtons.add((RadioButton)view.findViewById(R.id.partial_modality_type_others));
         modalitiesRadioButtonsManager.setButtons(modalitiesRadioButtons);
+        if (modalityForm.getModality() != -1) {
+            modalitiesRadioButtonsManager.setSelected(modalityForm.getModality());
+        }
 
         typesRadioButtons = new ArrayList<>();
         typesRadioButtons.add((RadioButton)view.findViewById(R.id.fr_modality_form_rb_emergencias));
         typesRadioButtons.add((RadioButton)view.findViewById(R.id.fr_modality_form_rd_home_health_consultation));
         typesRadioButtonsManager.setButtons(typesRadioButtons);
+        if (modalityForm.getType() != -1) {
+            typesRadioButtonsManager.setSelected(modalityForm.getType());
+        }
 
         return view;
     }
