@@ -1,4 +1,4 @@
-package com.prominente.android.vittal.dataprovider;
+package com.prominente.android.vittal.data;
 
 import com.prominente.android.vittal.model.Sale;
 
