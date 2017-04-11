@@ -17,6 +17,10 @@ public class CashPaymentForm extends FormModel implements Formeable {
     public CashPaymentForm() {
     }
 
+    public CashPaymentForm(Long sale) {
+        this.sale = sale;
+    }
+
     @Bindable
     public String getNumber() {
         return number;

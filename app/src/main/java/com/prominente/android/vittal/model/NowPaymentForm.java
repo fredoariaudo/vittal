@@ -13,6 +13,10 @@ public class NowPaymentForm extends FormModel implements Formeable {
     public NowPaymentForm() {
     }
 
+    public NowPaymentForm(Long sale) {
+        this.sale = sale;
+    }
+
     @Bindable
     public String getDays() {
         return days;

@@ -16,6 +16,10 @@ public class CheckPaymentForm extends FormModel implements Formeable {
     public CheckPaymentForm() {
     }
 
+    public CheckPaymentForm(Long sale) {
+        this.sale = sale;
+    }
+
     @Bindable
     public String getBranch() {
         return branch;

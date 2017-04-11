@@ -24,6 +24,10 @@ public class CreditCardOrCbuPaymentForm extends FormModel implements Formeable {
     public CreditCardOrCbuPaymentForm() {
     }
 
+    public CreditCardOrCbuPaymentForm(Long sale) {
+        this.sale = sale;
+    }
+
     @Bindable
     public String getName() {
         return name;

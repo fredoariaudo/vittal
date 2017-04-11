@@ -26,7 +26,6 @@ public class Sale extends FormModel
 
     public ApplicantForm getApplicantForm() {
         if (applicantForm ==  null) {
-            Iterator<ApplicantForm> all = ApplicantForm.findAll(ApplicantForm.class);
             applicantForm = ApplicantForm.find(ApplicantForm.class,"sale = ?",getId() + "").get(0);
             if (applicantForm ==  null) {
                 applicantForm = new ApplicantForm(getId());
