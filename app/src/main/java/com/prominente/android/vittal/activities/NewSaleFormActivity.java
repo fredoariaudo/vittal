@@ -25,6 +25,8 @@ import com.prominente.android.vittal.fragments.PaymentFormFragment;
 import com.prominente.android.vittal.fragments.SellerFormFragment;
 import com.prominente.android.vittal.model.Sale;
 
+import java.io.Serializable;
+
 public class NewSaleFormActivity extends NavUpActivity {
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
@@ -40,11 +42,11 @@ public class NewSaleFormActivity extends NavUpActivity {
         //Hide actionbar title
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        Long id = getIntent().getLongExtra(ExtraKeys.SALE,0);
+        Sale serializableExtra = (Sale) getIntent().getSerializableExtra(ExtraKeys.SALE);
 
-        Sale tempSale = Sale.findById(Sale.class,id);
+        Sale tempSale = Sale.findById(Sale.class,serializableExtra.getId());
 
-        if (tempSale == null) tempSale = new Sale(id);
+        if (tempSale == null) tempSale = new Sale(serializableExtra.getId());
 
         sale = tempSale;
 

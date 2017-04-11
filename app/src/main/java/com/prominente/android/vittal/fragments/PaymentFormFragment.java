@@ -54,12 +54,13 @@ public class PaymentFormFragment extends Fragment {
 
         //
         paymentsMode = new String[] {
-                "Tipo de pago",  "Efectivo", "Contado", "Cheque" ,"Tarjeta de credito/CBU"
+            "Tipo de pago",  "Efectivo", "Contado", "Cheque" ,"Tarjeta de credito/CBU"
         };
 
         paymentsModeSpinners= (Spinner) view.findViewById(R.id.fr_payment_form_spn_payment_mode);
         adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, paymentsMode);
         paymentsModeSpinners.setAdapter(adapter);
+        paymentsModeSpinners.setSelection(paymentForm.getPaymentMode());
 
         paymentExpirationDateRadioButtons = new ArrayList<>();
         paymentExpirationDateRadioButtons.add((RadioButton)view.findViewById(R.id.fr_payment_form_rb_overdue_month));
