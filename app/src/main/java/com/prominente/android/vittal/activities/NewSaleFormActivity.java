@@ -42,13 +42,7 @@ public class NewSaleFormActivity extends NavUpActivity {
         //Hide actionbar title
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        Sale serializableExtra = (Sale) getIntent().getSerializableExtra(ExtraKeys.SALE);
-
-        Sale tempSale = Sale.findById(Sale.class,serializableExtra.getId());
-
-        if (tempSale == null) tempSale = new Sale(serializableExtra.getId());
-
-        sale = tempSale;
+        sale = (Sale) getIntent().getSerializableExtra(ExtraKeys.SALE);
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -116,11 +110,11 @@ public class NewSaleFormActivity extends NavUpActivity {
 
         sale.save();
 
-        /*Intent data = new Intent();
+        Intent data = new Intent();
         data.putExtra(ExtraKeys.SALE, sale);
         data.setAction(IntentActions.ACTION_SAVE);
         setResult(RESULT_OK, data);
-        finish();*/
+        finish();
     }
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
