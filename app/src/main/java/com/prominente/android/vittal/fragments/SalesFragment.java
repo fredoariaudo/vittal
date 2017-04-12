@@ -22,7 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.prominente.android.vittal.R;
-import com.prominente.android.vittal.activities.NewSaleFormActivity;
+import com.prominente.android.vittal.activities.SaleFormActivity;
 import com.prominente.android.vittal.adapters.SalesRvAdapter;
 import com.prominente.android.vittal.adapters.RvAdapterListener;
 import com.prominente.android.vittal.constants.ExtraKeys;
@@ -164,7 +164,7 @@ public class SalesFragment extends Fragment implements RvAdapterListener
         }
         else
         {
-            Intent intent = new Intent(getContext(), NewSaleFormActivity.class);
+            Intent intent = new Intent(getContext(), SaleFormActivity.class);
             Sale sale = adapter.getItems().get(itemPosition);
             intent.putExtra(ExtraKeys.SALE, sale);
             startActivityForResult(intent, RequestCodes.REQUEST_MODIFY_SALE);
@@ -259,7 +259,7 @@ public class SalesFragment extends Fragment implements RvAdapterListener
     private void edit(final List<Integer> selectedItems)
     {
         Sale sale = adapter.getItems().get(selectedItems.get(0));
-        Intent intent = new Intent(getContext(), NewSaleFormActivity.class);
+        Intent intent = new Intent(getContext(), SaleFormActivity.class);
         intent.putExtra(ExtraKeys.SALE, sale);
         startActivityForResult(intent, RequestCodes.REQUEST_MODIFY_SALE);
     }
@@ -310,7 +310,7 @@ public class SalesFragment extends Fragment implements RvAdapterListener
 
     private void startSaleForm()
     {
-        Intent intent = new Intent(getContext(), NewSaleFormActivity.class);
+        Intent intent = new Intent(getContext(), SaleFormActivity.class);
         startActivityForResult(intent, RequestCodes.REQUEST_NEW_SALE);
     }
 

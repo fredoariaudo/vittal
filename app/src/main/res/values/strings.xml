@@ -85,4 +85,8 @@
     <string name="hint_fee_without_iva">Importe de cuota mensula s/IVA</string>
     <string name="hint_capita">Cápita</string>
     <string name="sticker_delivered">Se entregó sticker</string>
+    <string name="are_you_sure_close_whitout_save">¿Desea salir sin guardar los cambios?</string>
+    <string name="vittal">Vittal</string>
+    <string name="yes">Si</string>
+    <string name="no">No</string>
 </resources>

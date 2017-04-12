@@ -1,5 +1,6 @@
 package com.prominente.android.vittal.activities;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
@@ -7,6 +8,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,9 +28,10 @@ import com.prominente.android.vittal.model.Sale;
 
 import java.util.ArrayList;
 
-public class NewSaleFormActivity extends NavUpActivity {
+public class SaleFormActivity extends NavUpActivity {
 
     private Sale sale;
+    private boolean isNew;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,7 @@ public class NewSaleFormActivity extends NavUpActivity {
         sale = (Sale) getIntent().getSerializableExtra(ExtraKeys.SALE);
         // Si no hay Sale, entonces es una venta nueva
         if(sale == null) {
+            isNew = true;
             sale = new Sale();
             sale.save();
         }
@@ -99,6 +103,28 @@ public class NewSaleFormActivity extends NavUpActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle(R.string.vittal)
+                .setMessage(R.string.are_you_sure_close_whitout_save)
+                .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        if (isNew) {
+                            sale.delete();
+                        }
+
+                        SaleFormActivity.super.onBackPressed();
+                    }
+
+                })
+                .setNegativeButton(R.string.no, null)
+                .show();
     }
 
     private ArrayList<Fragment> getFormTabs()
