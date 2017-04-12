@@ -4,9 +4,6 @@ import android.databinding.Bindable;
 
 import com.prominente.android.vittal.BR;
 
-import java.util.Iterator;
-
-
 public class PaymentForm extends SaleSubFormModel {
 
     private CashPaymentForm cashPaymentForm;
@@ -19,8 +16,6 @@ public class PaymentForm extends SaleSubFormModel {
 
     public PaymentForm() {
     }
-
-
 
     public PaymentForm(Long saleId) {
         this.sale = saleId;

@@ -116,7 +116,7 @@ public class Sale extends FormModel
     @Override
     public boolean equals(Object obj)
     {
-        return obj instanceof Sale && ((Sale) obj).getId() == getId();
+        return obj instanceof Sale && ((Sale) obj).getId().equals(getId());
     }
 
     @Override

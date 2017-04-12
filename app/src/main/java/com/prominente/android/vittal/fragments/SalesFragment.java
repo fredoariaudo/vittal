@@ -2,6 +2,7 @@ package com.prominente.android.vittal.fragments;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.BaseTransientBottomBar;
 import android.support.design.widget.FloatingActionButton;
@@ -20,15 +21,15 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.prominente.android.vittal.R;
 import com.prominente.android.vittal.activities.SaleFormActivity;
-import com.prominente.android.vittal.adapters.SalesRvAdapter;
 import com.prominente.android.vittal.adapters.RvAdapterListener;
+import com.prominente.android.vittal.adapters.SalesRvAdapter;
 import com.prominente.android.vittal.constants.ExtraKeys;
 import com.prominente.android.vittal.constants.IntentActions;
 import com.prominente.android.vittal.constants.RequestCodes;
-import com.prominente.android.vittal.data.DummyDataProvider;
 import com.prominente.android.vittal.model.Sale;
 
 import java.util.ArrayList;
@@ -40,10 +41,13 @@ public class SalesFragment extends Fragment implements RvAdapterListener
     private RecyclerView rv_sales;
     private LinearLayoutManager rvLayoutManager;
     private SalesRvAdapter adapter;
+    private ProgressBar pb_sales;
     private FloatingActionButton fab_sales_add;
     private ActionMode actionMode;
     private ActionModeCallback actionModeCallback;
     private SearchView searchView;
+
+    private SalesLoadTask salesLoadTask;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -58,7 +62,7 @@ public class SalesFragment extends Fragment implements RvAdapterListener
         adapter = new SalesRvAdapter(this);
         rv_sales.setAdapter(adapter);
 
-        adapter.addAll(DummyDataProvider.getInstance().getSales());
+        pb_sales = (ProgressBar) rootView.findViewById(R.id.pb_sales);
 
         fab_sales_add = (FloatingActionButton) rootView.findViewById(R.id.fab_sales_add);
         fab_sales_add.setOnClickListener(new View.OnClickListener() {
@@ -71,7 +75,21 @@ public class SalesFragment extends Fragment implements RvAdapterListener
 
         setHasOptionsMenu(true);
 
+        //Initialize and run SaleLoadTask
+        salesLoadTask = new SalesLoadTask();
+        salesLoadTask.execute();
+
         return rootView;
+    }
+
+    @Override
+    public void onStop()
+    {
+        super.onStop();
+
+        //Stop the task if exit from fragment while loading
+        if(salesLoadTask != null)
+            salesLoadTask.cancel(true);
     }
 
     @Override
@@ -402,6 +420,29 @@ public class SalesFragment extends Fragment implements RvAdapterListener
         {
             adapter.clearSelection(true);
             actionMode.finish();
+        }
+    }
+
+    private class SalesLoadTask extends AsyncTask<Void, Integer, List<Sale>>
+    {
+        @Override
+        protected void onPreExecute()
+        {
+            super.onPreExecute();
+            pb_sales.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        protected List<Sale> doInBackground(Void... params)
+        {
+            return Sale.listAll(Sale.class);
+        }
+
+        @Override
+        protected void onPostExecute(List<Sale> sales)
+        {
+            adapter.addAll(sales);
+            pb_sales.setVisibility(View.GONE);
         }
     }
 }
