@@ -38,6 +38,11 @@ public class NewSaleFormActivity extends NavUpActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         sale = (Sale) getIntent().getSerializableExtra(ExtraKeys.SALE);
+        // Si no hay Sale, entonces es una venta nueva
+        if(sale == null) {
+            sale = new Sale();
+            sale.save();
+        }
 
         SaleFormPagerAdapter mSectionsPagerAdapter = new SaleFormPagerAdapter(getSupportFragmentManager(), getFormTabs());
         ViewPager vp_sale_form = (ViewPager) findViewById(R.id.vp_sale_form);
