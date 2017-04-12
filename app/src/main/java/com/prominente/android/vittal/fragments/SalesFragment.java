@@ -37,6 +37,8 @@ import java.util.List;
 
 public class SalesFragment extends Fragment implements RvAdapterListener
 {
+    private final static int ADAPTER_UPDATE_POST_DELAY = 200;
+
     private View rootView;
     private RecyclerView rv_sales;
     private LinearLayoutManager rvLayoutManager;
@@ -294,6 +296,7 @@ public class SalesFragment extends Fragment implements RvAdapterListener
 
     private void add(Sale sale)
     {
+        //Update adapter
         adapter.add(sale);
         //Save item into DB
         sale.save();
@@ -303,13 +306,23 @@ public class SalesFragment extends Fragment implements RvAdapterListener
 
     private void save(Sale sale)
     {
+        //Update adapter
         adapter.set(adapter.getItems().indexOf(sale), sale);
-        //Filter again to consider modified item
-        adapter.getFilter().filter(searchView.getQuery());
         //Save sale to DB
         sale.save();
 
         Snackbar.make(rootView, R.string.sale_modified, Snackbar.LENGTH_SHORT).show();
+
+        //Enqueue and delay filter reset to prevent itemChange animation corruption when update adapter
+        rv_sales.postDelayed(new Runnable() {
+            @Override
+            public void run()
+            {
+                //Filter again to consider modified item
+                adapter.getFilter().filter(searchView.getQuery());
+            }
+        }, ADAPTER_UPDATE_POST_DELAY);
+
     }
 
     private void remove(Sale sale)
