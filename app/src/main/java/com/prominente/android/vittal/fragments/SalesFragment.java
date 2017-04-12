@@ -310,10 +310,7 @@ public class SalesFragment extends Fragment implements RvAdapterListener
 
     private void startSaleForm()
     {
-        Sale sale = new Sale();
-        sale.save();
         Intent intent = new Intent(getContext(), NewSaleFormActivity.class);
-        intent.putExtra(ExtraKeys.SALE, sale);
         startActivityForResult(intent, RequestCodes.REQUEST_NEW_SALE);
     }
 
