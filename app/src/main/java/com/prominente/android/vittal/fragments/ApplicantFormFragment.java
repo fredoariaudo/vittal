@@ -15,6 +15,7 @@ import android.widget.EditText;
 
 import com.prominente.android.vittal.BR;
 import com.prominente.android.vittal.R;
+import com.prominente.android.vittal.data.FormData;
 import com.prominente.android.vittal.model.ApplicantForm;
 import com.prominente.android.vittal.model.Sale;
 
@@ -54,10 +55,8 @@ public class ApplicantFormFragment extends Fragment implements DatePickerDialog.
             }
         });
 
-        // Codigo Cobertura
-        arraySpinner = new String[] {
-                "AP#100", "AP#200", "AP#300", "AP#400", "AP#500"
-        };
+
+        arraySpinner = FormData.getCoverages();
         AppCompatSpinner s = (AppCompatSpinner) view.findViewById(R.id.fr_applicant_form_spn_protected_area_code);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, arraySpinner);
         s.setAdapter(adapter);

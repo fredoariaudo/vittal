@@ -13,6 +13,7 @@ import android.widget.Spinner;
 
 import com.prominente.android.vittal.BR;
 import com.prominente.android.vittal.R;
+import com.prominente.android.vittal.data.FormData;
 import com.prominente.android.vittal.model.PaymentForm;
 import com.prominente.android.vittal.model.Sale;
 import com.prominente.android.vittal.views.RadioButtonsManager;
@@ -55,9 +56,7 @@ public class PaymentFormFragment extends Fragment {
         View view = binding.getRoot();
 
         //
-        paymentsMode = new String[] {
-            "Tipo de pago",  "Efectivo", "Contado", "Cheque" ,"Tarjeta de credito/CBU"
-        };
+        paymentsMode = FormData.getPaymentModes();
 
         paymentsModeSpinners= (Spinner) view.findViewById(R.id.fr_payment_form_spn_payment_mode);
         adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, paymentsMode);

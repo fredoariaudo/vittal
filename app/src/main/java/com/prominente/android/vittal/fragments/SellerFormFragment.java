@@ -12,6 +12,7 @@ import android.widget.Spinner;
 
 import com.prominente.android.vittal.BR;
 import com.prominente.android.vittal.R;
+import com.prominente.android.vittal.data.FormData;
 import com.prominente.android.vittal.model.Sale;
 import com.prominente.android.vittal.model.SellerForm;
 
@@ -62,36 +63,28 @@ public class SellerFormFragment extends Fragment {
 
     private void configureSpinners(View view) {
         //
-        sellerTypes = new String[] {
-                "Vendedor Logueado", "Otro vendedor"
-        };
+        sellerTypes = FormData.getSellerTypes();
 
         sellerTypesSpinner  = (Spinner) view.findViewById(R.id.fr_seller_form_spn_seller);
         sellerTypesAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, sellerTypes);
         sellerTypesSpinner.setAdapter(sellerTypesAdapter);
 
         //
-        radius = new String[] {
-                "Radio 1", "Radio 2", "Radio 3"
-        };
+        radius = FormData.getRadius();
 
         radiusSpinner  = (Spinner) view.findViewById(R.id.fr_seller_form_spn_radius);
         radiusAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, radius);
         radiusSpinner.setAdapter(radiusAdapter);
 
         //
-        circuits = new String[] {
-                "Circuito 1", "Circuito 2"
-        };
+        circuits = FormData.getCircuits();
 
         circuitsSpinner  = (Spinner) view.findViewById(R.id.fr_seller_form_spn_circuit);
         circuitsAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, circuits);
         circuitsSpinner.setAdapter(circuitsAdapter);
 
         //
-        promos = new String[] {
-                "Promo 1", "Promo 2","Promo 3"
-        };
+        promos = FormData.getPromos();
 
         promosSpinner  = (Spinner) view.findViewById(R.id.fr_seller_form_spn_promo);
         promosAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, promos);

@@ -12,6 +12,7 @@ import android.widget.Spinner;
 
 import com.prominente.android.vittal.BR;
 import com.prominente.android.vittal.R;
+import com.prominente.android.vittal.data.FormData;
 import com.prominente.android.vittal.model.CoverageForm;
 import com.prominente.android.vittal.model.Sale;
 
@@ -45,18 +46,14 @@ public class CoverageFormFragment extends Fragment {
 
         View view = binding.getRoot();
         //
-        covergaTypes = new String[] {
-                "Tipo de aréa protegida", "Comercio Menores", "Micro Escolar", "Pub", "Hotel", "Otro"
-        };
+        covergaTypes = FormData.getPlaces();
 
         coverageTypesSpinner  = (Spinner) view.findViewById(R.id.fr_coverage_form_spn_protected_area_type);
         covergaTypesAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, covergaTypes);
         coverageTypesSpinner.setAdapter(covergaTypesAdapter);
 
         //
-        locations = new String[] {
-                "Localidad", "Avellaneda", "Lanus", "Capital Federal"
-        };
+        locations = FormData.getLocations();
 
         locationsSpinners= (Spinner) view.findViewById(R.id.fr_coverage_form_spn_location);
         locationsAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, locations);

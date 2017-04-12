@@ -13,6 +13,7 @@ import android.widget.Spinner;
 
 import com.prominente.android.vittal.BR;
 import com.prominente.android.vittal.R;
+import com.prominente.android.vittal.data.FormData;
 import com.prominente.android.vittal.model.DebtCollectorForm;
 import com.prominente.android.vittal.model.Sale;
 import com.prominente.android.vittal.views.RadioButtonsManager;
@@ -64,9 +65,7 @@ public class DebtCollectorFormFragment extends Fragment {
 
         View view = binding.getRoot();
 
-        locations = new String[] {
-                "Localidad","Avellaneda", "Lanus", "Capital Federal"
-        };
+        locations = FormData.getLocations();
 
         locationsSpinners= (Spinner) view.findViewById(R.id.fr_debt_collector_form_spn_location);
         locationsAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, locations);
