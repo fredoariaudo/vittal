@@ -8,12 +8,13 @@ import android.widget.TextView;
 
 import com.prominente.android.vittal.R;
 import com.prominente.android.vittal.model.Sale;
+import com.prominente.android.vittal.util.ResourceUtil;
 
 public class SalesRvAdapter extends FilterableRvAdapter<Sale>
 {
     private RvAdapterListener rvAdapterListener;
 
-    public class SaleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener
+    public class SaleViewHolder extends SelectableViewHolder implements View.OnClickListener, View.OnLongClickListener
     {
         TextView tv_sale_title;
         TextView tv_sale_area_address;
@@ -25,6 +26,18 @@ public class SalesRvAdapter extends FilterableRvAdapter<Sale>
             itemView.setOnLongClickListener(this);
             tv_sale_title = (TextView) itemView.findViewById(R.id.tv_sale_title);
             tv_sale_area_address = (TextView) itemView.findViewById(R.id.tv_sale_area_address);
+        }
+
+        @Override
+        protected int getDefaultBackground()
+        {
+            return ResourceUtil.getResourceIdFromAttr(itemView.getContext().getTheme(), android.R.attr.selectableItemBackground);
+        }
+
+        @Override
+        protected int getActivatedBackground()
+        {
+            return R.drawable.sale_item_activated;
         }
 
         @Override
@@ -58,9 +71,9 @@ public class SalesRvAdapter extends FilterableRvAdapter<Sale>
     {
         Sale sale = getItems().get(position);
         SaleViewHolder saleViewHolder = (SaleViewHolder) holder;
-        saleViewHolder.itemView.setSelected(isSelected(position));
-        saleViewHolder.tv_sale_title.setText(sale.getClient());
-        saleViewHolder.tv_sale_area_address.setText(String.format(saleViewHolder.itemView.getContext().getResources().getString(R.string.sales_rv_item_area_address_format), sale.getArea(), sale.getAddress()));
+        saleViewHolder.setSelected(isSelected(position));
+        saleViewHolder.tv_sale_title.setText(sale.getApplicantForm().getRazonSocial());
+        saleViewHolder.tv_sale_area_address.setText(String.format(saleViewHolder.itemView.getContext().getResources().getString(R.string.sales_rv_item_area_address_format), sale.getArea(), sale.getApplicantForm().getAddress()));
     }
 
     @Override

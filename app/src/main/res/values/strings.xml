@@ -18,6 +18,7 @@
     <string name="search">Buscar</string>
     <string name="undo">Deshacer</string>
     <string name="sale_modified">venta modificada</string>
+    <string name="sale_saved">venta guardada</string>
     <string name="tab_title_applicant">Solicitante</string>
     <string name="tab_title_coverage">Cobertura</string>
     <string name="tab_title_modality">Modalidad</string>
