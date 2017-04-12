@@ -34,6 +34,14 @@ public class FormData {
             "Promo 1", "Promo 2","Promo 3"
     };
 
+    private static String[] banks = new String[] {
+            "Hipotecario", "Ciudad","Nacion" , "HSBS", "Santader"
+    };
+
+    public static String[] getBanks() {
+        return banks;
+    }
+
     public static String[] getPlaces() {
         return places;
     }
@@ -57,7 +65,6 @@ public class FormData {
     public static String[] getCircuits() {
         return circuits;
     }
-
 
     public static String[] getRadius() {
         return radius;

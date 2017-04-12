@@ -21,11 +21,11 @@
     android:visibility="@{isVisible ? View.VISIBLE : View.GONE}">
 
     <Spinner
-        android:id="@+id/fr_check_form_spn_bank"
+        android:id="@+id/partial_payment_mode_credit_card_or_cbu_spn_bank"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/form_margin_bottom"
-        ></Spinner>
+        />
 
     <EditText
         android:layout_width="match_parent"
