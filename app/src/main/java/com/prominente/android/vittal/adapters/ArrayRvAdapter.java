@@ -3,6 +3,7 @@ package com.prominente.android.vittal.adapters;
 import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public abstract class ArrayRvAdapter<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 {
@@ -20,7 +21,7 @@ public abstract class ArrayRvAdapter<T> extends RecyclerView.Adapter<RecyclerVie
         notifyItemInserted(position);
     }
 
-    public void addAll(ArrayList<T> items)
+    public void addAll(Collection<T> items)
     {
         this.items.addAll(items);
         notifyItemRangeInserted(this.items.size(), items.size());

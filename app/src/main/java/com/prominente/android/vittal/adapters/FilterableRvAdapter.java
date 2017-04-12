@@ -4,6 +4,7 @@ import android.widget.Filter;
 import android.widget.Filterable;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public abstract class FilterableRvAdapter<T> extends SelectableRvAdapter<T> implements Filterable
 {
@@ -21,7 +22,7 @@ public abstract class FilterableRvAdapter<T> extends SelectableRvAdapter<T> impl
     @Override
     public void add(int position, T item)
     {
-        throw new UnsupportedOperationException("Must call add(int itemPosition, int layoutPosition, T item) for FilterableRvAdapter to ensure correct add position when items are filtered");
+        throw new UnsupportedOperationException("Must call add(int originalPosition, int adapterPosition, T item) for FilterableRvAdapter to ensure correct add position when items are filtered");
     }
 
     public void add(int originalPosition, int adapterPosition, T item)
@@ -39,7 +40,7 @@ public abstract class FilterableRvAdapter<T> extends SelectableRvAdapter<T> impl
     }
 
     @Override
-    public void addAll(ArrayList<T> items)
+    public void addAll(Collection<T> items)
     {
         super.addAll(items);
         originalItems.addAll(items);
