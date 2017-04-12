@@ -79,8 +79,8 @@ public class SalesRvAdapter extends FilterableRvAdapter<Sale>
     @Override
     public boolean containsFilter(Sale sale, CharSequence constraint)
     {
-        return sale.getClient() !=null && sale.getClient().toLowerCase().contains(constraint.toString().toLowerCase())
-                || sale.getAddress() !=null && sale.getAddress().toLowerCase().contains(constraint.toString().toLowerCase());
+        return sale.getApplicantForm().getRazonSocial() !=null && sale.getApplicantForm().getRazonSocial().toLowerCase().contains(constraint.toString().toLowerCase())
+                || sale.getApplicantForm().getAddress() !=null && sale.getApplicantForm().getAddress().toLowerCase().contains(constraint.toString().toLowerCase());
 
     }
 }
