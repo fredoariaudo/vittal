@@ -134,11 +134,6 @@ public class NewSaleFormActivity extends NavUpActivity {
 
     private void save()
     {
-        //TODO: Reemplazar esto por datos tomados de los formularios
-        sale.setClient(sale.getApplicantForm().getRazonSocial());
-        sale.setArea("AP#100");
-        sale.setAddress(sale.getApplicantForm().getAddress());
-
         Intent data = new Intent();
         data.putExtra(ExtraKeys.SALE, sale);
         data.setAction(IntentActions.ACTION_SAVE);

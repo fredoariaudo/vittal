@@ -22,20 +22,9 @@ public class DummyDataProvider
 
     public ArrayList<Sale> getSales()
     {
+        //TODO: Mejorar esto
         ArrayList<Sale> sales = new ArrayList<Sale>();
-
-        for(int i=0; i<6; i++)
-        {
-            Sale sale = new Sale();
-            sale.setId(new Long(i));
-            sale.setClient("Cliente "+(i+1));
-            sale.getApplicantForm().setRazonSocial("Cliente "+(i+1));
-            sale.setArea("AP#100");
-            sale.setAddress("Dirección "+(i+1));
-            sale.getApplicantForm().setAddress("Dirección "+(i+1));
-            sales.add(sale);
-        }
-
+        sales.addAll(Sale.listAll(Sale.class));
         return sales;
     }
 }

@@ -36,8 +36,6 @@ import java.util.List;
 
 public class SalesFragment extends Fragment implements RvAdapterListener
 {
-    private static int newItemId = 1000;
-
     private View rootView;
     private RecyclerView rv_sales;
     private LinearLayoutManager rvLayoutManager;
@@ -241,7 +239,11 @@ public class SalesFragment extends Fragment implements RvAdapterListener
             {
                 if(event != DISMISS_EVENT_ACTION) //Undo not pressed
                 {
-                    //TODO: Remover items de la base de datos
+                    for(Sale deletedSale: deletedItems)
+                    {
+                        //Remove item from DB if not undo is pressed
+                        deletedSale.delete();
+                    }
                 }
             }
 
@@ -274,17 +276,21 @@ public class SalesFragment extends Fragment implements RvAdapterListener
 
     private void add(Sale sale)
     {
-        //TODO: Revisar esto despues, se coloca un id al nuevo elemento
-        sale.setId(new Long(newItemId++));
         adapter.add(sale);
+        //Save item into DB
+        sale.save();
+
+        Snackbar.make(rootView, R.string.sale_saved, Snackbar.LENGTH_SHORT).show();
     }
 
     private void save(Sale sale)
     {
-        //TODO: Revisar esto, aqui se modifica la venta
         adapter.set(adapter.getItems().indexOf(sale), sale);
         //Filter again to consider modified item
         adapter.getFilter().filter(searchView.getQuery());
+        //Save sale to DB
+        sale.save();
+
         Snackbar.make(rootView, R.string.sale_modified, Snackbar.LENGTH_SHORT).show();
     }
 
