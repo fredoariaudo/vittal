@@ -57,7 +57,7 @@ public class CheckPaymentForm extends FormModel implements Formeable {
 
     @Override
     public boolean isValid() {
-        return false;
+        return true;
     }
 
 }

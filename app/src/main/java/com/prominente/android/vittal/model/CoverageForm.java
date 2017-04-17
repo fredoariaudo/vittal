@@ -7,14 +7,14 @@ import android.databinding.Bindable;
 
 public class CoverageForm extends SaleSubFormModel{
 
-    private String entreCalle;
-    private String andStreet;
-    private String dpto;
-    private String floor;
-    private String number;
-    private String street;
-    private int protectedArea;
-    private int location;
+    private String entreCalle = "";
+    private String andStreet = "";
+    private String dpto = "";
+    private String floor = "";
+    private String number = "";
+    private String street = "";
+    private int protectedArea = 0;
+    private int location = 0;
 
     public CoverageForm() {
     }
@@ -97,6 +97,13 @@ public class CoverageForm extends SaleSubFormModel{
 
     @Override
     public boolean isValid() {
-        return false;
+        return  entreCalle.length() > 0 &&
+                andStreet.length() > 0 &&
+                dpto.length() > 0 &&
+                floor.length() > 0 &&
+                number.length() > 0 &&
+                street.length() > 0 &&
+                protectedArea > 0 &&
+                location > 0;
     }
 }

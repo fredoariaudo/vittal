@@ -120,7 +120,7 @@ public class ModalityForm extends SaleSubFormModel {
 
     @Override
     public boolean isValid() {
-        return false;
+        return true;
     }
 }
 

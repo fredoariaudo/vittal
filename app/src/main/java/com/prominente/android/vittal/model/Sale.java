@@ -81,7 +81,12 @@ public class Sale extends FormModel
 
     @Override
     public boolean isValid() {
-        return false;
+        return applicantForm.isValid() &&
+        coverageForm.isValid() &&
+        debtCollectorForm.isValid() &&
+        modalityForm.isValid() &&
+        paymentForm.isValid() &&
+        sellerForm.isValid();
     }
 
     @Override

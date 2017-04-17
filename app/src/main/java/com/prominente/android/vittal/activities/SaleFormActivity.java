@@ -12,6 +12,7 @@ import android.support.v7.app.AlertDialog;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.prominente.android.vittal.R;
 import com.prominente.android.vittal.adapters.SaleFormPagerAdapter;
@@ -95,9 +96,13 @@ public class SaleFormActivity extends NavUpActivity {
                 return true;
 
             case R.id.action_sales_send:
-                resultIntent.setAction(IntentActions.ACTION_SEND);
-                setResult(RESULT_OK, resultIntent);
-                finish();
+                if (sale.isValid()) {
+                    resultIntent.setAction(IntentActions.ACTION_SEND);
+                    setResult(RESULT_OK, resultIntent);
+                    finish();
+                } else {
+                    Toast.makeText(this,R.string.incomplete_form,Toast.LENGTH_LONG).show();
+                }
                 return true;
 
             default:
