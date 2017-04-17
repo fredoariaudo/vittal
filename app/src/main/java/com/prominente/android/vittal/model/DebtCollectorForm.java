@@ -19,9 +19,9 @@ public class DebtCollectorForm extends SaleSubFormModel{
     String phones;
     String street;
     String others;
-    int location;
-    int conditionVsIva;
-    int deliverDocuments;
+    int location = 0;
+    int conditionVsIva = -1;
+    int deliverDocuments = -1;
 
     public DebtCollectorForm() {
     }
@@ -156,6 +156,19 @@ public class DebtCollectorForm extends SaleSubFormModel{
 
     @Override
     public boolean isValid() {
-        return true;
+        return  andStreet.length() > 0 &&
+                betweenStreet.length() > 0 &&
+                billTo.length() > 0 &&
+                cp.length() > 0 &&
+                dpto.length() > 0 &&
+                floor.length() > 0 &&
+                number.length() > 0 &&
+                observations.length() > 0 &&
+                phones.length() > 0 &&
+                street.length() > 0 &&
+                others.length() > 0 &&
+                location > 0 &&
+                conditionVsIva > 0 &&
+                deliverDocuments > 0;
     }
 }
