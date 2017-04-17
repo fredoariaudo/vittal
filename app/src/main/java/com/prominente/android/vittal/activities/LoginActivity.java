@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.prominente.android.vittal.R;
+import com.prominente.android.vittal.data.UserSerializer;
+import com.prominente.android.vittal.model.User;
 import com.prominente.android.vittal.util.ResourceUtil;
 
 public class LoginActivity extends AppCompatActivity
@@ -48,6 +50,9 @@ public class LoginActivity extends AppCompatActivity
 
     private void login()
     {
+        User user = new User();
+        UserSerializer.getInstance().save(this, user);
+
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
         finish();
