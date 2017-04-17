@@ -51,6 +51,7 @@ public class CoverageFormFragment extends Fragment {
         coverageTypesSpinner  = (Spinner) view.findViewById(R.id.fr_coverage_form_spn_protected_area_type);
         covergaTypesAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, covergaTypes);
         coverageTypesSpinner.setAdapter(covergaTypesAdapter);
+        coverageTypesSpinner.setSelection(coverageForm.getProtectedArea());
 
         //
         locations = FormData.getLocations();
@@ -58,6 +59,7 @@ public class CoverageFormFragment extends Fragment {
         locationsSpinners= (Spinner) view.findViewById(R.id.fr_coverage_form_spn_location);
         locationsAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, locations);
         locationsSpinners.setAdapter(locationsAdapter);
+        locationsSpinners.setSelection(coverageForm.getLocation());
         
         return view;
     }
