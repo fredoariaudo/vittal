@@ -18,7 +18,7 @@ import com.prominente.android.vittal.model.SellerForm;
 
 public class SellerFormFragment extends Fragment {
 
-    private final SellerForm sellerForm;
+    private SellerForm sellerForm;
     private String[] sellerTypes;
     private Spinner sellerTypesSpinner;
     private String[] radius;
@@ -39,6 +39,7 @@ public class SellerFormFragment extends Fragment {
 
     public static SellerFormFragment newInstance(Sale sale, Bundle args) {
         SellerFormFragment fragment = new SellerFormFragment();
+        fragment.sellerForm = sale.getSellerForm();
         fragment.setArguments(args);
         return fragment;
     }
@@ -68,6 +69,7 @@ public class SellerFormFragment extends Fragment {
         sellerTypesSpinner  = (Spinner) view.findViewById(R.id.fr_seller_form_spn_seller);
         sellerTypesAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, sellerTypes);
         sellerTypesSpinner.setAdapter(sellerTypesAdapter);
+        sellerTypesSpinner.setSelection(sellerForm.getSeller());
 
         //
         radius = FormData.getRadius();
@@ -75,6 +77,7 @@ public class SellerFormFragment extends Fragment {
         radiusSpinner  = (Spinner) view.findViewById(R.id.fr_seller_form_spn_radius);
         radiusAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, radius);
         radiusSpinner.setAdapter(radiusAdapter);
+        radiusSpinner.setSelection(sellerForm.getRadius());
 
         //
         circuits = FormData.getCircuits();
@@ -82,6 +85,7 @@ public class SellerFormFragment extends Fragment {
         circuitsSpinner  = (Spinner) view.findViewById(R.id.fr_seller_form_spn_circuit);
         circuitsAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, circuits);
         circuitsSpinner.setAdapter(circuitsAdapter);
+        circuitsSpinner.setSelection(sellerForm.getCircuit());
 
         //
         promos = FormData.getPromos();
@@ -89,5 +93,6 @@ public class SellerFormFragment extends Fragment {
         promosSpinner  = (Spinner) view.findViewById(R.id.fr_seller_form_spn_promo);
         promosAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, promos);
         promosSpinner.setAdapter(promosAdapter);
+        promosSpinner.setSelection(sellerForm.getPromo());
     }
 }

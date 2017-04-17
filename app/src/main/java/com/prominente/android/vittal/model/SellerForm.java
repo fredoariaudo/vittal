@@ -9,13 +9,13 @@ import android.databinding.Bindable;
  */
 public class SellerForm extends SaleSubFormModel{
 
-    private String amountIibb;
-    private String capita;
-    private String monthlyFeeWhitoutIva;
-    private int radius;
-    private int circuit;
-    private int promo;
-    private int seller;
+    private String amountIibb = "";
+    private String capita = "";
+    private String monthlyFeeWhitoutIva = "";
+    private int radius = 0;
+    private int circuit = 0;
+    private int promo = 0;
+    private int seller = 0;
     private boolean stickerDelivered;
 
     public SellerForm() {
@@ -94,5 +94,12 @@ public class SellerForm extends SaleSubFormModel{
 
     public void setStickerDelivered(boolean stickerDelivered) {
         this.stickerDelivered = stickerDelivered;
+    }
+
+    @Override
+    public boolean isValid() {
+        return  amountIibb.length() > 0 &&
+                capita.length() > 0 &&
+                monthlyFeeWhitoutIva.length() > 0;
     }
 }

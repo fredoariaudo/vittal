@@ -168,7 +168,7 @@ public class DebtCollectorForm extends SaleSubFormModel{
                 street.length() > 0 &&
                 others.length() > 0 &&
                 location > 0 &&
-                conditionVsIva > 0 &&
-                deliverDocuments > 0;
+                conditionVsIva != -1 &&
+                deliverDocuments != -1;
     }
 }

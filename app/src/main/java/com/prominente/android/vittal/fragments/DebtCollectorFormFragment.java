@@ -70,6 +70,7 @@ public class DebtCollectorFormFragment extends Fragment {
         locationsSpinners= (Spinner) view.findViewById(R.id.fr_debt_collector_form_spn_location);
         locationsAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, locations);
         locationsSpinners.setAdapter(locationsAdapter);
+        locationsSpinners.setSelection(debtCollectorForm.getLocation());
 
         conditionVsIvaRadioButton = new ArrayList<>();
         conditionVsIvaRadioButton.add((RadioButton)view.findViewById(R.id.partial_condition_vs_iva_rb_exento));
@@ -78,6 +79,7 @@ public class DebtCollectorFormFragment extends Fragment {
         conditionVsIvaRadioButton.add((RadioButton)view.findViewById(R.id.partial_condition_vs_iva_rb_mt));
         conditionVsIvaRadioButton.add((RadioButton)view.findViewById(R.id.partial_condition_vs_iva_rb_ten_fifty));
         conditionVsIvaRadioButtonsManager.setButtons(conditionVsIvaRadioButton);
+        conditionVsIvaRadioButtonsManager.setSelected(debtCollectorForm.getConditionVsIva());
 
         deliveredDocumentsRadioButton = new ArrayList<>();
         deliveredDocumentsRadioButton.add((RadioButton)view.findViewById(R.id.partial_delivered_documents_cuit));
@@ -85,6 +87,7 @@ public class DebtCollectorFormFragment extends Fragment {
         deliveredDocumentsRadioButton.add((RadioButton)view.findViewById(R.id.partial_delivered_documents_dni));
         deliveredDocumentsRadioButton.add((RadioButton)view.findViewById(R.id.partial_delivered_documents_others));
         deliveredDocumentsRadioButtonManager.setButtons(deliveredDocumentsRadioButton);
+        deliveredDocumentsRadioButtonManager.setSelected(debtCollectorForm.getDeliverDocuments());
 
         return view;
     }
