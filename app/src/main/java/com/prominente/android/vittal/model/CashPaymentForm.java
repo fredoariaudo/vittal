@@ -41,7 +41,7 @@ public class CashPaymentForm extends FormModel implements Formeable {
 
     @Override
     public boolean isValid() {
-        return false;
+        return true;
     }
 
 

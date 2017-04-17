@@ -9,17 +9,17 @@ import com.prominente.android.vittal.BR;
 
 public class ApplicantForm extends SaleSubFormModel{
 
-    private String razonSocial;
-    private String address;
-    private String cellpones;
-    private String cp;
-    private String cuit;
-    private String email;
-    private String fantasyName;
-    private String fax;
-    private String phones;
+    private String razonSocial = "";
+    private String address = "";
+    private String cellpones = "";
+    private String cp = "";
+    private String cuit = "";
+    private String email = "";
+    private String fantasyName = "";
+    private String fax = "";
+    private String phones = "";
     private String date = "dd/mm/aaaa";
-    private int plan;
+    private int plan = 0;
 
 
     public ApplicantForm() {
@@ -134,7 +134,18 @@ public class ApplicantForm extends SaleSubFormModel{
 
     @Override
     public boolean isValid() {
-        return false;
+
+        return razonSocial.length() > 0 &&
+        address.length() > 0 &&
+        cellpones.length() > 0 &&
+        cp.length() > 0 &&
+        cuit.length() > 0 &&
+        email.length() > 0 &&
+        fantasyName.length() > 0 &&
+        fax.length() > 0 &&
+        phones.length() > 0 &&
+        !date.equals("dd/mm/aaaa");
+
     }
 
 }

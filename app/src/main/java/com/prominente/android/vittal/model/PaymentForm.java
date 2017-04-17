@@ -103,7 +103,10 @@ public class PaymentForm extends SaleSubFormModel {
 
     @Override
     public boolean isValid() {
-        return false;
+        return  cashPaymentForm.isValid() &&
+                checkPaymentForm.isValid() &&
+                creditCardOrCbuPaymentForm.isValid() &&
+                nowPaymentForm.isValid();
     }
 
     @Override

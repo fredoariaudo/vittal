@@ -9,7 +9,7 @@ public class SaleSubFormModel extends FormModel {
 
     @Override
     public boolean isValid() {
-        return false;
+        return true;
     }
 
 }
