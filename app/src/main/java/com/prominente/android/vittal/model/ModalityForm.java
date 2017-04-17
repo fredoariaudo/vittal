@@ -11,14 +11,14 @@ import com.prominente.android.vittal.BR;
 
 public class ModalityForm extends SaleSubFormModel {
 
-    private String monthlyFee;
-    private String hiredServicesAmount;
-    private String additionalPerServiceRequest;
-    private String additionalPerExcedentHelp;
-    private String capitaAmount;
-    private String coseguro;
-    private String detailOthers;
-    private String observations;
+    private String monthlyFee = "";
+    private String hiredServicesAmount = "";
+    private String additionalPerServiceRequest = "";
+    private String additionalPerExcedentHelp = "";
+    private String capitaAmount = "";
+    private String coseguro = "";
+    private String detailOthers = "";
+    private String observations = "";
     private int modality = -1;
     private int type     = -1;
 
@@ -120,7 +120,16 @@ public class ModalityForm extends SaleSubFormModel {
 
     @Override
     public boolean isValid() {
-        return true;
+        return  monthlyFee.length() > 0 &&
+                hiredServicesAmount.length() > 0 &&
+                additionalPerServiceRequest.length() > 0 &&
+                additionalPerExcedentHelp.length() > 0 &&
+                capitaAmount.length() > 0 &&
+                coseguro.length() > 0 &&
+                detailOthers.length() > 0 &&
+                observations.length() > 0 &&
+                modality != -1 &&
+                type     != -1;
     }
 }
 
