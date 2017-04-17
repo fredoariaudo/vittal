@@ -8,17 +8,17 @@ import android.databinding.Bindable;
 
 public class DebtCollectorForm extends SaleSubFormModel{
 
-    String andStreet;
-    String betweenStreet;
-    String billTo;
-    String cp;
-    String dpto;
-    String floor;
-    String number;
-    String observations;
-    String phones;
-    String street;
-    String others;
+    String andStreet = "";
+    String betweenStreet = "";
+    String billTo = "";
+    String cp = "";
+    String dpto = "";
+    String floor = "";
+    String number = "";
+    String observations = "";
+    String phones = "";
+    String street = "";
+    String others = "";
     int location = 0;
     int conditionVsIva = -1;
     int deliverDocuments = -1;
