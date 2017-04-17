@@ -75,6 +75,7 @@ public class PaymentFormFragment extends Fragment {
         bankSpinner= (Spinner) view.findViewById(R.id.partial_payment_mode_credit_card_or_cbu_spn_bank);
         banksAdapters = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, banks);
         bankSpinner.setAdapter(banksAdapters);
+        bankSpinner.setSelection(paymentForm.getCreditCardOrCbuPaymentForm().getBank());
 
 
         return view;

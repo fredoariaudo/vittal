@@ -1,4 +1,6 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -20,11 +22,13 @@
     android:layout_height="match_parent"
     android:visibility="@{isVisible ? View.VISIBLE : View.GONE}">
 
-    <Spinner
+
+    <android.support.v7.widget.AppCompatSpinner
         android:id="@+id/partial_payment_mode_credit_card_or_cbu_spn_bank"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/form_margin_bottom"
+        app:selectedValue="@={creditCardOrCbuPaymentForm.bank}"
         />
 
     <EditText

@@ -160,6 +160,7 @@ public class SaleFormActivity extends NavUpActivity {
 
     private void save()
     {
+        sale.save();
         Intent data = new Intent();
         data.putExtra(ExtraKeys.SALE, sale);
         data.setAction(IntentActions.ACTION_SAVE);

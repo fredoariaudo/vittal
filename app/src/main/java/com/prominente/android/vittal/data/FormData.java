@@ -35,7 +35,7 @@ public class FormData {
     };
 
     private static String[] banks = new String[] {
-            "Hipotecario", "Ciudad","Nacion" , "HSBS", "Santader"
+            "Hipotecario", "Ciudad","Nacion" , "HSBC", "Santader"
     };
 
     public static String[] getBanks() {

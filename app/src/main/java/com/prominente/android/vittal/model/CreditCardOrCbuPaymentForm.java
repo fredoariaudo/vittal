@@ -20,6 +20,7 @@ public class CreditCardOrCbuPaymentForm extends FormModel implements Formeable {
     String cuit;
     String nroCupon;
     String paymentAmount;
+    private int bank;
 
     public CreditCardOrCbuPaymentForm() {
     }
@@ -109,9 +110,19 @@ public class CreditCardOrCbuPaymentForm extends FormModel implements Formeable {
         this.paymentAmount = paymentAmount;
     }
 
+    @Bindable
+    public int getBank() {
+        return bank;
+    }
+
+    public void setBank(int bank) {
+        this.bank = bank;
+    }
+
     @Override
     public boolean isValid() {
         return false;
     }
+
 
 }
