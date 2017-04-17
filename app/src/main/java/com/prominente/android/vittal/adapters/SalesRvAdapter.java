@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.prominente.android.vittal.R;
+import com.prominente.android.vittal.data.FormData;
 import com.prominente.android.vittal.model.Sale;
 import com.prominente.android.vittal.util.ResourceUtil;
 
@@ -73,7 +74,7 @@ public class SalesRvAdapter extends FilterableRvAdapter<Sale>
         SaleViewHolder saleViewHolder = (SaleViewHolder) holder;
         saleViewHolder.setSelected(isSelected(position));
         saleViewHolder.tv_sale_title.setText(sale.getApplicantForm().getRazonSocial());
-        saleViewHolder.tv_sale_area_address.setText(String.format(saleViewHolder.itemView.getContext().getResources().getString(R.string.sales_rv_item_area_address_format), sale.getArea(), sale.getApplicantForm().getAddress()));
+        saleViewHolder.tv_sale_area_address.setText(String.format(saleViewHolder.itemView.getContext().getResources().getString(R.string.sales_rv_item_area_address_format), FormData.getCoverages()[sale.getApplicantForm().getPlan()], sale.getApplicantForm().getAddress()));
     }
 
     @Override

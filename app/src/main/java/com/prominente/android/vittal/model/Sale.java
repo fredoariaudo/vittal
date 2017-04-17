@@ -2,10 +2,6 @@ package com.prominente.android.vittal.model;
 
 public class Sale extends FormModel
 {
-    private String client;
-    private String area;
-    private String address;
-
     private ApplicantForm applicantForm ;
     private CoverageForm coverageForm;
     private DebtCollectorForm debtCollectorForm;
@@ -81,31 +77,6 @@ public class Sale extends FormModel
             }
         }
         return sellerForm;
-    }
-
-
-    public String getClient() {
-        return client;
-    }
-
-    public void setClient(String client) {
-        this.client = client;
-    }
-
-    public String getArea() {
-        return area;
-    }
-
-    public void setArea(String area) {
-        this.area = area;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     @Override
