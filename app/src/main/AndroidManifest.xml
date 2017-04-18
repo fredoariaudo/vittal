@@ -39,11 +39,13 @@
         <activity
             android:name=".activities.LoginActivity"
             android:theme="@style/LoginTheme"></activity>
-        <activity android:name=".activities.HomeActivity" />
+        <activity
+            android:name=".activities.HomeActivity" />
         <activity
             android:name=".activities.SaleFormActivity"
             android:windowSoftInputMode="adjustResize" />
-        <activity android:name=".activities.VisitFormActivity"/>
+        <activity
+            android:name=".activities.VisitFormActivity"/>
 
         <receiver
             android:name="com.google.android.gms.gcm.GcmReceiver"
