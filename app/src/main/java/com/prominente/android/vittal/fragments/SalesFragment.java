@@ -441,7 +441,6 @@ public class SalesFragment extends Fragment implements RvAdapterListener
         @Override
         protected void onPreExecute()
         {
-            super.onPreExecute();
             pb_sales.setVisibility(View.VISIBLE);
         }
 
