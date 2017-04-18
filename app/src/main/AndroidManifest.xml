@@ -38,12 +38,12 @@
         </activity>
         <activity
             android:name=".activities.LoginActivity"
-            android:theme="@style/LoginTheme">
-        </activity>
+            android:theme="@style/LoginTheme"></activity>
         <activity android:name=".activities.HomeActivity" />
         <activity
             android:name=".activities.SaleFormActivity"
             android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".activities.VisitFormActivity"/>
 
         <receiver
             android:name="com.google.android.gms.gcm.GcmReceiver"
@@ -73,7 +73,7 @@
         </service>
         <service
             android:name=".services.RegistrationIntentService"
-            android:exported="false"></service>
+            android:exported="false" />
     </application>
 
 </manifest>
