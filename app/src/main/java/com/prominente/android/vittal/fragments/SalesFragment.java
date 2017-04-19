@@ -149,11 +149,11 @@ public class SalesFragment extends Fragment implements RvAdapterListener
 
             switch (requestCode)
             {
-                case RequestCodes.REQUEST_NEW_SALE:
+                case RequestCodes.REQUEST_NEW_ITEM:
                     add(sale);
                     break;
 
-                case RequestCodes.REQUEST_MODIFY_SALE:
+                case RequestCodes.REQUEST_MODIFY_ITEM:
                     String action = data.getAction();
                     if(action.equals(IntentActions.ACTION_SAVE))
                     {
@@ -187,7 +187,7 @@ public class SalesFragment extends Fragment implements RvAdapterListener
             Intent intent = new Intent(getContext(), SaleFormActivity.class);
             Sale sale = adapter.getItems().get(itemPosition);
             intent.putExtra(ExtraKeys.SALE, sale);
-            startActivityForResult(intent, RequestCodes.REQUEST_MODIFY_SALE);
+            startActivityForResult(intent, RequestCodes.REQUEST_MODIFY_ITEM);
         }
     }
 
@@ -281,7 +281,7 @@ public class SalesFragment extends Fragment implements RvAdapterListener
         Sale sale = adapter.getItems().get(selectedItems.get(0));
         Intent intent = new Intent(getContext(), SaleFormActivity.class);
         intent.putExtra(ExtraKeys.SALE, sale);
-        startActivityForResult(intent, RequestCodes.REQUEST_MODIFY_SALE);
+        startActivityForResult(intent, RequestCodes.REQUEST_MODIFY_ITEM);
     }
 
     private void send(final List<Integer> selectedItems)
@@ -298,9 +298,6 @@ public class SalesFragment extends Fragment implements RvAdapterListener
     {
         //Update adapter
         adapter.add(sale);
-        //Save item into DB
-        sale.save();
-
         Snackbar.make(rootView, R.string.sale_saved, Snackbar.LENGTH_SHORT).show();
     }
 
@@ -308,9 +305,6 @@ public class SalesFragment extends Fragment implements RvAdapterListener
     {
         //Update adapter
         adapter.set(adapter.getItems().indexOf(sale), sale);
-        //Save sale to DB
-        sale.save();
-
         Snackbar.make(rootView, R.string.sale_modified, Snackbar.LENGTH_SHORT).show();
 
         //Enqueue and delay filter reset to prevent itemChange animation corruption when update adapter
@@ -322,7 +316,6 @@ public class SalesFragment extends Fragment implements RvAdapterListener
                 adapter.getFilter().filter(searchView.getQuery());
             }
         }, ADAPTER_UPDATE_POST_DELAY);
-
     }
 
     private void remove(Sale sale)
@@ -342,7 +335,7 @@ public class SalesFragment extends Fragment implements RvAdapterListener
     private void startSaleForm()
     {
         Intent intent = new Intent(getContext(), SaleFormActivity.class);
-        startActivityForResult(intent, RequestCodes.REQUEST_NEW_SALE);
+        startActivityForResult(intent, RequestCodes.REQUEST_NEW_ITEM);
     }
 
     private class ActionModeCallback implements ActionMode.Callback
@@ -366,13 +359,13 @@ public class SalesFragment extends Fragment implements RvAdapterListener
             //Change select/unselect all action text and icon
             if(adapter.getSelectedItemCount() == adapter.getItemCount())
             {
-                menu.findItem(R.id.action_select_unselect_all).setTitle(R.string.unselect_all);
-                menu.findItem(R.id.action_select_unselect_all).setIcon(R.drawable.ic_check_box_outline_blank_white_24dp);
+                menu.findItem(R.id.action_visits_select_unselect_all).setTitle(R.string.unselect_all);
+                menu.findItem(R.id.action_visits_select_unselect_all).setIcon(R.drawable.ic_check_box_outline_blank_white_24dp);
             }
             else
             {
-                menu.findItem(R.id.action_select_unselect_all).setTitle(R.string.select_all);
-                menu.findItem(R.id.action_select_unselect_all).setIcon(R.drawable.ic_check_box_white_24dp);
+                menu.findItem(R.id.action_visits_select_unselect_all).setTitle(R.string.select_all);
+                menu.findItem(R.id.action_visits_select_unselect_all).setIcon(R.drawable.ic_check_box_white_24dp);
             }
 
             //Show selected items count
@@ -404,7 +397,7 @@ public class SalesFragment extends Fragment implements RvAdapterListener
                     mode.finish();
                     return true;
 
-                case R.id.action_select_unselect_all:
+                case R.id.action_visits_select_unselect_all:
                     //Verify if has to select all or deselect all
                     if(item.getTitle().equals(getString(R.string.select_all)))
                     {

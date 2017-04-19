@@ -1,58 +1,67 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context="com.prominente.android.vittal.activities.VisitFormActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+    <data>
+        <variable name="visitForm" type="com.prominente.android.vittal.model.Visit"/>
+    </data>
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay"/>
-
-    </android.support.design.widget.AppBarLayout>
-
-    <android.support.v4.widget.NestedScrollView
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:fitsSystemWindows="true"
+        tools:context="com.prominente.android.vittal.activities.VisitFormActivity">
 
-        <LinearLayout
+        <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/activity_horizontal_margin"
-            android:orientation="vertical">
+            android:theme="@style/AppTheme.AppBarOverlay">
 
-            <EditText
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_razon_social"/>
+                android:padding="@dimen/activity_horizontal_margin"
+                android:orientation="vertical">
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_address"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_razon_social"
+                    android:text="@={visitForm.businessName}"/>
 
-        </LinearLayout>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_address"
+                    android:text="@={visitForm.address}"/>
 
-    </android.support.v4.widget.NestedScrollView>
+            </LinearLayout>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_visit_save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@drawable/ic_save_white_24dp" />
+        </android.support.v4.widget.NestedScrollView>
 
-</android.support.design.widget.CoordinatorLayout>
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_visit_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="@dimen/fab_margin"
+            app:srcCompat="@drawable/ic_save_white_24dp" />
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</layout>

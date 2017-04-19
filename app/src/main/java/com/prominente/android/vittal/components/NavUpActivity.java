@@ -1,14 +1,15 @@
 package com.prominente.android.vittal.components;
 
-import android.os.Bundle;
+import android.support.annotation.LayoutRes;
 import android.view.MenuItem;
 
 public abstract class NavUpActivity extends ToolbarActivity
 {
     @Override
-    protected void onCreate(Bundle savedInstanceState)
+    public void setContentView(@LayoutRes int layoutResID)
     {
-        super.onCreate(savedInstanceState);
+        super.setContentView(layoutResID);
+        //Show back button in Toolbar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 

@@ -37,6 +37,7 @@ public class SaleFormActivity extends NavUpActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_sale_form);
 
         //Hide actionbar title
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -64,12 +65,6 @@ public class SaleFormActivity extends NavUpActivity {
                 save();
             }
         });
-    }
-
-    @Override
-    protected int getContentView()
-    {
-        return R.layout.activity_sale_form;
     }
 
     @Override
