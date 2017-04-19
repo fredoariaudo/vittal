@@ -55,7 +55,20 @@ public class VisitFormActivity extends NavUpActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
-        return super.onOptionsItemSelected(item);
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra(ExtraKeys.VISIT, visit);
+
+        switch (item.getItemId())
+        {
+            case R.id.action_visits_delete:
+                resultIntent.setAction(IntentActions.ACTION_DELETE);
+                setResult(RESULT_OK, resultIntent);
+                finish();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private void save()
