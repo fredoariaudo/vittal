@@ -32,39 +32,8 @@
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <android.support.v7.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/activity_horizontal_margin"
-                android:orientation="vertical"
-                app:showDividers="middle"
-                app:divider="@drawable/form_divider">
-
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/hint_razon_social"
-                        android:text="@={visitForm.businessName}"/>
-
-                </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/hint_address"
-                        android:text="@={visitForm.address}"/>
-
-                </android.support.design.widget.TextInputLayout>
-
-            </android.support.v7.widget.LinearLayoutCompat>
+            <include layout="@layout/partial_visit_form"
+                app:visitForm="@={visitForm}"/>
 
         </android.support.v4.widget.NestedScrollView>
 
