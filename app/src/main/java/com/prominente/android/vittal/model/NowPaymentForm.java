@@ -7,8 +7,8 @@ import com.prominente.android.vittal.interfaces.Formeable;
 
 public class NowPaymentForm extends FormModel implements Formeable {
 
-    String days;
-    String date;
+    String days = "";
+    String date = "";
 
     public NowPaymentForm() {
     }
@@ -37,6 +37,7 @@ public class NowPaymentForm extends FormModel implements Formeable {
 
     @Override
     public boolean isValid() {
-        return true;
+        return  date.length() > 0 &&
+                days.length() > 0;
     }
 }

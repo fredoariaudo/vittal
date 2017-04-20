@@ -7,10 +7,10 @@ import com.prominente.android.vittal.interfaces.Formeable;
 
 public class CheckPaymentForm extends FormModel implements Formeable {
 
-    String branch;
-    String number;
-    String days;
-    String date;
+    String branch = "";
+    String number = "";
+    String days = "";
+    String date = "";
 
     public CheckPaymentForm() {
     }
@@ -57,7 +57,10 @@ public class CheckPaymentForm extends FormModel implements Formeable {
 
     @Override
     public boolean isValid() {
-        return true;
+        return  branch.length() > 0 &&
+                number.length() > 0 &&
+                date.length() > 0 &&
+                days.length() > 0;
     }
 
 }

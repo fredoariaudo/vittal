@@ -11,8 +11,9 @@ import com.prominente.android.vittal.interfaces.Formeable;
 public class CashPaymentForm extends FormModel implements Formeable {
 
 
-    String number;
-    String letter;
+    String number = "";
+    String letter = "";
+    private int expirationPayment = -1;
 
     public CashPaymentForm() {
     }
@@ -41,10 +42,18 @@ public class CashPaymentForm extends FormModel implements Formeable {
 
     @Override
     public boolean isValid() {
-        return true;
+        return  number.length() > 0 &&
+                letter.length() > 0 &&
+                expirationPayment != -1;
     }
 
 
+    public void setExpirationPayment(int expirationPayment) {
+        this.expirationPayment = expirationPayment;
+    }
 
-
+    @Bindable
+    public int getExpirationPayment() {
+        return expirationPayment;
+    }
 }

@@ -11,16 +11,16 @@ import com.prominente.android.vittal.interfaces.Formeable;
 
 public class CreditCardOrCbuPaymentForm extends FormModel implements Formeable {
 
-    String name;
-    String branch;
-    String cardNumber;
-    String cbu;
-    String expirationDate;
-    String dni;
-    String cuit;
-    String nroCupon;
-    String paymentAmount;
-    private int bank;
+    String name = "";
+    String branch = "";
+    String cardNumber = "";
+    String cbu = "";
+    String expirationDate = "";
+    String dni = "";
+    String cuit = "";
+    String nroCupon = "";
+    String paymentAmount = "";
+    private int bank = 0;
 
     public CreditCardOrCbuPaymentForm() {
     }
@@ -121,7 +121,16 @@ public class CreditCardOrCbuPaymentForm extends FormModel implements Formeable {
 
     @Override
     public boolean isValid() {
-        return true;
+        return  name.length() > 0 &&
+                branch.length() > 0 &&
+                cardNumber.length() > 0 &&
+                cbu.length() > 0 &&
+                expirationDate.length() > 0 &&
+                dni.length() > 0 &&
+                cuit.length() > 0 &&
+                nroCupon.length() > 0 &&
+                paymentAmount.length() > 0 &&
+                bank > 0;
     }
 
 
