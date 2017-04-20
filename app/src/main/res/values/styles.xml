@@ -7,22 +7,33 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- Dark variant application theme. -->
+    <style name="AppThemeDark" parent="Theme.AppCompat">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
     <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="actionModeBackground">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppThemeDark.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="windowActionModeOverlay">true</item>
     </style>
 
-    <!-- Login activity theme. -->
-    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+    <!-- Splash activity theme. -->
+    <style name="SplashTheme" parent="AppThemeDark.NoActionBar">
         <item name="android:windowBackground">@drawable/splash_background</item>
     </style>
 
     <!-- Login activity theme. -->
-    <style name="LoginTheme" parent="Theme.AppCompat.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="LoginTheme" parent="AppThemeDark.NoActionBar">
         <item name="colorButtonNormal">@color/colorAccent</item>
         <item name="android:windowBackground">@color/colorPrimary</item>
     </style>

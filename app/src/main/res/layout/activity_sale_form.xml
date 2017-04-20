@@ -35,7 +35,7 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_new_sale_save"
+        android:id="@+id/fab_sale_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"

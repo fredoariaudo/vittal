@@ -8,4 +8,8 @@
         <item quantity="one">%d venta enviada</item>
         <item quantity="other">%d  ventas enviadas</item>
     </plurals>
+    <plurals name="visits_deleted">
+        <item quantity="one">%d visita elminada</item>
+        <item quantity="other">%d  visitas eliminadas</item>
+    </plurals>
 </resources>

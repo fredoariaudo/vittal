@@ -38,7 +38,7 @@ public class SalesRvAdapter extends FilterableRvAdapter<Sale>
         @Override
         protected int getActivatedBackground()
         {
-            return R.drawable.sale_item_activated;
+            return R.drawable.rv_item_activated;
         }
 
         @Override

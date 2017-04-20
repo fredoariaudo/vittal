@@ -37,6 +37,7 @@ public class SaleFormActivity extends NavUpActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_sale_form);
 
         //Hide actionbar title
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -56,8 +57,8 @@ public class SaleFormActivity extends NavUpActivity {
         TabLayout tl_sale_form = (TabLayout) findViewById(R.id.tl_sale_form);
         tl_sale_form.setupWithViewPager(vp_sale_form);
 
-        FloatingActionButton fab_new_sale_save = (FloatingActionButton) findViewById(R.id.fab_new_sale_save);
-        fab_new_sale_save.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fab_sale_save = (FloatingActionButton) findViewById(R.id.fab_sale_save);
+        fab_sale_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
@@ -67,14 +68,8 @@ public class SaleFormActivity extends NavUpActivity {
     }
 
     @Override
-    protected int getContentView()
-    {
-        return R.layout.activity_new_sale_form;
-    }
-
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_new_sale_form, menu);
+        getMenuInflater().inflate(R.menu.sale_form, menu);
         return true;
     }
 
