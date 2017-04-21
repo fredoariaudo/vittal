@@ -53,6 +53,22 @@ public class VisitFormActivity extends NavUpActivity
     }
 
     @Override
+    public boolean onPrepareOptionsMenu(Menu menu)
+    {
+        if(visit.getId() == null)
+        {
+            menu.findItem(R.id.action_visits_delete).setVisible(false);
+            menu.findItem(R.id.action_visits_turn_into_sale).setVisible(false);
+        }
+        else
+        {
+            menu.findItem(R.id.action_visits_delete).setVisible(true);
+            menu.findItem(R.id.action_visits_turn_into_sale).setVisible(true);
+        }
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
         Intent resultIntent = new Intent();

@@ -276,14 +276,6 @@ public class SalesFragment extends Fragment implements RvAdapterListener
         snackbar.show();
     }
 
-    private void edit(final List<Integer> selectedItems)
-    {
-        Sale sale = adapter.getItems().get(selectedItems.get(0));
-        Intent intent = new Intent(getContext(), SaleFormActivity.class);
-        intent.putExtra(ExtraKeys.SALE, sale);
-        startActivityForResult(intent, RequestCodes.REQUEST_MODIFY_ITEM);
-    }
-
     private void send(final List<Integer> selectedItems)
     {
         for(int selectedItem: selectedItems)
@@ -350,12 +342,6 @@ public class SalesFragment extends Fragment implements RvAdapterListener
         @Override
         public boolean onPrepareActionMode(ActionMode mode, Menu menu)
         {
-            //Remove edit action if more than one item is selected
-            if(adapter.getSelectedItemCount() > 1)
-                menu.findItem(R.id.action_sales_edit).setVisible(false);
-            else
-                menu.findItem(R.id.action_sales_edit).setVisible(true);
-
             //Change select/unselect all action text and icon
             if(adapter.getSelectedItemCount() == adapter.getItemCount())
             {
@@ -382,12 +368,6 @@ public class SalesFragment extends Fragment implements RvAdapterListener
                 case R.id.action_sales_delete:
                     //Get selected items ordered in reverse order to prevent IndexOutOfBoundsException on delete
                     remove(adapter.getSelectedItems(true, true));
-                    mode.finish();
-                    return true;
-
-                case R.id.action_sales_edit:
-                    edit(adapter.getSelectedItems(true, false));
-                    adapter.clearSelection(true);
                     mode.finish();
                     return true;
 

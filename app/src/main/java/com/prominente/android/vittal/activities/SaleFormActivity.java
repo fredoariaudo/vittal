@@ -70,6 +70,20 @@ public class SaleFormActivity extends NavUpActivity {
     }
 
     @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        if(isNew)
+        {
+            menu.findItem(R.id.action_sales_delete).setVisible(false);
+        }
+        else
+        {
+            menu.findItem(R.id.action_sales_delete).setVisible(true);
+        }
+
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         Intent resultIntent = new Intent();
@@ -81,9 +95,6 @@ public class SaleFormActivity extends NavUpActivity {
                 resultIntent.setAction(IntentActions.ACTION_DELETE);
                 setResult(RESULT_OK, resultIntent);
                 finish();
-                return true;
-
-            case R.id.action_sales_edit:
                 return true;
 
             case R.id.action_sales_send:
