@@ -22,8 +22,10 @@ import com.prominente.android.vittal.fragments.SalesFragment;
 import com.prominente.android.vittal.fragments.VisitsFragment;
 import com.prominente.android.vittal.services.RegistrationIntentService;
 
-public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
+public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, VisitsFragment.VisitFragmentListener
 {
+    private NavigationView navigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -37,7 +39,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         //Select Navigation Drawer default option
@@ -91,6 +93,14 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         drawer.closeDrawer(GravityCompat.START);
         setTitle(item.getTitle());
         return true;
+    }
+
+    @Override
+    public void onTurnIntoSale()
+    {
+        //Select Navigation Drawer default option
+        navigationView.getMenu().findItem(R.id.nav_sales).setChecked(true);
+        onNavigationItemSelected(navigationView.getMenu().findItem(R.id.nav_sales));
     }
 
     private void registerGcm()

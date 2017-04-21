@@ -6,4 +6,9 @@
         android:title="@string/delete"
         app:showAsAction="always"/>
 
+    <item android:id="@+id/action_visits_turn_into_sale"
+        android:icon="@drawable/ic_attach_money_white_24dp"
+        android:title="@string/turn_into_sale"
+        app:showAsAction="always"/>
+
 </menu>

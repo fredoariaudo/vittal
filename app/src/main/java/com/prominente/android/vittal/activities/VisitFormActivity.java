@@ -66,6 +66,18 @@ public class VisitFormActivity extends NavUpActivity
                 finish();
                 return true;
 
+            case R.id.action_visits_turn_into_sale:
+                //Start SaleFormActivity Intent
+                Intent intent = new Intent(this, SaleFormActivity.class);
+                intent.putExtra(ExtraKeys.VISIT, visit);
+                startActivity(intent);
+
+                //Set result and action to be processed by VisitFragment onActivityResult when visit is saved as sale
+                resultIntent.setAction(IntentActions.ACTION_TURN_INTO_SALE);
+                setResult(RESULT_OK, resultIntent);
+                finish();
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }

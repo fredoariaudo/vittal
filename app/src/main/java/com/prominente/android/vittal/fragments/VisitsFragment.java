@@ -1,6 +1,7 @@
 package com.prominente.android.vittal.fragments;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -51,6 +52,8 @@ public class VisitsFragment extends Fragment implements RvAdapterListener
 
     private VisitsLoadTask visitsLoadTask;
 
+    private VisitFragmentListener visitFragmentListener;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
@@ -81,6 +84,17 @@ public class VisitsFragment extends Fragment implements RvAdapterListener
         visitsLoadTask.execute();
 
         return rootView;
+    }
+
+    @Override
+    public void onAttach(Context context)
+    {
+        super.onAttach(context);
+
+        if(getActivity() instanceof VisitFragmentListener)
+        {
+            visitFragmentListener = (VisitFragmentListener) getActivity();
+        }
     }
 
     @Override
@@ -160,6 +174,10 @@ public class VisitsFragment extends Fragment implements RvAdapterListener
                     else if(action.equals(IntentActions.ACTION_DELETE))
                     {
                         remove(visit);
+                    }
+                    else if(action.equals(IntentActions.ACTION_TURN_INTO_SALE))
+                    {
+                        visitFragmentListener.onTurnIntoSale();
                     }
                     break;
 
@@ -327,7 +345,7 @@ public class VisitsFragment extends Fragment implements RvAdapterListener
         @Override
         public boolean onPrepareActionMode(ActionMode mode, Menu menu)
         {
-            //Remove edit action if more than one item is selected
+            //Remove edit and turn into sale actions if more than one item is selected
             if(adapter.getSelectedItemCount() > 1)
                 menu.findItem(R.id.action_visits_edit).setVisible(false);
             else
@@ -419,5 +437,10 @@ public class VisitsFragment extends Fragment implements RvAdapterListener
             adapter.addAll(visits);
             pb_visits.setVisibility(View.GONE);
         }
+    }
+
+    public interface VisitFragmentListener
+    {
+        void onTurnIntoSale();
     }
 }

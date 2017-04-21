@@ -26,6 +26,8 @@ import com.prominente.android.vittal.fragments.ModalityFormFragment;
 import com.prominente.android.vittal.fragments.PaymentFormFragment;
 import com.prominente.android.vittal.fragments.SellerFormFragment;
 import com.prominente.android.vittal.model.Sale;
+import com.prominente.android.vittal.model.Visit;
+import com.prominente.android.vittal.util.ParsingUtils;
 
 import java.util.ArrayList;
 
@@ -42,13 +44,7 @@ public class SaleFormActivity extends NavUpActivity {
         //Hide actionbar title
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        sale = (Sale) getIntent().getSerializableExtra(ExtraKeys.SALE);
-        // Si no hay Sale, entonces es una venta nueva
-        if(sale == null) {
-            isNew = true;
-            sale = new Sale();
-            sale.save();
-        }
+        sale = createSale();
 
         SaleFormPagerAdapter mSectionsPagerAdapter = new SaleFormPagerAdapter(getSupportFragmentManager(), getFormTabs());
         ViewPager vp_sale_form = (ViewPager) findViewById(R.id.vp_sale_form);
@@ -125,6 +121,32 @@ public class SaleFormActivity extends NavUpActivity {
                 })
                 .setNegativeButton(R.string.no, null)
                 .show();
+    }
+
+    private Sale createSale()
+    {
+        Sale sale;
+        Visit visit;
+
+        visit = (Visit) getIntent().getSerializableExtra(ExtraKeys.VISIT);
+        if(visit == null)
+        {
+            sale = (Sale) getIntent().getSerializableExtra(ExtraKeys.SALE);
+            // Si no hay Sale, entonces es una venta nueva
+            if(sale == null) {
+                isNew = true;
+                sale = new Sale();
+                sale.save();
+            }
+        }
+        else
+        {
+            sale = ParsingUtils.turnIntoSale(visit);
+            visit.delete();
+            sale.save();
+        }
+
+        return sale;
     }
 
     private ArrayList<Fragment> getFormTabs()

@@ -27,6 +27,7 @@
     <string name="tab_title_payment">Formas de pago</string>
     <string name="tab_title_debt_collector">Cobrador</string>
     <string name="tab_title_seller">Vendedor</string>
+    <string name="turn_into_sale">Convertir en venta</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hint_razon_social">Razón Social</string>
