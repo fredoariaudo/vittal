@@ -28,6 +28,8 @@
     <string name="tab_title_debt_collector">Cobrador</string>
     <string name="tab_title_seller">Vendedor</string>
     <string name="turn_into_sale">Convertir en venta</string>
+    <string name="must_enter_user_password">Debe ingresar usuario y password</string>
+    <string name="incorrect_user_password">Usuario o contraseña incorrectos</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hint_razon_social">Razón Social</string>
