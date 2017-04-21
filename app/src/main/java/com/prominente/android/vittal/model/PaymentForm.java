@@ -21,7 +21,7 @@ public class PaymentForm extends SaleSubFormModel {
         this.sale = saleId;
     }
 
-    @Bindable
+
     public int getExpirationPayment() {
         return expirationPayment;
     }
@@ -103,10 +103,18 @@ public class PaymentForm extends SaleSubFormModel {
 
     @Override
     public boolean isValid() {
-        return  cashPaymentForm.isValid() &&
-                checkPaymentForm.isValid() &&
-                creditCardOrCbuPaymentForm.isValid() &&
-                nowPaymentForm.isValid();
+
+        switch (paymentMode) {
+
+            case 0 : return  false;
+            case 1 : return  cashPaymentForm.isValid();
+            case 2 : return  nowPaymentForm.isValid();
+            case 3 : return  checkPaymentForm.isValid();
+            case 4 : return  creditCardOrCbuPaymentForm.isValid();
+        }
+
+        return false;
+
     }
 
     @Override

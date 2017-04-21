@@ -33,7 +33,6 @@ public class PaymentFormFragment extends Fragment {
     private Spinner bankSpinner;
 
     public PaymentFormFragment() {
-
         paymentExpirationDateRadioButtonsManager = new RadioButtonsManager(new RadioButtonsManager.OnRadioButtonSelectedListener() {
             @Override
             public void onRadioButtonSelected(int index) {
@@ -70,6 +69,7 @@ public class PaymentFormFragment extends Fragment {
         paymentExpirationDateRadioButtons.add((RadioButton)view.findViewById(R.id.fr_payment_form_rb_overdue_month));
         paymentExpirationDateRadioButtons.add((RadioButton)view.findViewById(R.id.fr_payment_form_rb_early_month));
         paymentExpirationDateRadioButtonsManager.setButtons(paymentExpirationDateRadioButtons);
+        paymentExpirationDateRadioButtonsManager.setSelected(paymentForm.getExpirationPayment());
 
         banks = FormData.getBanks();
         bankSpinner= (Spinner) view.findViewById(R.id.partial_payment_mode_credit_card_or_cbu_spn_bank);
