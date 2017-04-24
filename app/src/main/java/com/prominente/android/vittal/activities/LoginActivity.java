@@ -138,6 +138,7 @@ public class LoginActivity extends AppCompatActivity
             {
                 User user = response.body();
                 UserSerializer.getInstance().save(LoginActivity.this, user);
+                pb_login.setVisibility(View.INVISIBLE);
                 startHomeActivity();
             }
 

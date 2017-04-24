@@ -13,13 +13,16 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.prominente.android.vittal.R;
 import com.prominente.android.vittal.constants.GcmPreferences;
+import com.prominente.android.vittal.data.UserSerializer;
 import com.prominente.android.vittal.fragments.QueriesFragment;
 import com.prominente.android.vittal.fragments.QuotationsFragment;
 import com.prominente.android.vittal.fragments.SalesFragment;
 import com.prominente.android.vittal.fragments.VisitsFragment;
+import com.prominente.android.vittal.model.User;
 import com.prominente.android.vittal.services.RegistrationIntentService;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, VisitsFragment.VisitFragmentListener
@@ -40,6 +43,18 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
+
+        TextView tv_nav_user_name = (TextView) navigationView.getHeaderView(0).findViewById(R.id.tv_nav_user_name);
+        TextView tv_nav_email = (TextView) navigationView.getHeaderView(0).findViewById(R.id.tv_nav_email);
+
+        // Set user name and email to NavigationView header
+        User user = UserSerializer.getInstance().load(this);
+        if(user != null)
+        {
+            tv_nav_user_name.setText(user.getUserName());
+            tv_nav_email.setText(user.getEmail());
+        }
+
         navigationView.setNavigationItemSelectedListener(this);
 
         //Select Navigation Drawer default option
